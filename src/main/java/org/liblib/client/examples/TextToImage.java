@@ -17,13 +17,13 @@ public class TextToImage {
 
         //NOTE(gz): 异步 SDK 调用方法
         SubmitResponse submitResponse = api.submitTextToImage(request);
-        StatusResponse status = api.getStatus(new StatusRequest().generateUuid(submitResponse.getData().getGenerateUuid()));
         while(true) {
+            StatusResponse status = api.getStatus(new StatusRequest().generateUuid(submitResponse.getData().getGenerateUuid()));
+            System.out.println(status);
             if (status.getData().getGenerateStatus() == GenerateStatus.SUCCEED) {
                 System.out.println(status.getData().getImages());
                 break;
             }
-            System.out.println(status);
             Thread.sleep(5000);
         }
 

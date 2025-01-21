@@ -43,10 +43,12 @@ public class ComfyTask {
         // 异步 SDK API 调用
         SubmitComfyResponse submitComfyResponse = api.submitComfyTask(request);
         String uuid = submitComfyResponse.getData().getGenerateUuid();
-        ComfyStatusResponse comfyStatus = api.getComfyStatus(new ComfyStatusRequest().generateUuid(uuid));
+
         boolean finished = false;
         while (!finished) {
+            ComfyStatusResponse comfyStatus = api.getComfyStatus(new ComfyStatusRequest().generateUuid(uuid));
             GenerateStatus status = comfyStatus.getData().getGenerateStatus();
+            System.out.println(status);
             switch (status) {
                 case RUNNING:
                 case PENDING:
@@ -54,6 +56,7 @@ public class ComfyTask {
                 case GENERATED:
                 case SUCCEED:
                     finished = true;
+                    System.out.println(status);
                     break;
                 case FAILED:
                     finished = true;
@@ -63,10 +66,10 @@ public class ComfyTask {
         }
 
         //同步 SDK API 调用 ComfyTask
-        ComfyStatusResponseData comfyStatusResponseData = api.runComfy(request);
-        if (comfyStatusResponseData.getGenerateStatus() == GenerateStatus.SUCCEED) {
-            System.out.println("generated images: " +  comfyStatusResponseData.getImages());
-        }
+//        ComfyStatusResponseData comfyStatusResponseData = api.runComfy(request);
+//        if (comfyStatusResponseData.getGenerateStatus() == GenerateStatus.SUCCEED) {
+//            System.out.println("generated images: " +  comfyStatusResponseData.getImages());
+//        }
 
     }
 }
