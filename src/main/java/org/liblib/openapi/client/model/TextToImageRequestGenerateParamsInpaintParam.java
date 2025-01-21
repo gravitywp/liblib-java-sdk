@@ -48,7 +48,7 @@ import org.liblib.openapi.client.JSON;
 /**
  * TextToImageRequestGenerateParamsInpaintParam
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-01-21T17:23:45.937473883+08:00[Asia/Shanghai]", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-01-21T18:48:43.134819632+08:00[Asia/Shanghai]", comments = "Generator version: 7.10.0")
 public class TextToImageRequestGenerateParamsInpaintParam {
   public static final String SERIALIZED_NAME_MASK_IMAGE = "maskImage";
   @SerializedName(SERIALIZED_NAME_MASK_IMAGE)

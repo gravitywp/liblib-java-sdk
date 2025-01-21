@@ -28,11 +28,13 @@ import java.io.IOException;
 
 
 import org.liblib.openapi.client.model.ComfyRequest;
+import org.liblib.openapi.client.model.ComfyStatusRequest;
 import org.liblib.openapi.client.model.ComfyStatusResponse;
 import org.liblib.openapi.client.model.GetModelVersion400Response;
 import org.liblib.openapi.client.model.GetModelVersion404Response;
 import org.liblib.openapi.client.model.GetModelVersionRequest;
 import org.liblib.openapi.client.model.ImageToImageRequest;
+import org.liblib.openapi.client.model.StatusRequest;
 import org.liblib.openapi.client.model.StatusResponse;
 import org.liblib.openapi.client.model.SubmitComfyResponse;
 import org.liblib.openapi.client.model.SubmitResponse;
@@ -85,7 +87,7 @@ public class DefaultApi {
 
     /**
      * Build call for getComfyStatus
-     * @param body 查询请求参数 (optional)
+     * @param comfyStatusRequest 查询请求参数 (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -98,7 +100,7 @@ public class DefaultApi {
         <tr><td> 500 </td><td> 服务器内部错误 </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getComfyStatusCall(String body, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getComfyStatusCall(ComfyStatusRequest comfyStatusRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -112,7 +114,7 @@ public class DefaultApi {
             basePath = null;
         }
 
-        Object localVarPostBody = body;
+        Object localVarPostBody = comfyStatusRequest;
 
         // create path and map variables
         String localVarPath = "/api/generate/comfy/status";
@@ -144,15 +146,15 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getComfyStatusValidateBeforeCall(String body, final ApiCallback _callback) throws ApiException {
-        return getComfyStatusCall(body, _callback);
+    private okhttp3.Call getComfyStatusValidateBeforeCall(ComfyStatusRequest comfyStatusRequest, final ApiCallback _callback) throws ApiException {
+        return getComfyStatusCall(comfyStatusRequest, _callback);
 
     }
 
     /**
      * 查询 comfy 生图结果
      * 根据生图任务uuid查询生图任务的状态和结果
-     * @param body 查询请求参数 (optional)
+     * @param comfyStatusRequest 查询请求参数 (optional)
      * @return ComfyStatusResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -164,15 +166,15 @@ public class DefaultApi {
         <tr><td> 500 </td><td> 服务器内部错误 </td><td>  -  </td></tr>
      </table>
      */
-    public ComfyStatusResponse getComfyStatus(String body) throws ApiException {
-        ApiResponse<ComfyStatusResponse> localVarResp = getComfyStatusWithHttpInfo(body);
+    public ComfyStatusResponse getComfyStatus(ComfyStatusRequest comfyStatusRequest) throws ApiException {
+        ApiResponse<ComfyStatusResponse> localVarResp = getComfyStatusWithHttpInfo(comfyStatusRequest);
         return localVarResp.getData();
     }
 
     /**
      * 查询 comfy 生图结果
      * 根据生图任务uuid查询生图任务的状态和结果
-     * @param body 查询请求参数 (optional)
+     * @param comfyStatusRequest 查询请求参数 (optional)
      * @return ApiResponse&lt;ComfyStatusResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -184,8 +186,8 @@ public class DefaultApi {
         <tr><td> 500 </td><td> 服务器内部错误 </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ComfyStatusResponse> getComfyStatusWithHttpInfo(String body) throws ApiException {
-        okhttp3.Call localVarCall = getComfyStatusValidateBeforeCall(body, null);
+    public ApiResponse<ComfyStatusResponse> getComfyStatusWithHttpInfo(ComfyStatusRequest comfyStatusRequest) throws ApiException {
+        okhttp3.Call localVarCall = getComfyStatusValidateBeforeCall(comfyStatusRequest, null);
         Type localVarReturnType = new TypeToken<ComfyStatusResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -193,7 +195,7 @@ public class DefaultApi {
     /**
      * 查询 comfy 生图结果 (asynchronously)
      * 根据生图任务uuid查询生图任务的状态和结果
-     * @param body 查询请求参数 (optional)
+     * @param comfyStatusRequest 查询请求参数 (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -206,9 +208,9 @@ public class DefaultApi {
         <tr><td> 500 </td><td> 服务器内部错误 </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getComfyStatusAsync(String body, final ApiCallback<ComfyStatusResponse> _callback) throws ApiException {
+    public okhttp3.Call getComfyStatusAsync(ComfyStatusRequest comfyStatusRequest, final ApiCallback<ComfyStatusResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getComfyStatusValidateBeforeCall(body, _callback);
+        okhttp3.Call localVarCall = getComfyStatusValidateBeforeCall(comfyStatusRequest, _callback);
         Type localVarReturnType = new TypeToken<ComfyStatusResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -345,7 +347,7 @@ public class DefaultApi {
     }
     /**
      * Build call for getStatus
-     * @param body 查询请求参数 (optional)
+     * @param statusRequest 查询请求参数 (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -358,7 +360,7 @@ public class DefaultApi {
         <tr><td> 500 </td><td> 服务器内部错误 </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getStatusCall(String body, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getStatusCall(StatusRequest statusRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -372,7 +374,7 @@ public class DefaultApi {
             basePath = null;
         }
 
-        Object localVarPostBody = body;
+        Object localVarPostBody = statusRequest;
 
         // create path and map variables
         String localVarPath = "/api/generate/webui/status";
@@ -404,15 +406,15 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getStatusValidateBeforeCall(String body, final ApiCallback _callback) throws ApiException {
-        return getStatusCall(body, _callback);
+    private okhttp3.Call getStatusValidateBeforeCall(StatusRequest statusRequest, final ApiCallback _callback) throws ApiException {
+        return getStatusCall(statusRequest, _callback);
 
     }
 
     /**
      * 查询生图任务状态
      * 根据生图任务uuid查询生图任务的状态和相关信息
-     * @param body 查询请求参数 (optional)
+     * @param statusRequest 查询请求参数 (optional)
      * @return StatusResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -424,15 +426,15 @@ public class DefaultApi {
         <tr><td> 500 </td><td> 服务器内部错误 </td><td>  -  </td></tr>
      </table>
      */
-    public StatusResponse getStatus(String body) throws ApiException {
-        ApiResponse<StatusResponse> localVarResp = getStatusWithHttpInfo(body);
+    public StatusResponse getStatus(StatusRequest statusRequest) throws ApiException {
+        ApiResponse<StatusResponse> localVarResp = getStatusWithHttpInfo(statusRequest);
         return localVarResp.getData();
     }
 
     /**
      * 查询生图任务状态
      * 根据生图任务uuid查询生图任务的状态和相关信息
-     * @param body 查询请求参数 (optional)
+     * @param statusRequest 查询请求参数 (optional)
      * @return ApiResponse&lt;StatusResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -444,8 +446,8 @@ public class DefaultApi {
         <tr><td> 500 </td><td> 服务器内部错误 </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<StatusResponse> getStatusWithHttpInfo(String body) throws ApiException {
-        okhttp3.Call localVarCall = getStatusValidateBeforeCall(body, null);
+    public ApiResponse<StatusResponse> getStatusWithHttpInfo(StatusRequest statusRequest) throws ApiException {
+        okhttp3.Call localVarCall = getStatusValidateBeforeCall(statusRequest, null);
         Type localVarReturnType = new TypeToken<StatusResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -453,7 +455,7 @@ public class DefaultApi {
     /**
      * 查询生图任务状态 (asynchronously)
      * 根据生图任务uuid查询生图任务的状态和相关信息
-     * @param body 查询请求参数 (optional)
+     * @param statusRequest 查询请求参数 (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -466,9 +468,9 @@ public class DefaultApi {
         <tr><td> 500 </td><td> 服务器内部错误 </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getStatusAsync(String body, final ApiCallback<StatusResponse> _callback) throws ApiException {
+    public okhttp3.Call getStatusAsync(StatusRequest statusRequest, final ApiCallback<StatusResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getStatusValidateBeforeCall(body, _callback);
+        okhttp3.Call localVarCall = getStatusValidateBeforeCall(statusRequest, _callback);
         Type localVarReturnType = new TypeToken<StatusResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

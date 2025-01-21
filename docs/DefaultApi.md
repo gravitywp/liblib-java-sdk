@@ -15,7 +15,7 @@ All URIs are relative to *https://openapi.liblibai.cloud*
 
 <a id="getComfyStatus"></a>
 # **getComfyStatus**
-> ComfyStatusResponse getComfyStatus(body)
+> ComfyStatusResponse getComfyStatus(comfyStatusRequest)
 
 查询 comfy 生图结果
 
@@ -43,9 +43,9 @@ public class Example {
     //ApiKeyAuth.setApiKeyPrefix("Token");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String body = "body_example"; // String | 查询请求参数
+    ComfyStatusRequest comfyStatusRequest = new ComfyStatusRequest(); // ComfyStatusRequest | 查询请求参数
     try {
-      ComfyStatusResponse result = apiInstance.getComfyStatus(body);
+      ComfyStatusResponse result = apiInstance.getComfyStatus(comfyStatusRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DefaultApi#getComfyStatus");
@@ -62,7 +62,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **body** | **String**| 查询请求参数 | [optional] |
+| **comfyStatusRequest** | [**ComfyStatusRequest**](ComfyStatusRequest.md)| 查询请求参数 | [optional] |
 
 ### Return type
 
@@ -157,7 +157,7 @@ public class Example {
 
 <a id="getStatus"></a>
 # **getStatus**
-> StatusResponse getStatus(body)
+> StatusResponse getStatus(statusRequest)
 
 查询生图任务状态
 
@@ -185,9 +185,9 @@ public class Example {
     //ApiKeyAuth.setApiKeyPrefix("Token");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String body = "body_example"; // String | 查询请求参数
+    StatusRequest statusRequest = new StatusRequest(); // StatusRequest | 查询请求参数
     try {
-      StatusResponse result = apiInstance.getStatus(body);
+      StatusResponse result = apiInstance.getStatus(statusRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DefaultApi#getStatus");
@@ -204,7 +204,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **body** | **String**| 查询请求参数 | [optional] |
+| **statusRequest** | [**StatusRequest**](StatusRequest.md)| 查询请求参数 | [optional] |
 
 ### Return type
 

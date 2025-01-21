@@ -76,7 +76,7 @@ public class LibLib extends DefaultApi {
 
         while(!isFinished && failedQueryTimes < toleratFailedQueryTimes) {
 
-            status = getComfyStatus(uuid);
+            status = getComfyStatus(new ComfyStatusRequest().generateUuid(uuid));
 
             if (status.getData() == null || status.getData().getGenerateStatus() == null) {
                 failedQueryTimes++;
@@ -115,7 +115,7 @@ public class LibLib extends DefaultApi {
         StatusResponse status = null;
         while(!isFinished && failedQueryTimes < toleratFailedQueryTimes) {
 
-            status = getStatus(uuid);
+            status = getStatus(new StatusRequest().generateUuid(uuid));
 
             if (status.getData() == null || status.getData().getGenerateStatus() == null) {
                 failedQueryTimes++;

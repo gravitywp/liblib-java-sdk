@@ -32,4 +32,5 @@ gradlew.bat
 settings.gradle
 .gitignore
 README.md
+src/main/java/org/liblib/openapi/client/auth/ApiKeyAuth.java
 

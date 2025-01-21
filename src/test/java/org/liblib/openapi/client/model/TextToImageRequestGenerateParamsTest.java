@@ -23,7 +23,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import org.liblib.openapi.client.model.AdditionalNetwork;
-import org.liblib.openapi.client.model.ControlNet;
 import org.liblib.openapi.client.model.TextToImageRequestGenerateParamsHiResFixInfo;
 import org.liblib.openapi.client.model.TextToImageRequestGenerateParamsInpaintParam;
 import org.junit.jupiter.api.Disabled;
@@ -161,14 +160,6 @@ public class TextToImageRequestGenerateParamsTest {
     @Test
     public void inpaintParamTest() {
         // TODO: test inpaintParam
-    }
-
-    /**
-     * Test the property 'controlNet'
-     */
-    @Test
-    public void controlNetTest() {
-        // TODO: test controlNet
     }
 
 }

@@ -46,25 +46,25 @@ import java.util.Set;
 import org.liblib.openapi.client.JSON;
 
 /**
- * GetStatusRequest
+ * 生图任务uuid，发起生图任务时返回该字段
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-01-20T16:04:11.627005330+08:00[Asia/Shanghai]", comments = "Generator version: 7.10.0")
-public class GetStatusRequest {
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-01-21T18:48:43.134819632+08:00[Asia/Shanghai]", comments = "Generator version: 7.10.0")
+public class StatusRequest {
   public static final String SERIALIZED_NAME_GENERATE_UUID = "generateUuid";
   @SerializedName(SERIALIZED_NAME_GENERATE_UUID)
   @javax.annotation.Nonnull
   private String generateUuid;
 
-  public GetStatusRequest() {
+  public StatusRequest() {
   }
 
-  public GetStatusRequest generateUuid(@javax.annotation.Nonnull String generateUuid) {
+  public StatusRequest generateUuid(@javax.annotation.Nonnull String generateUuid) {
     this.generateUuid = generateUuid;
     return this;
   }
 
   /**
-   * 生图任务uuid，发起生图任务时返回该字段
+   * Get generateUuid
    * @return generateUuid
    */
   @javax.annotation.Nonnull
@@ -86,8 +86,8 @@ public class GetStatusRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    GetStatusRequest getStatusRequest = (GetStatusRequest) o;
-    return Objects.equals(this.generateUuid, getStatusRequest.generateUuid);
+    StatusRequest statusRequest = (StatusRequest) o;
+    return Objects.equals(this.generateUuid, statusRequest.generateUuid);
   }
 
   @Override
@@ -98,7 +98,7 @@ public class GetStatusRequest {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class GetStatusRequest {\n");
+    sb.append("class StatusRequest {\n");
     sb.append("    generateUuid: ").append(toIndentedString(generateUuid)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -133,25 +133,25 @@ public class GetStatusRequest {
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to GetStatusRequest
+   * @throws IOException if the JSON Element is invalid with respect to StatusRequest
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!GetStatusRequest.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in GetStatusRequest is not found in the empty JSON string", GetStatusRequest.openapiRequiredFields.toString()));
+        if (!StatusRequest.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in StatusRequest is not found in the empty JSON string", StatusRequest.openapiRequiredFields.toString()));
         }
       }
 
       Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!GetStatusRequest.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `GetStatusRequest` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+        if (!StatusRequest.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `StatusRequest` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : GetStatusRequest.openapiRequiredFields) {
+      for (String requiredField : StatusRequest.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
           throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
@@ -166,22 +166,22 @@ public class GetStatusRequest {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!GetStatusRequest.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'GetStatusRequest' and its subtypes
+       if (!StatusRequest.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'StatusRequest' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<GetStatusRequest> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(GetStatusRequest.class));
+       final TypeAdapter<StatusRequest> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(StatusRequest.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<GetStatusRequest>() {
+       return (TypeAdapter<T>) new TypeAdapter<StatusRequest>() {
            @Override
-           public void write(JsonWriter out, GetStatusRequest value) throws IOException {
+           public void write(JsonWriter out, StatusRequest value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public GetStatusRequest read(JsonReader in) throws IOException {
+           public StatusRequest read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              return thisAdapter.fromJsonTree(jsonElement);
@@ -192,18 +192,18 @@ public class GetStatusRequest {
   }
 
   /**
-   * Create an instance of GetStatusRequest given an JSON string
+   * Create an instance of StatusRequest given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of GetStatusRequest
-   * @throws IOException if the JSON string is invalid with respect to GetStatusRequest
+   * @return An instance of StatusRequest
+   * @throws IOException if the JSON string is invalid with respect to StatusRequest
    */
-  public static GetStatusRequest fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, GetStatusRequest.class);
+  public static StatusRequest fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, StatusRequest.class);
   }
 
   /**
-   * Convert an instance of GetStatusRequest to an JSON string
+   * Convert an instance of StatusRequest to an JSON string
    *
    * @return JSON string
    */

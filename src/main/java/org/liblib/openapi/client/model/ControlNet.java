@@ -50,7 +50,7 @@ import org.liblib.openapi.client.JSON;
 /**
  * ControlNet
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-01-21T17:23:45.937473883+08:00[Asia/Shanghai]", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-01-21T18:48:43.134819632+08:00[Asia/Shanghai]", comments = "Generator version: 7.10.0")
 public class ControlNet {
   public static final String SERIALIZED_NAME_UNIT_ORDER = "unitOrder";
   @SerializedName(SERIALIZED_NAME_UNIT_ORDER)

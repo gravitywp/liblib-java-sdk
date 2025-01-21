@@ -18,7 +18,7 @@ public class TextToImageUltra {
         SubmitResponse submitResponse = api.submitTextToImageUltra(request);
 
         while(true) {
-            StatusResponse status = api.getStatus(submitResponse.getData().getGenerateUuid());
+            StatusResponse status = api.getStatus(new StatusRequest().generateUuid(submitResponse.getData().getGenerateUuid()));
             System.out.println(status.toJson());
             if (status.getData().getGenerateStatus() == GenerateStatus.SUCCEED) {
                 System.out.println(status.getData().getImages());
@@ -27,6 +27,5 @@ public class TextToImageUltra {
             Thread.sleep(5000);
         }
 
-        System.out.println("Hello, World!");
     }
 }

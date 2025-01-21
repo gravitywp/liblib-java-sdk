@@ -18,11 +18,11 @@ public class Main {
                 .steps(30).imgCount(4);
         SubmitResponse submitResponse = api.submitTextToImageUltra(request);
 
-        GetStatusRequest getStatusRequest = new GetStatusRequest();
+        StatusRequest getStatusRequest = new StatusRequest();
         getStatusRequest.setGenerateUuid(submitResponse.getData().getGenerateUuid());
 
         while(true) {
-            StatusResponse status = api.getStatus(getStatusRequest.getGenerateUuid());
+            StatusResponse status = api.getStatus(getStatusRequest);
             System.out.println(status.toJson());
             if (status.getData().getGenerateStatus() == GenerateStatus.SUCCEED) {
                 break;

@@ -131,23 +131,6 @@ components:
       in: query
       name: AccessKey
       description: API access key
-  parameters:
-    SignatureParams:
-      name: signature
-      in: query
-      required: true
-      schema:
-        type: object
-        properties:
-          Signature:
-            type: string
-            description: HMAC-SHA1 signature of the request
-          Timestamp:
-            type: string
-            description: Current timestamp in milliseconds
-          SignatureNonce:
-            type: string
-            description: Random string for request uniqueness
 paths:
   /api/generate/webui/text2img/ultra:
     post:
@@ -249,14 +232,14 @@ paths:
         content:
           application/json:
             schema:
-              type: string
+              type: object
+              title: StatusRequest
               description: 生图任务uuid，发起生图任务时返回该字段
-              example: 8dcbfa2997444899b71357ccb7db378b
-#              properties:
-#                generateUuid:
-#                  type: string
-#              required:
-#                - generateUuid
+              properties:
+                generateUuid:
+                  type: string
+              required:
+                - generateUuid
       responses:
         '200':
           description: 成功
@@ -524,10 +507,10 @@ paths:
                           type: integer
                           description: 蒙版内容的填充模式
                           example: 1
-                    controlNet:
-                      type: array
-                      items:
-                        $ref: "#/components/schemas/controlNet"
+#                    controlNet:
+#                      type: array
+#                      items:
+#                        $ref: "#/components/schemas/controlNet"
               required:
                 - generateParams
       responses:
@@ -729,9 +712,16 @@ paths:
         content:
           application/json:
             schema:
-              type: string
-              description: 生图任务uuid，发起生图任务时返回该字段
-              example: a996794faff8424a8ff56acb421e7305
+              title: ComfyStatusRequest
+              type: object
+              properties:
+                generateUuid:
+                  type: string
+                  description: 生图任务uuid，发起生图任务时返回该字段
+                  example: a996794faff8424a8ff56acb421e7305
+              required:
+                - generateUuid
+
       responses:
         '200':
           description: 成功

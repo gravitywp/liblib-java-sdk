@@ -46,19 +46,19 @@ import java.util.Set;
 import org.liblib.openapi.client.JSON;
 
 /**
- * GetComfyStatusRequest
+ * ComfyStatusRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-01-20T16:16:34.325921635+08:00[Asia/Shanghai]", comments = "Generator version: 7.10.0")
-public class GetComfyStatusRequest {
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-01-21T18:48:43.134819632+08:00[Asia/Shanghai]", comments = "Generator version: 7.10.0")
+public class ComfyStatusRequest {
   public static final String SERIALIZED_NAME_GENERATE_UUID = "generateUuid";
   @SerializedName(SERIALIZED_NAME_GENERATE_UUID)
   @javax.annotation.Nonnull
   private String generateUuid;
 
-  public GetComfyStatusRequest() {
+  public ComfyStatusRequest() {
   }
 
-  public GetComfyStatusRequest generateUuid(@javax.annotation.Nonnull String generateUuid) {
+  public ComfyStatusRequest generateUuid(@javax.annotation.Nonnull String generateUuid) {
     this.generateUuid = generateUuid;
     return this;
   }
@@ -86,8 +86,8 @@ public class GetComfyStatusRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    GetComfyStatusRequest getComfyStatusRequest = (GetComfyStatusRequest) o;
-    return Objects.equals(this.generateUuid, getComfyStatusRequest.generateUuid);
+    ComfyStatusRequest comfyStatusRequest = (ComfyStatusRequest) o;
+    return Objects.equals(this.generateUuid, comfyStatusRequest.generateUuid);
   }
 
   @Override
@@ -98,7 +98,7 @@ public class GetComfyStatusRequest {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class GetComfyStatusRequest {\n");
+    sb.append("class ComfyStatusRequest {\n");
     sb.append("    generateUuid: ").append(toIndentedString(generateUuid)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -133,25 +133,25 @@ public class GetComfyStatusRequest {
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to GetComfyStatusRequest
+   * @throws IOException if the JSON Element is invalid with respect to ComfyStatusRequest
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!GetComfyStatusRequest.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in GetComfyStatusRequest is not found in the empty JSON string", GetComfyStatusRequest.openapiRequiredFields.toString()));
+        if (!ComfyStatusRequest.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in ComfyStatusRequest is not found in the empty JSON string", ComfyStatusRequest.openapiRequiredFields.toString()));
         }
       }
 
       Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!GetComfyStatusRequest.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `GetComfyStatusRequest` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+        if (!ComfyStatusRequest.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ComfyStatusRequest` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : GetComfyStatusRequest.openapiRequiredFields) {
+      for (String requiredField : ComfyStatusRequest.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
           throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
@@ -166,22 +166,22 @@ public class GetComfyStatusRequest {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!GetComfyStatusRequest.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'GetComfyStatusRequest' and its subtypes
+       if (!ComfyStatusRequest.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'ComfyStatusRequest' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<GetComfyStatusRequest> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(GetComfyStatusRequest.class));
+       final TypeAdapter<ComfyStatusRequest> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(ComfyStatusRequest.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<GetComfyStatusRequest>() {
+       return (TypeAdapter<T>) new TypeAdapter<ComfyStatusRequest>() {
            @Override
-           public void write(JsonWriter out, GetComfyStatusRequest value) throws IOException {
+           public void write(JsonWriter out, ComfyStatusRequest value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public GetComfyStatusRequest read(JsonReader in) throws IOException {
+           public ComfyStatusRequest read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              return thisAdapter.fromJsonTree(jsonElement);
@@ -192,18 +192,18 @@ public class GetComfyStatusRequest {
   }
 
   /**
-   * Create an instance of GetComfyStatusRequest given an JSON string
+   * Create an instance of ComfyStatusRequest given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of GetComfyStatusRequest
-   * @throws IOException if the JSON string is invalid with respect to GetComfyStatusRequest
+   * @return An instance of ComfyStatusRequest
+   * @throws IOException if the JSON string is invalid with respect to ComfyStatusRequest
    */
-  public static GetComfyStatusRequest fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, GetComfyStatusRequest.class);
+  public static ComfyStatusRequest fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, ComfyStatusRequest.class);
   }
 
   /**
-   * Convert an instance of GetComfyStatusRequest to an JSON string
+   * Convert an instance of ComfyStatusRequest to an JSON string
    *
    * @return JSON string
    */

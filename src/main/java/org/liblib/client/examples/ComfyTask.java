@@ -42,7 +42,8 @@ public class ComfyTask {
 
         // 异步 SDK API 调用
         SubmitComfyResponse submitComfyResponse = api.submitComfyTask(request);
-        ComfyStatusResponse comfyStatus = api.getComfyStatus(submitComfyResponse.getData().getGenerateUuid());
+        String uuid = submitComfyResponse.getData().getGenerateUuid();
+        ComfyStatusResponse comfyStatus = api.getComfyStatus(new ComfyStatusRequest().generateUuid(uuid));
         boolean finished = false;
         while (!finished) {
             GenerateStatus status = comfyStatus.getData().getGenerateStatus();

@@ -96,6 +96,7 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new org.liblib.openapi.client.model.AdditionalNetwork.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new org.liblib.openapi.client.model.ComfyNodeParams.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new org.liblib.openapi.client.model.ComfyRequest.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new org.liblib.openapi.client.model.ComfyStatusRequest.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new org.liblib.openapi.client.model.ComfyStatusResponse.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new org.liblib.openapi.client.model.ComfyStatusResponseData.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new org.liblib.openapi.client.model.ComfyStatusResponseDataVideosInner.CustomTypeAdapterFactory());
@@ -107,6 +108,7 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new org.liblib.openapi.client.model.ImageToImageRequest.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new org.liblib.openapi.client.model.ImageToImageRequestGenerateParams.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new org.liblib.openapi.client.model.NodeImage.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new org.liblib.openapi.client.model.StatusRequest.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new org.liblib.openapi.client.model.StatusResponse.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new org.liblib.openapi.client.model.StatusResponseData.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new org.liblib.openapi.client.model.SubmitComfyResponse.CustomTypeAdapterFactory());

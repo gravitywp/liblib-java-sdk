@@ -42,9 +42,7 @@ paths:
         content:
           application/json:
             schema:
-              description: 生图任务uuid，发起生图任务时返回该字段
-              example: 8dcbfa2997444899b71357ccb7db378b
-              type: string
+              $ref: '#/components/schemas/StatusRequest'
         description: 查询请求参数
       responses:
         "200":
@@ -182,9 +180,7 @@ paths:
         content:
           application/json:
             schema:
-              description: 生图任务uuid，发起生图任务时返回该字段
-              example: a996794faff8424a8ff56acb421e7305
-              type: string
+              $ref: '#/components/schemas/ComfyStatusRequest'
         description: 查询请求参数
       responses:
         "200":
@@ -202,25 +198,6 @@ paths:
       x-accepts:
       - application/json
 components:
-  parameters:
-    SignatureParams:
-      explode: true
-      in: query
-      name: signature
-      required: true
-      schema:
-        properties:
-          Signature:
-            description: HMAC-SHA1 signature of the request
-            type: string
-          Timestamp:
-            description: Current timestamp in milliseconds
-            type: string
-          SignatureNonce:
-            description: Random string for request uniqueness
-            type: string
-        type: object
-      style: form
   responses:
     submitResponse:
       content:
@@ -491,6 +468,17 @@ components:
       - data
       title: SubmitResponse
       type: object
+    StatusRequest:
+      description: 生图任务uuid，发起生图任务时返回该字段
+      example:
+        generateUuid: generateUuid
+      properties:
+        generateUuid:
+          type: string
+      required:
+      - generateUuid
+      title: StatusRequest
+      type: object
     Image:
       example:
         seed: 12345
@@ -748,37 +736,6 @@ components:
           weight: 0.3
         prompt: "Asian portrait,A young woman wearing a green baseball cap,covering\
           \ one eye with her hand"
-        controlNet:
-        - controlMode: 0
-          controlWeight: 1
-          startingControlStep: 0
-          preprocessor: 3
-          endingControlStep: 1
-          pixelPerfect: 1
-          annotationParameters:
-            key: ""
-          width: 1024
-          model: 6349e9dae8814084bd9c1585d335c24c
-          sourceImage: https://liblibai-online.liblib.cloud/img/081e9f07d9bd4c2ba090efde163518f9/7c1cc38e-522c-43fe-aca9-07d5420d743e.png
-          resizeMode: 1
-          unitOrder: 1
-          height: 1536
-          maskImage: ""
-        - controlMode: 0
-          controlWeight: 1
-          startingControlStep: 0
-          preprocessor: 3
-          endingControlStep: 1
-          pixelPerfect: 1
-          annotationParameters:
-            key: ""
-          width: 1024
-          model: 6349e9dae8814084bd9c1585d335c24c
-          sourceImage: https://liblibai-online.liblib.cloud/img/081e9f07d9bd4c2ba090efde163518f9/7c1cc38e-522c-43fe-aca9-07d5420d743e.png
-          resizeMode: 1
-          unitOrder: 1
-          height: 1536
-          maskImage: ""
         height: 1024
       properties:
         checkPointId:
@@ -838,10 +795,6 @@ components:
           $ref: '#/components/schemas/TextToImageRequest_generateParams_hiResFixInfo'
         inpaintParam:
           $ref: '#/components/schemas/TextToImageRequest_generateParams_inpaintParam'
-        controlNet:
-          items:
-            $ref: '#/components/schemas/controlNet'
-          type: array
       type: object
     TextToImageRequest:
       example:
@@ -878,37 +831,6 @@ components:
             weight: 0.3
           prompt: "Asian portrait,A young woman wearing a green baseball cap,covering\
             \ one eye with her hand"
-          controlNet:
-          - controlMode: 0
-            controlWeight: 1
-            startingControlStep: 0
-            preprocessor: 3
-            endingControlStep: 1
-            pixelPerfect: 1
-            annotationParameters:
-              key: ""
-            width: 1024
-            model: 6349e9dae8814084bd9c1585d335c24c
-            sourceImage: https://liblibai-online.liblib.cloud/img/081e9f07d9bd4c2ba090efde163518f9/7c1cc38e-522c-43fe-aca9-07d5420d743e.png
-            resizeMode: 1
-            unitOrder: 1
-            height: 1536
-            maskImage: ""
-          - controlMode: 0
-            controlWeight: 1
-            startingControlStep: 0
-            preprocessor: 3
-            endingControlStep: 1
-            pixelPerfect: 1
-            annotationParameters:
-              key: ""
-            width: 1024
-            model: 6349e9dae8814084bd9c1585d335c24c
-            sourceImage: https://liblibai-online.liblib.cloud/img/081e9f07d9bd4c2ba090efde163518f9/7c1cc38e-522c-43fe-aca9-07d5420d743e.png
-            resizeMode: 1
-            unitOrder: 1
-            height: 1536
-            maskImage: ""
           height: 1024
       properties:
         templateUuid:
@@ -1209,6 +1131,18 @@ components:
         data:
           $ref: '#/components/schemas/SubmitComfyResponse_data'
       title: SubmitComfyResponse
+      type: object
+    ComfyStatusRequest:
+      example:
+        generateUuid: a996794faff8424a8ff56acb421e7305
+      properties:
+        generateUuid:
+          description: 生图任务uuid，发起生图任务时返回该字段
+          example: a996794faff8424a8ff56acb421e7305
+          type: string
+      required:
+      - generateUuid
+      title: ComfyStatusRequest
       type: object
     NodeImage:
       example:

@@ -15,11 +15,13 @@ package org.liblib.openapi.client.api;
 
 import org.liblib.openapi.client.ApiException;
 import org.liblib.openapi.client.model.ComfyRequest;
+import org.liblib.openapi.client.model.ComfyStatusRequest;
 import org.liblib.openapi.client.model.ComfyStatusResponse;
 import org.liblib.openapi.client.model.GetModelVersion400Response;
 import org.liblib.openapi.client.model.GetModelVersion404Response;
 import org.liblib.openapi.client.model.GetModelVersionRequest;
 import org.liblib.openapi.client.model.ImageToImageRequest;
+import org.liblib.openapi.client.model.StatusRequest;
 import org.liblib.openapi.client.model.StatusResponse;
 import org.liblib.openapi.client.model.SubmitComfyResponse;
 import org.liblib.openapi.client.model.SubmitResponse;
@@ -51,8 +53,8 @@ public class DefaultApiTest {
      */
     @Test
     public void getComfyStatusTest() throws ApiException {
-        String body = null;
-        ComfyStatusResponse response = api.getComfyStatus(body);
+        ComfyStatusRequest comfyStatusRequest = null;
+        ComfyStatusResponse response = api.getComfyStatus(comfyStatusRequest);
         // TODO: test validations
     }
 
@@ -79,8 +81,8 @@ public class DefaultApiTest {
      */
     @Test
     public void getStatusTest() throws ApiException {
-        String body = null;
-        StatusResponse response = api.getStatus(body);
+        StatusRequest statusRequest = null;
+        StatusResponse response = api.getStatus(statusRequest);
         // TODO: test validations
     }
 
