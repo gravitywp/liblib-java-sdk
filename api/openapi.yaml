@@ -1,0 +1,1362 @@
+openapi: 3.0.0
+info:
+  description: LiblibAI x 星流 图像大模型API
+  title: LiblibAI API
+  version: 1.0.0
+servers:
+- description: LiblibAI Open Platform
+  url: https://openapi.liblibai.cloud
+security:
+- ApiKeyAuth: []
+paths:
+  /api/generate/webui/text2img/ultra:
+    post:
+      description: 根据提供的文本提示词和参数生成图片
+      operationId: submitTextToImageUltra
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TextToImageUltraRequest'
+        description: 生图请求参数
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SubmitResponse'
+          description: 成功
+        "400":
+          description: 请求参数错误
+        "500":
+          description: 服务器内部错误
+      summary: 星流Star-3 Alpha图生图
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /api/generate/webui/status:
+    post:
+      description: 根据生图任务uuid查询生图任务的状态和相关信息
+      operationId: getStatus
+      requestBody:
+        content:
+          application/json:
+            schema:
+              description: 生图任务uuid，发起生图任务时返回该字段
+              example: 8dcbfa2997444899b71357ccb7db378b
+              type: string
+        description: 查询请求参数
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+          description: 成功
+        "400":
+          description: 请求参数错误
+        "500":
+          description: 服务器内部错误
+      summary: 查询生图任务状态
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /api/model/version/get:
+    post:
+      description: |
+        查询指定的模型版本参数。目前Lib已开放全站的可商用模型供API使用，您可以在Lib站内检索可商用的Checkpoint和LoRA模型。
+        选择喜欢的模型版本，从浏览器网址中复制versionUuid，粘贴到文生图或图生图的参数模板中使用。
+        若您忘记了在生图参数中应用的模型是哪一款，您可以调用本接口进行查询。
+      operationId: getModelVersion
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/getModelVersion_request'
+        description: 查询请求参数
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VersionResponse'
+          description: 成功
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getModelVersion_404_response'
+          description: 未找到模型
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getModelVersion_400_response'
+          description: 请求参数错误
+      summary: 查询模型版本参数
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /api/generate/webui/text2img:
+    post:
+      description: 提交文生图任务，生成图片
+      operationId: submitTextToImage
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TextToImageRequest'
+        description: 文生图任务请求参数
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SubmitResponse'
+          description: 成功
+        "400":
+          description: 请求参数错误
+        "500":
+          description: 服务器内部错误
+      summary: 提交文生图任务
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /api/generate/webui/img2img:
+    post:
+      description: 提交图生图任务，生成图片
+      operationId: submitImageToImage
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ImageToImageRequest'
+        description: 图生图任务请求参数
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SubmitResponse'
+          description: 成功
+        "400":
+          description: 请求参数错误
+        "500":
+          description: 服务器内部错误
+      summary: 提交图生图任务
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /api/generate/comfyui/app:
+    post:
+      description: |
+        提交 ComfyUI 工作流生图任务。目前Lib已开放全站的可商用、可在线运行工作流供API使用，您可以在Lib站内工作流合集检索。
+        在工作流的详情页会出现【本工作流已提供API服务】，且可查看API相关参数。（详情页未出现API参数的工作流，暂不支持API调用）
+      operationId: submitComfyTask
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ComfyRequest'
+        description: ComfyUI 工作流生图任务请求参数
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SubmitComfyResponse'
+          description: 成功
+        "400":
+          description: 请求参数错误
+        "500":
+          description: 服务器内部错误
+      summary: 提交 ComfyUI 工作流生图任务
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /api/generate/comfy/status:
+    post:
+      description: 根据生图任务uuid查询生图任务的状态和结果
+      operationId: getComfyStatus
+      requestBody:
+        content:
+          application/json:
+            schema:
+              description: 生图任务uuid，发起生图任务时返回该字段
+              example: a996794faff8424a8ff56acb421e7305
+              type: string
+        description: 查询请求参数
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ComfyStatusResponse'
+          description: 成功
+        "400":
+          description: 请求参数错误
+        "500":
+          description: 服务器内部错误
+      summary: 查询 comfy 生图结果
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+components:
+  parameters:
+    SignatureParams:
+      explode: true
+      in: query
+      name: signature
+      required: true
+      schema:
+        properties:
+          Signature:
+            description: HMAC-SHA1 signature of the request
+            type: string
+          Timestamp:
+            description: Current timestamp in milliseconds
+            type: string
+          SignatureNonce:
+            description: Random string for request uniqueness
+            type: string
+        type: object
+      style: form
+  responses:
+    submitResponse:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/SubmitResponse'
+      description: 成功
+  schemas:
+    additionalNetwork:
+      example:
+        modelId: 31360f2f031b4ff6b589412a52713fcf
+        weight: 0.3
+      properties:
+        modelId:
+          description: LoRA的模型版本uuid
+          example: 31360f2f031b4ff6b589412a52713fcf
+          type: string
+        weight:
+          description: LoRA权重
+          example: 0.3
+          format: float
+          type: number
+      title: AdditionalNetwork
+      type: object
+    controlNet:
+      example:
+        controlMode: 0
+        controlWeight: 1
+        startingControlStep: 0
+        preprocessor: 3
+        endingControlStep: 1
+        pixelPerfect: 1
+        annotationParameters:
+          key: ""
+        width: 1024
+        model: 6349e9dae8814084bd9c1585d335c24c
+        sourceImage: https://liblibai-online.liblib.cloud/img/081e9f07d9bd4c2ba090efde163518f9/7c1cc38e-522c-43fe-aca9-07d5420d743e.png
+        resizeMode: 1
+        unitOrder: 1
+        height: 1536
+        maskImage: ""
+      properties:
+        unitOrder:
+          description: 执行顺序
+          example: 1
+          type: integer
+        sourceImage:
+          description: 参考图地址
+          example: https://liblibai-online.liblib.cloud/img/081e9f07d9bd4c2ba090efde163518f9/7c1cc38e-522c-43fe-aca9-07d5420d743e.png
+          type: string
+        width:
+          description: 参考图宽度
+          example: 1024
+          type: integer
+        height:
+          description: 参考图高度
+          example: 1536
+          type: integer
+        preprocessor:
+          description: 预处理器枚举值
+          example: 3
+          type: integer
+        annotationParameters:
+          additionalProperties: {}
+          type: object
+        model:
+          description: controlnet的模型
+          example: 6349e9dae8814084bd9c1585d335c24c
+          type: string
+        controlWeight:
+          description: 控制权重
+          example: 1
+          format: float
+          type: number
+        startingControlStep:
+          description: 开始控制步数
+          example: 0
+          type: integer
+        endingControlStep:
+          description: 结束控制步数
+          example: 1
+          type: integer
+        pixelPerfect:
+          description: 完美像素
+          example: 1
+          type: integer
+        controlMode:
+          description: 控制模式，0均衡，1更注重提示词，2更注重controlnet
+          example: 0
+          type: integer
+        resizeMode:
+          description: 缩放模式，0拉伸，1裁剪，2填充
+          example: 1
+          type: integer
+        maskImage:
+          description: 蒙版图
+          example: ""
+          type: string
+      title: ControlNet
+      type: object
+    generateStatus:
+      enum:
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+      - 6
+      type: integer
+      x-enum-varnames:
+      - PENDING
+      - RUNNING
+      - GENERATED
+      - APPROVING
+      - SUCCEED
+      - FAILED
+    auditStatus:
+      enum:
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+      type: integer
+      x-enum-varnames:
+      - PENDING
+      - APPROVING
+      - APPROVED
+      - REJECTED
+      - FAILED
+    TextToImageUltraRequest_generateParams_imageSize:
+      description: 图片具体宽高，与aspectRatio二选一配置即可
+      example:
+        width: 768
+        height: 1024
+      properties:
+        width:
+          description: 图片宽度
+          example: 768
+          maximum: 2048
+          minimum: 512
+          type: integer
+        height:
+          description: 图片高度
+          example: 1024
+          maximum: 2048
+          minimum: 512
+          type: integer
+      type: object
+    UltraControlNet:
+      description: 构图控制
+      example:
+        controlType: pose
+        controlImage: https://liblibai-online.liblib.cloud/img/081e9f07d9bd4c2ba090efde163518f9/7c1cc38e-522c-43fe-aca9-07d420d743e.png
+      properties:
+        controlType:
+          description: 控制类型
+          enum:
+          - line
+          - depth
+          - pose
+          - IPAdapter
+          example: pose
+          type: string
+        controlImage:
+          description: 参考图可公网访问的完整URL
+          example: https://liblibai-online.liblib.cloud/img/081e9f07d9bd4c2ba090efde163518f9/7c1cc38e-522c-43fe-aca9-07d420d743e.png
+          format: uri
+          type: string
+      title: UltraControlNet
+      type: object
+    TextToImageUltraRequest_generateParams:
+      example:
+        imgCount: 1
+        aspectRatio: portrait
+        imageSize:
+          width: 768
+          height: 1024
+        prompt: "1 girl,lotus leaf,masterpiece,best quality,finely detail,highres,8k,beautiful\
+          \ and aesthetic,no watermark"
+        steps: 20
+        controlnet:
+          controlType: pose
+          controlImage: https://liblibai-online.liblib.cloud/img/081e9f07d9bd4c2ba090efde163518f9/7c1cc38e-522c-43fe-aca9-07d420d743e.png
+      properties:
+        prompt:
+          description: 正向提示词，文本
+          example: "1 girl,lotus leaf,masterpiece,best quality,finely detail,highres,8k,beautiful\
+            \ and aesthetic,no watermark"
+          type: string
+        aspectRatio:
+          description: 图片宽高比预设，与imageSize二选一配置即可
+          enum:
+          - square
+          - portrait
+          - landscape
+          example: portrait
+          type: string
+        imageSize:
+          $ref: '#/components/schemas/TextToImageUltraRequest_generateParams_imageSize'
+        imgCount:
+          description: 单次生图张数
+          example: 1
+          maximum: 4
+          minimum: 1
+          type: integer
+        steps:
+          description: 采样步数
+          example: 20
+          type: integer
+        controlnet:
+          $ref: '#/components/schemas/UltraControlNet'
+      required:
+      - imgCount
+      - prompt
+      type: object
+    TextToImageUltraRequest:
+      example:
+        templateUuid: 5d7e67009b344550bc1aa6ccbfa1d7f4
+        generateParams:
+          imgCount: 1
+          aspectRatio: portrait
+          imageSize:
+            width: 768
+            height: 1024
+          prompt: "1 girl,lotus leaf,masterpiece,best quality,finely detail,highres,8k,beautiful\
+            \ and aesthetic,no watermark"
+          steps: 20
+          controlnet:
+            controlType: pose
+            controlImage: https://liblibai-online.liblib.cloud/img/081e9f07d9bd4c2ba090efde163518f9/7c1cc38e-522c-43fe-aca9-07d420d743e.png
+      properties:
+        templateUuid:
+          description: 模板UUID
+          example: 5d7e67009b344550bc1aa6ccbfa1d7f4
+          type: string
+        generateParams:
+          $ref: '#/components/schemas/TextToImageUltraRequest_generateParams'
+      required:
+      - generateParams
+      - templateUuid
+      title: TextToImageUltraRequest
+      type: object
+    SubmitResponse_data:
+      example:
+        generateUuid: 123e4567-e89b-12d3-a456-426614174000
+      properties:
+        generateUuid:
+          description: 生图任务uuid，使用该uuid查询生图进度
+          example: 123e4567-e89b-12d3-a456-426614174000
+          type: string
+      type: object
+    SubmitResponse:
+      example:
+        msg: msg
+        code: 0
+        data:
+          generateUuid: 123e4567-e89b-12d3-a456-426614174000
+      properties:
+        code:
+          type: integer
+        data:
+          $ref: '#/components/schemas/SubmitResponse_data'
+        msg:
+          type: string
+      required:
+      - code
+      - data
+      title: SubmitResponse
+      type: object
+    Image:
+      example:
+        seed: 12345
+        imageUrl: https://liblibai-online.liblib.cloud/sd-images/08efe30c1cacc4bb08df8585368db1f9c082b6904dd8150e6e0de5bc526419ee.png
+        auditStatus: 6
+      properties:
+        imageUrl:
+          description: 图片地址，可直接访问，地址有时效性：7天
+          example: https://liblibai-online.liblib.cloud/sd-images/08efe30c1cacc4bb08df8585368db1f9c082b6904dd8150e6e0de5bc526419ee.png
+          type: string
+        seed:
+          description: 随机种子值
+          example: 12345
+          type: integer
+        auditStatus:
+          $ref: '#/components/schemas/auditStatus'
+      title: Image
+      type: object
+    StatusResponse_data:
+      example:
+        percentCompleted: 0
+        images:
+        - seed: 12345
+          imageUrl: https://liblibai-online.liblib.cloud/sd-images/08efe30c1cacc4bb08df8585368db1f9c082b6904dd8150e6e0de5bc526419ee.png
+          auditStatus: 6
+        - seed: 12345
+          imageUrl: https://liblibai-online.liblib.cloud/sd-images/08efe30c1cacc4bb08df8585368db1f9c082b6904dd8150e6e0de5bc526419ee.png
+          auditStatus: 6
+        generateMsg: ""
+        generateStatus: 0
+        accountBalance: 1356402
+        pointsCost: 10
+        generateUuid: 8dcbfa2997444899b71357ccb7db378b
+      properties:
+        generateUuid:
+          description: 生图任务uuid，使用该uuid查询生图进度
+          example: 8dcbfa2997444899b71357ccb7db378b
+          type: string
+        generateStatus:
+          $ref: '#/components/schemas/generateStatus'
+        percentCompleted:
+          description: 生图进度，0到1之间的浮点数，（暂未实现）
+          example: 0
+          format: float
+          type: number
+        generateMsg:
+          description: 生图信息，提供附加信息，如生图失败信息
+          example: ""
+          type: string
+        pointsCost:
+          description: 本次生图任务消耗积分数
+          example: 10
+          type: integer
+        accountBalance:
+          description: 账户剩余积分数
+          example: 1356402
+          type: integer
+        images:
+          items:
+            $ref: '#/components/schemas/Image'
+          type: array
+      type: object
+    StatusResponse:
+      example:
+        msg: ""
+        code: 0
+        data:
+          percentCompleted: 0
+          images:
+          - seed: 12345
+            imageUrl: https://liblibai-online.liblib.cloud/sd-images/08efe30c1cacc4bb08df8585368db1f9c082b6904dd8150e6e0de5bc526419ee.png
+            auditStatus: 6
+          - seed: 12345
+            imageUrl: https://liblibai-online.liblib.cloud/sd-images/08efe30c1cacc4bb08df8585368db1f9c082b6904dd8150e6e0de5bc526419ee.png
+            auditStatus: 6
+          generateMsg: ""
+          generateStatus: 0
+          accountBalance: 1356402
+          pointsCost: 10
+          generateUuid: 8dcbfa2997444899b71357ccb7db378b
+      properties:
+        code:
+          example: 0
+          type: integer
+        msg:
+          example: ""
+          type: string
+        data:
+          $ref: '#/components/schemas/StatusResponse_data'
+      title: StatusResponse
+      type: object
+    getModelVersion_request:
+      properties:
+        versionUuid:
+          description: 要查询的模型版本uuid
+          example: 21df5d84cca74f7a885ba672b5a80d19
+          type: string
+      required:
+      - versionUuid
+      type: object
+    VersionResponse:
+      example:
+        commercial_use: "1"
+        show_type: "1"
+        version_name: "1.1"
+        model_name: AWPortrait XL
+        model_url: https://www.liblib.art/modelinfo/f8b990b20cb943e3aa0e96f34099d794?versionUuid=21df5d84cca74f7a885ba672b5a80d19
+        version_uuid: 21df5d84cca74f7a885ba672b5a80d19
+        baseAlgo: 基础算法 XL
+      properties:
+        version_uuid:
+          description: LiblibAI官网模型链接后缀
+          example: 21df5d84cca74f7a885ba672b5a80d19
+          type: string
+        model_name:
+          description: 模型名称
+          example: AWPortrait XL
+          type: string
+        version_name:
+          description: 版本名称
+          example: "1.1"
+          type: string
+        baseAlgo:
+          description: 基础算法
+          example: 基础算法 XL
+          type: string
+        show_type:
+          description: 公开可用的模型标识
+          example: "1"
+          type: string
+        commercial_use:
+          description: 可商用标识，可商用为1，不可商用为0
+          example: "1"
+          type: string
+        model_url:
+          description: 模型链接
+          example: https://www.liblib.art/modelinfo/f8b990b20cb943e3aa0e96f34099d794?versionUuid=21df5d84cca74f7a885ba672b5a80d19
+          type: string
+      title: VersionResponse
+      type: object
+    getModelVersion_404_response:
+      example:
+        message: "未找到与{version_uuid}对应的模型，请检查version_uuid是否正确，或所选模型是否为Checkpoint或\
+          LoRA"
+      properties:
+        message:
+          description: 错误提示信息
+          example: "未找到与{version_uuid}对应的模型，请检查version_uuid是否正确，或所选模型是否为Checkpoint或\
+            LoRA"
+          type: string
+      type: object
+    getModelVersion_400_response:
+      example:
+        message: "{version_uuid}不在API目前支持的baseAlgo范围内"
+      properties:
+        message:
+          description: 错误提示信息
+          example: "{version_uuid}不在API目前支持的baseAlgo范围内"
+          type: string
+      type: object
+    TextToImageRequest_generateParams_hiResFixInfo:
+      example:
+        hiresSteps: 20
+        upscaler: 10
+        hiresDenoisingStrength: 0.75
+        resizedWidth: 1024
+        resizedHeight: 1536
+      properties:
+        hiresSteps:
+          description: 高分辨率修复的重绘步数
+          example: 20
+          type: integer
+        hiresDenoisingStrength:
+          description: 高分辨率修复的重绘幅度
+          example: 0.75
+          format: float
+          type: number
+        upscaler:
+          description: 放大算法模型枚举
+          example: 10
+          type: integer
+        resizedWidth:
+          description: 放大后的宽度
+          example: 1024
+          type: integer
+        resizedHeight:
+          description: 放大后的高度
+          example: 1536
+          type: integer
+      type: object
+    TextToImageRequest_generateParams_inpaintParam:
+      example:
+        inpaintArea: 0
+        inpaintingFill: 1
+        maskPadding: 32
+        maskMode: 0
+        maskBlur: 4
+        maskImage: https://liblibai-online.liblib.cloud/img/081e9f07d9bd4c2ba090efde163518f9/323fc358-618b-4c7d-b431-7d890209e5a5.png
+      properties:
+        maskImage:
+          description: 蒙版地址
+          example: https://liblibai-online.liblib.cloud/img/081e9f07d9bd4c2ba090efde163518f9/323fc358-618b-4c7d-b431-7d890209e5a5.png
+          type: string
+        maskBlur:
+          description: 蒙版模糊度
+          example: 4
+          type: integer
+        maskPadding:
+          description: 蒙版边缘预留像素，也称蒙版扩展量
+          example: 32
+          type: integer
+        maskMode:
+          description: 蒙版模式
+          example: 0
+          type: integer
+        inpaintArea:
+          description: "重绘区域, 0重绘全图，1仅重绘蒙版区域"
+          example: 0
+          type: integer
+        inpaintingFill:
+          description: 蒙版内容的填充模式
+          example: 1
+          type: integer
+      type: object
+    TextToImageRequest_generateParams:
+      example:
+        hiResFixInfo:
+          hiresSteps: 20
+          upscaler: 10
+          hiresDenoisingStrength: 0.75
+          resizedWidth: 1024
+          resizedHeight: 1536
+        checkPointId: 0ea388c7eb854be3ba3c6f65aac6bfd3
+        seed: 2228967414
+        imgCount: 1
+        restoreFaces: 0
+        steps: 20
+        negativePrompt: "ng_deepnegative_v1_75t,(badhandv4:1.2),EasyNegative,(worst\
+          \ quality:2),"
+        sampler: 15
+        randnSource: 0
+        cfgScale: 7
+        inpaintParam:
+          inpaintArea: 0
+          inpaintingFill: 1
+          maskPadding: 32
+          maskMode: 0
+          maskBlur: 4
+          maskImage: https://liblibai-online.liblib.cloud/img/081e9f07d9bd4c2ba090efde163518f9/323fc358-618b-4c7d-b431-7d890209e5a5.png
+        width: 768
+        additionalNetwork:
+        - modelId: 31360f2f031b4ff6b589412a52713fcf
+          weight: 0.3
+        - modelId: 31360f2f031b4ff6b589412a52713fcf
+          weight: 0.3
+        prompt: "Asian portrait,A young woman wearing a green baseball cap,covering\
+          \ one eye with her hand"
+        controlNet:
+        - controlMode: 0
+          controlWeight: 1
+          startingControlStep: 0
+          preprocessor: 3
+          endingControlStep: 1
+          pixelPerfect: 1
+          annotationParameters:
+            key: ""
+          width: 1024
+          model: 6349e9dae8814084bd9c1585d335c24c
+          sourceImage: https://liblibai-online.liblib.cloud/img/081e9f07d9bd4c2ba090efde163518f9/7c1cc38e-522c-43fe-aca9-07d5420d743e.png
+          resizeMode: 1
+          unitOrder: 1
+          height: 1536
+          maskImage: ""
+        - controlMode: 0
+          controlWeight: 1
+          startingControlStep: 0
+          preprocessor: 3
+          endingControlStep: 1
+          pixelPerfect: 1
+          annotationParameters:
+            key: ""
+          width: 1024
+          model: 6349e9dae8814084bd9c1585d335c24c
+          sourceImage: https://liblibai-online.liblib.cloud/img/081e9f07d9bd4c2ba090efde163518f9/7c1cc38e-522c-43fe-aca9-07d5420d743e.png
+          resizeMode: 1
+          unitOrder: 1
+          height: 1536
+          maskImage: ""
+        height: 1024
+      properties:
+        checkPointId:
+          description: 底模 modelVersionUUID
+          example: 0ea388c7eb854be3ba3c6f65aac6bfd3
+          type: string
+        prompt:
+          description: 正向提示词，文本
+          example: "Asian portrait,A young woman wearing a green baseball cap,covering\
+            \ one eye with her hand"
+          type: string
+        negativePrompt:
+          description: 负向提示词，文本
+          example: "ng_deepnegative_v1_75t,(badhandv4:1.2),EasyNegative,(worst quality:2),"
+          type: string
+        sampler:
+          description: 采样方法
+          example: 15
+          type: integer
+        steps:
+          description: 采样步数
+          example: 20
+          type: integer
+        cfgScale:
+          description: 提示词引导系数
+          example: 7
+          type: integer
+        width:
+          description: 图片宽度
+          example: 768
+          type: integer
+        height:
+          description: 图片高度
+          example: 1024
+          type: integer
+        imgCount:
+          description: 图片数量
+          example: 1
+          type: integer
+        randnSource:
+          description: 随机种子生成器 0 cpu，1 Gpu
+          example: 0
+          type: integer
+        seed:
+          description: 随机种子值，-1表示随机
+          example: 2228967414
+          type: integer
+        restoreFaces:
+          description: 面部修复，0关闭，1开启
+          example: 0
+          type: integer
+        additionalNetwork:
+          items:
+            $ref: '#/components/schemas/additionalNetwork'
+          type: array
+        hiResFixInfo:
+          $ref: '#/components/schemas/TextToImageRequest_generateParams_hiResFixInfo'
+        inpaintParam:
+          $ref: '#/components/schemas/TextToImageRequest_generateParams_inpaintParam'
+        controlNet:
+          items:
+            $ref: '#/components/schemas/controlNet'
+          type: array
+      type: object
+    TextToImageRequest:
+      example:
+        templateUuid: e10adc3949ba59abbe56e057f20f883e
+        generateParams:
+          hiResFixInfo:
+            hiresSteps: 20
+            upscaler: 10
+            hiresDenoisingStrength: 0.75
+            resizedWidth: 1024
+            resizedHeight: 1536
+          checkPointId: 0ea388c7eb854be3ba3c6f65aac6bfd3
+          seed: 2228967414
+          imgCount: 1
+          restoreFaces: 0
+          steps: 20
+          negativePrompt: "ng_deepnegative_v1_75t,(badhandv4:1.2),EasyNegative,(worst\
+            \ quality:2),"
+          sampler: 15
+          randnSource: 0
+          cfgScale: 7
+          inpaintParam:
+            inpaintArea: 0
+            inpaintingFill: 1
+            maskPadding: 32
+            maskMode: 0
+            maskBlur: 4
+            maskImage: https://liblibai-online.liblib.cloud/img/081e9f07d9bd4c2ba090efde163518f9/323fc358-618b-4c7d-b431-7d890209e5a5.png
+          width: 768
+          additionalNetwork:
+          - modelId: 31360f2f031b4ff6b589412a52713fcf
+            weight: 0.3
+          - modelId: 31360f2f031b4ff6b589412a52713fcf
+            weight: 0.3
+          prompt: "Asian portrait,A young woman wearing a green baseball cap,covering\
+            \ one eye with her hand"
+          controlNet:
+          - controlMode: 0
+            controlWeight: 1
+            startingControlStep: 0
+            preprocessor: 3
+            endingControlStep: 1
+            pixelPerfect: 1
+            annotationParameters:
+              key: ""
+            width: 1024
+            model: 6349e9dae8814084bd9c1585d335c24c
+            sourceImage: https://liblibai-online.liblib.cloud/img/081e9f07d9bd4c2ba090efde163518f9/7c1cc38e-522c-43fe-aca9-07d5420d743e.png
+            resizeMode: 1
+            unitOrder: 1
+            height: 1536
+            maskImage: ""
+          - controlMode: 0
+            controlWeight: 1
+            startingControlStep: 0
+            preprocessor: 3
+            endingControlStep: 1
+            pixelPerfect: 1
+            annotationParameters:
+              key: ""
+            width: 1024
+            model: 6349e9dae8814084bd9c1585d335c24c
+            sourceImage: https://liblibai-online.liblib.cloud/img/081e9f07d9bd4c2ba090efde163518f9/7c1cc38e-522c-43fe-aca9-07d5420d743e.png
+            resizeMode: 1
+            unitOrder: 1
+            height: 1536
+            maskImage: ""
+          height: 1024
+      properties:
+        templateUuid:
+          description: 参数模板uuid
+          example: e10adc3949ba59abbe56e057f20f883e
+          type: string
+        generateParams:
+          $ref: '#/components/schemas/TextToImageRequest_generateParams'
+      required:
+      - generateParams
+      title: TextToImageRequest
+      type: object
+    ImageToImageRequest_generateParams:
+      example:
+        checkPointId: 0ea388c7eb854be3ba3c6f65aac6bfd3
+        seed: -1
+        imgCount: 1
+        restoreFaces: 0
+        steps: 20
+        negativePrompt: negativePrompt
+        sampler: 15
+        randnSource: 0
+        mode: 4
+        cfgScale: 7
+        additionalNetwork:
+        - modelId: 31360f2f031b4ff6b589412a52713fcf
+          weight: 0.3
+        - modelId: 31360f2f031b4ff6b589412a52713fcf
+          weight: 0.3
+        sourceImage: https://liblibai-online.liblib.cloud/img/081e9f07d9bd4c2ba090efde163518f9/7c1cc38e-522c-43fe-aca9-07d5420d743e.png
+        resizeMode: 0
+        clipSkip: 2
+        resizedWidth: 1024
+        resizedHeight: 1536
+        prompt: 1 girl wear sunglasses
+        controlNet:
+        - controlMode: 0
+          controlWeight: 1
+          startingControlStep: 0
+          preprocessor: 3
+          endingControlStep: 1
+          pixelPerfect: 1
+          annotationParameters:
+            key: ""
+          width: 1024
+          model: 6349e9dae8814084bd9c1585d335c24c
+          sourceImage: https://liblibai-online.liblib.cloud/img/081e9f07d9bd4c2ba090efde163518f9/7c1cc38e-522c-43fe-aca9-07d5420d743e.png
+          resizeMode: 1
+          unitOrder: 1
+          height: 1536
+          maskImage: ""
+        - controlMode: 0
+          controlWeight: 1
+          startingControlStep: 0
+          preprocessor: 3
+          endingControlStep: 1
+          pixelPerfect: 1
+          annotationParameters:
+            key: ""
+          width: 1024
+          model: 6349e9dae8814084bd9c1585d335c24c
+          sourceImage: https://liblibai-online.liblib.cloud/img/081e9f07d9bd4c2ba090efde163518f9/7c1cc38e-522c-43fe-aca9-07d5420d743e.png
+          resizeMode: 1
+          unitOrder: 1
+          height: 1536
+          maskImage: ""
+        denoisingStrength: 0.75
+      properties:
+        checkPointId:
+          description: 底模 modelVersionUUID
+          example: 0ea388c7eb854be3ba3c6f65aac6bfd3
+          type: string
+        prompt:
+          description: 正向提示词
+          example: 1 girl wear sunglasses
+          type: string
+        negativePrompt:
+          description: 负向提示词
+          type: string
+        clipSkip:
+          description: Clip跳过层
+          example: 2
+          type: integer
+        sampler:
+          description: 采样方法
+          example: 15
+          type: integer
+        steps:
+          description: 采样步数
+          example: 20
+          type: integer
+        cfgScale:
+          description: 提示词引导系数
+          example: 7
+          type: integer
+        randnSource:
+          description: 随机种子来源，0表示CPU，1表示GPU
+          example: 0
+          type: integer
+        seed:
+          description: 随机种子值，-1表示随机
+          example: -1
+          type: integer
+        imgCount:
+          description: 图片数量，1到4
+          example: 1
+          type: integer
+        restoreFaces:
+          description: 面部修复，0关闭，1开启
+          example: 0
+          type: integer
+        sourceImage:
+          description: 源图像地址
+          example: https://liblibai-online.liblib.cloud/img/081e9f07d9bd4c2ba090efde163518f9/7c1cc38e-522c-43fe-aca9-07d5420d743e.png
+          type: string
+        resizeMode:
+          description: 缩放模式，0拉伸，1裁剪，2填充
+          example: 0
+          type: integer
+        resizedWidth:
+          description: 图像缩放后的宽度
+          example: 1024
+          type: integer
+        resizedHeight:
+          description: 图像缩放后的高度
+          example: 1536
+          type: integer
+        mode:
+          description: 0图生图，4局部重绘
+          example: 4
+          type: integer
+        denoisingStrength:
+          description: 重绘幅度
+          example: 0.75
+          format: float
+          type: number
+        additionalNetwork:
+          items:
+            $ref: '#/components/schemas/additionalNetwork'
+          type: array
+        controlNet:
+          items:
+            $ref: '#/components/schemas/controlNet'
+          type: array
+      type: object
+    ImageToImageRequest:
+      example:
+        templateUuid: 9c7d531dc75f476aa833b3d452b8f7ad
+        generateParams:
+          checkPointId: 0ea388c7eb854be3ba3c6f65aac6bfd3
+          seed: -1
+          imgCount: 1
+          restoreFaces: 0
+          steps: 20
+          negativePrompt: negativePrompt
+          sampler: 15
+          randnSource: 0
+          mode: 4
+          cfgScale: 7
+          additionalNetwork:
+          - modelId: 31360f2f031b4ff6b589412a52713fcf
+            weight: 0.3
+          - modelId: 31360f2f031b4ff6b589412a52713fcf
+            weight: 0.3
+          sourceImage: https://liblibai-online.liblib.cloud/img/081e9f07d9bd4c2ba090efde163518f9/7c1cc38e-522c-43fe-aca9-07d5420d743e.png
+          resizeMode: 0
+          clipSkip: 2
+          resizedWidth: 1024
+          resizedHeight: 1536
+          prompt: 1 girl wear sunglasses
+          controlNet:
+          - controlMode: 0
+            controlWeight: 1
+            startingControlStep: 0
+            preprocessor: 3
+            endingControlStep: 1
+            pixelPerfect: 1
+            annotationParameters:
+              key: ""
+            width: 1024
+            model: 6349e9dae8814084bd9c1585d335c24c
+            sourceImage: https://liblibai-online.liblib.cloud/img/081e9f07d9bd4c2ba090efde163518f9/7c1cc38e-522c-43fe-aca9-07d5420d743e.png
+            resizeMode: 1
+            unitOrder: 1
+            height: 1536
+            maskImage: ""
+          - controlMode: 0
+            controlWeight: 1
+            startingControlStep: 0
+            preprocessor: 3
+            endingControlStep: 1
+            pixelPerfect: 1
+            annotationParameters:
+              key: ""
+            width: 1024
+            model: 6349e9dae8814084bd9c1585d335c24c
+            sourceImage: https://liblibai-online.liblib.cloud/img/081e9f07d9bd4c2ba090efde163518f9/7c1cc38e-522c-43fe-aca9-07d5420d743e.png
+            resizeMode: 1
+            unitOrder: 1
+            height: 1536
+            maskImage: ""
+          denoisingStrength: 0.75
+      properties:
+        templateUuid:
+          description: 参数模板uuid
+          example: 9c7d531dc75f476aa833b3d452b8f7ad
+          type: string
+        generateParams:
+          $ref: '#/components/schemas/ImageToImageRequest_generateParams'
+      required:
+      - generateParams
+      title: ImageToImageRequest
+      type: object
+    ComfyNodeParams:
+      properties:
+        inputs:
+          additionalProperties: true
+          type: object
+        class_type:
+          type: string
+      title: ComfyNodeParams
+      type: object
+    ComfyRequest:
+      example:
+        templateUuid: 4df2efa0f18d46dc9758803e478eb51c
+        generateParams:
+          "12":
+            class_type: LoadImage
+            inputs:
+              image: https://liblibai-tmp-image.liblib.cloud/img/baf2e419ce1cb06812314957efd2e067/af0c523d3d2b4092ab45c64c72e4deb76babb12e9b8a178eb524143c3b71bf85.png
+          "112":
+            class_type: ImageScale
+            inputs:
+              width: 768
+          "136":
+            class_type: RepeatLatentBatch
+            inputs:
+              amount: 4
+          "137":
+            class_type: LatentUpscaleBy
+            inputs:
+              scale_by: 1.5
+          workflowUuid: 2f22ab7ce4c044afb6d5eee2e61547f3
+      properties:
+        templateUuid:
+          description: 默认模版uuid
+          example: 4df2efa0f18d46dc9758803e478eb51c
+          type: string
+        generateParams:
+          additionalProperties:
+            $ref: '#/components/schemas/ComfyNodeParams'
+          description: 生图参数，json结构
+          example:
+            "12":
+              class_type: LoadImage
+              inputs:
+                image: https://liblibai-tmp-image.liblib.cloud/img/baf2e419ce1cb06812314957efd2e067/af0c523d3d2b4092ab45c64c72e4deb76babb12e9b8a178eb524143c3b71bf85.png
+            "112":
+              class_type: ImageScale
+              inputs:
+                width: 768
+            "136":
+              class_type: RepeatLatentBatch
+              inputs:
+                amount: 4
+            "137":
+              class_type: LatentUpscaleBy
+              inputs:
+                scale_by: 1.5
+            workflowUuid: 2f22ab7ce4c044afb6d5eee2e61547f3
+          type: object
+      required:
+      - generateParams
+      title: ComfyRequest
+      type: object
+    SubmitComfyResponse_data:
+      example:
+        generateUuid: 8dcbfa2997444899b71357ccb7db378b
+      properties:
+        generateUuid:
+          description: 生图任务uuid，使用该uuid查询生图进度
+          example: 8dcbfa2997444899b71357ccb7db378b
+          type: string
+      type: object
+    SubmitComfyResponse:
+      example:
+        msg: Request method 'GET' is not supported
+        code: 100000
+        data:
+          generateUuid: 8dcbfa2997444899b71357ccb7db378b
+      properties:
+        code:
+          example: 100000
+          type: integer
+        msg:
+          example: Request method 'GET' is not supported
+          type: string
+        data:
+          $ref: '#/components/schemas/SubmitComfyResponse_data'
+      title: SubmitComfyResponse
+      type: object
+    NodeImage:
+      example:
+        outputName: SaveImage
+        imageUrl: https://liblibai-tmp-image.liblib.cloud/img/360643a3d8414af8b99664b208bc9302/35801ecbf6e6ea8ad89c2606b68d30dfc9579713f5d917694d1616c57afe82fb.png
+        auditStatus: 6
+        nodeId: "91"
+      properties:
+        auditStatus:
+          $ref: '#/components/schemas/auditStatus'
+        imageUrl:
+          description: 图片地址，可直接访问，地址有时效性：7天
+          example: https://liblibai-tmp-image.liblib.cloud/img/360643a3d8414af8b99664b208bc9302/35801ecbf6e6ea8ad89c2606b68d30dfc9579713f5d917694d1616c57afe82fb.png
+          type: string
+        nodeId:
+          description: 输出图片的节点ID
+          example: "91"
+          type: string
+        outputName:
+          description: 输出图片的节点名称
+          example: SaveImage
+          type: string
+      title: NodeImage
+      type: object
+    ComfyStatusResponse_data_videos_inner:
+      example:
+        coverPath: coverPath
+        outputName: outputName
+        videoUrl: videoUrl
+        auditStatus: null
+        nodeId: nodeId
+      properties:
+        videoUrl:
+          description: 视频地址，可直接访问，地址有时效性：7天
+          type: string
+        coverPath:
+          description: 视频封面地址
+          type: string
+        nodeId:
+          description: 输出视频的节点ID
+          type: string
+        outputName:
+          description: 输出视频的节点名称
+          type: string
+        auditStatus:
+          $ref: '#/components/schemas/auditStatus'
+      type: object
+    ComfyStatusResponse_data:
+      example:
+        percentCompleted: 1
+        images:
+        - outputName: SaveImage
+          imageUrl: https://liblibai-tmp-image.liblib.cloud/img/360643a3d8414af8b99664b208bc9302/35801ecbf6e6ea8ad89c2606b68d30dfc9579713f5d917694d1616c57afe82fb.png
+          auditStatus: 6
+          nodeId: "91"
+        - outputName: SaveImage
+          imageUrl: https://liblibai-tmp-image.liblib.cloud/img/360643a3d8414af8b99664b208bc9302/35801ecbf6e6ea8ad89c2606b68d30dfc9579713f5d917694d1616c57afe82fb.png
+          auditStatus: 6
+          nodeId: "91"
+        generateStatus: 0
+        videos:
+        - coverPath: coverPath
+          outputName: outputName
+          videoUrl: videoUrl
+          auditStatus: null
+          nodeId: nodeId
+        - coverPath: coverPath
+          outputName: outputName
+          videoUrl: videoUrl
+          auditStatus: null
+          nodeId: nodeId
+        accountBalance: 91111
+        pointsCost: 10
+        generateUuid: a996794faff8424a8ff56acb421e7305
+      properties:
+        accountBalance:
+          description: 账户剩余积分数
+          example: 91111
+          type: integer
+        generateStatus:
+          $ref: '#/components/schemas/generateStatus'
+        generateUuid:
+          description: 生图任务uuid，使用该uuid查询生图进度
+          example: a996794faff8424a8ff56acb421e7305
+          type: string
+        percentCompleted:
+          description: 生图进度，0到1之间的浮点数
+          example: 1
+          format: float
+          type: number
+        pointsCost:
+          description: 本次生图任务消耗积分数
+          example: 10
+          type: integer
+        images:
+          items:
+            $ref: '#/components/schemas/NodeImage'
+          type: array
+        videos:
+          items:
+            $ref: '#/components/schemas/ComfyStatusResponse_data_videos_inner'
+          type: array
+      type: object
+    ComfyStatusResponse:
+      example:
+        msg: ""
+        code: 0
+        data:
+          percentCompleted: 1
+          images:
+          - outputName: SaveImage
+            imageUrl: https://liblibai-tmp-image.liblib.cloud/img/360643a3d8414af8b99664b208bc9302/35801ecbf6e6ea8ad89c2606b68d30dfc9579713f5d917694d1616c57afe82fb.png
+            auditStatus: 6
+            nodeId: "91"
+          - outputName: SaveImage
+            imageUrl: https://liblibai-tmp-image.liblib.cloud/img/360643a3d8414af8b99664b208bc9302/35801ecbf6e6ea8ad89c2606b68d30dfc9579713f5d917694d1616c57afe82fb.png
+            auditStatus: 6
+            nodeId: "91"
+          generateStatus: 0
+          videos:
+          - coverPath: coverPath
+            outputName: outputName
+            videoUrl: videoUrl
+            auditStatus: null
+            nodeId: nodeId
+          - coverPath: coverPath
+            outputName: outputName
+            videoUrl: videoUrl
+            auditStatus: null
+            nodeId: nodeId
+          accountBalance: 91111
+          pointsCost: 10
+          generateUuid: a996794faff8424a8ff56acb421e7305
+      properties:
+        code:
+          example: 0
+          type: integer
+        msg:
+          example: ""
+          type: string
+        data:
+          $ref: '#/components/schemas/ComfyStatusResponse_data'
+      title: ComfyStatusResponse
+      type: object
+  securitySchemes:
+    ApiKeyAuth:
+      description: API access key
+      in: query
+      name: AccessKey
+      type: apiKey
+
