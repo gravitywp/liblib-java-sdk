@@ -40,6 +40,7 @@ public class ComfyTask {
             put("136", repeatLatentNode);
        }});
 
+        // 异步 SDK API 调用
         SubmitComfyResponse submitComfyResponse = api.submitComfyTask(request);
         ComfyStatusResponse comfyStatus = api.getComfyStatus(submitComfyResponse.getData().getGenerateUuid());
         boolean finished = false;
@@ -58,6 +59,12 @@ public class ComfyTask {
                     break;
             }
             Thread.sleep(5000);
+        }
+
+        //同步 SDK API 调用 ComfyTask
+        ComfyStatusResponseData comfyStatusResponseData = api.runComfy(request);
+        if (comfyStatusResponseData.getGenerateStatus() == GenerateStatus.SUCCEED) {
+            System.out.println("generated images: " +  comfyStatusResponseData.getImages());
         }
 
     }

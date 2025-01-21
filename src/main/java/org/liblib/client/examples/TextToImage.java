@@ -16,6 +16,8 @@ public class TextToImage {
         params.prompt("1 girl").imgCount(2).addControlNetItem(controlnet);
         request.generateParams(params);
         request.templateUuid("6f7c4652458d4802969f8d089cf5b91f");
+
+        //NOTE(gz): 异步 SDK 调用方法
         SubmitResponse submitResponse = api.submitTextToImage(request);
         StatusResponse status = api.getStatus(submitResponse.getData().getGenerateUuid());
         while(true) {
@@ -25,5 +27,12 @@ public class TextToImage {
             }
             Thread.sleep(5000);
         }
+
+        //NOTE(gz): 同步 SDK 调用方法
+        StatusResponseData statusResponseData = api.textToImage(request);
+        if (statusResponseData.getGenerateStatus() == GenerateStatus.SUCCEED) {
+            System.out.println(statusResponseData.getImages());
+        }
+
     }
 }
