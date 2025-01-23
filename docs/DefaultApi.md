@@ -24,12 +24,12 @@ All URIs are relative to *https://openapi.liblibai.cloud*
 ### Example
 ```java
 // Import classes:
-import org.liblib.openapi.client.ApiClient;
-import org.liblib.openapi.client.ApiException;
-import org.liblib.openapi.client.Configuration;
-import org.liblib.openapi.client.auth.*;
-import org.liblib.openapi.client.models.*;
-import org.liblib.openapi.client.api.DefaultApi;
+import cloud.liblibai.openapi.client.ApiClient;
+import cloud.liblibai.openapi.client.ApiException;
+import cloud.liblibai.openapi.client.Configuration;
+import cloud.liblibai.openapi.client.auth.*;
+import cloud.liblibai.openapi.client.models.*;
+import cloud.liblibai.openapi.client.api.DefaultApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -95,12 +95,12 @@ public class Example {
 ### Example
 ```java
 // Import classes:
-import org.liblib.openapi.client.ApiClient;
-import org.liblib.openapi.client.ApiException;
-import org.liblib.openapi.client.Configuration;
-import org.liblib.openapi.client.auth.*;
-import org.liblib.openapi.client.models.*;
-import org.liblib.openapi.client.api.DefaultApi;
+import cloud.liblibai.openapi.client.ApiClient;
+import cloud.liblibai.openapi.client.ApiException;
+import cloud.liblibai.openapi.client.Configuration;
+import cloud.liblibai.openapi.client.auth.*;
+import cloud.liblibai.openapi.client.models.*;
+import cloud.liblibai.openapi.client.api.DefaultApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -166,12 +166,12 @@ public class Example {
 ### Example
 ```java
 // Import classes:
-import org.liblib.openapi.client.ApiClient;
-import org.liblib.openapi.client.ApiException;
-import org.liblib.openapi.client.Configuration;
-import org.liblib.openapi.client.auth.*;
-import org.liblib.openapi.client.models.*;
-import org.liblib.openapi.client.api.DefaultApi;
+import cloud.liblibai.openapi.client.ApiClient;
+import cloud.liblibai.openapi.client.ApiException;
+import cloud.liblibai.openapi.client.Configuration;
+import cloud.liblibai.openapi.client.auth.*;
+import cloud.liblibai.openapi.client.models.*;
+import cloud.liblibai.openapi.client.api.DefaultApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -237,12 +237,12 @@ public class Example {
 ### Example
 ```java
 // Import classes:
-import org.liblib.openapi.client.ApiClient;
-import org.liblib.openapi.client.ApiException;
-import org.liblib.openapi.client.Configuration;
-import org.liblib.openapi.client.auth.*;
-import org.liblib.openapi.client.models.*;
-import org.liblib.openapi.client.api.DefaultApi;
+import cloud.liblibai.openapi.client.ApiClient;
+import cloud.liblibai.openapi.client.ApiException;
+import cloud.liblibai.openapi.client.Configuration;
+import cloud.liblibai.openapi.client.auth.*;
+import cloud.liblibai.openapi.client.models.*;
+import cloud.liblibai.openapi.client.api.DefaultApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -308,12 +308,12 @@ public class Example {
 ### Example
 ```java
 // Import classes:
-import org.liblib.openapi.client.ApiClient;
-import org.liblib.openapi.client.ApiException;
-import org.liblib.openapi.client.Configuration;
-import org.liblib.openapi.client.auth.*;
-import org.liblib.openapi.client.models.*;
-import org.liblib.openapi.client.api.DefaultApi;
+import cloud.liblibai.openapi.client.ApiClient;
+import cloud.liblibai.openapi.client.ApiException;
+import cloud.liblibai.openapi.client.Configuration;
+import cloud.liblibai.openapi.client.auth.*;
+import cloud.liblibai.openapi.client.models.*;
+import cloud.liblibai.openapi.client.api.DefaultApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -379,12 +379,12 @@ public class Example {
 ### Example
 ```java
 // Import classes:
-import org.liblib.openapi.client.ApiClient;
-import org.liblib.openapi.client.ApiException;
-import org.liblib.openapi.client.Configuration;
-import org.liblib.openapi.client.auth.*;
-import org.liblib.openapi.client.models.*;
-import org.liblib.openapi.client.api.DefaultApi;
+import cloud.liblibai.openapi.client.ApiClient;
+import cloud.liblibai.openapi.client.ApiException;
+import cloud.liblibai.openapi.client.Configuration;
+import cloud.liblibai.openapi.client.auth.*;
+import cloud.liblibai.openapi.client.models.*;
+import cloud.liblibai.openapi.client.api.DefaultApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -450,12 +450,12 @@ public class Example {
 ### Example
 ```java
 // Import classes:
-import org.liblib.openapi.client.ApiClient;
-import org.liblib.openapi.client.ApiException;
-import org.liblib.openapi.client.Configuration;
-import org.liblib.openapi.client.auth.*;
-import org.liblib.openapi.client.models.*;
-import org.liblib.openapi.client.api.DefaultApi;
+import cloud.liblibai.openapi.client.ApiClient;
+import cloud.liblibai.openapi.client.ApiException;
+import cloud.liblibai.openapi.client.Configuration;
+import cloud.liblibai.openapi.client.auth.*;
+import cloud.liblibai.openapi.client.models.*;
+import cloud.liblibai.openapi.client.api.DefaultApi;
 
 public class Example {
   public static void main(String[] args) {

@@ -4,8 +4,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.liblib</groupId>
-    <artifactId>liblib-java-sdk</artifactId>
+    <groupId>cloud.liblibai.openapi</groupId>
+    <artifactId>java-sdk</artifactId>
     <version>0.0.1-beta0</version>
     <properties>
         <java.version>1.8</java.version>
@@ -121,10 +121,10 @@
                                 <dateLibrary>java8</dateLibrary>
                                 <sourceFolder>src/main/java</sourceFolder>
                             </configOptions>
-                            <apiPackage>org.liblib.openapi.client.api</apiPackage>
-                            <modelPackage>org.liblib.openapi.client.model</modelPackage>
-                            <invokerPackage>org.liblib.openapi.client</invokerPackage>
-                            <packageName>org.liblib.openapi.client</packageName>
+                            <apiPackage>cloud.liblibai.openapi.client.api</apiPackage>
+                            <modelPackage>cloud.liblibai.openapi.client.model</modelPackage>
+                            <invokerPackage>cloud.liblibai.openapi.client</invokerPackage>
+                            <packageName>cloud.liblibai.openapi.client</packageName>
                             <generateApiTests>true</generateApiTests>
                             <generateModelTests>true</generateModelTests>
                             <generateModels>true</generateModels>
