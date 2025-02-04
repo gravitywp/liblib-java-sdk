@@ -48,7 +48,7 @@ import cloud.liblibai.openapi.client.JSON;
 /**
  * 图片具体宽高，与aspectRatio二选一配置即可
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-01-23T10:46:16.094559265+08:00[Asia/Shanghai]", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-04T15:57:44.740153093+08:00[Asia/Shanghai]", comments = "Generator version: 7.10.0")
 public class TextToImageUltraRequestGenerateParamsImageSize {
   public static final String SERIALIZED_NAME_WIDTH = "width";
   @SerializedName(SERIALIZED_NAME_WIDTH)

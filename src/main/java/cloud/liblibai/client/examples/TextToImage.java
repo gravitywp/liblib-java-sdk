@@ -6,9 +6,7 @@ import cloud.liblibai.openapi.client.model.*;
 
 public class TextToImage {
     public static void main(String[] args) throws ApiException, InterruptedException {
-        String apiKey = "REwuW3xEMEdHIvKu567kMw";
-        String apiSecret ="5ov6OUFhooXApW5zHNYazc2SkWU4-AOH";
-        LibLib api = new LibLib(apiKey, apiSecret);
+        LibLib api = new LibLib();
         TextToImageRequest request = new TextToImageRequest();
         TextToImageRequestGenerateParams params = new TextToImageRequestGenerateParams();
         params.prompt("1 girl").imgCount(2);

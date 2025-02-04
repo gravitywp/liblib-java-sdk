@@ -6,9 +6,7 @@ import cloud.liblibai.openapi.client.model.*;
 
 public class TextToImageUltra {
     public static void main(String[] args) throws ApiException, InterruptedException {
-        String accessKey = "REwuW3xEMEdHIvKu567kMw";
-        String secretKey ="5ov6OUFhooXApW5zHNYazc2SkWU4-AOH";
-        LibLib api = new LibLib(accessKey, secretKey);
+        LibLib api = new LibLib();
         TextToImageUltraRequest request = new TextToImageUltraRequest();
         request.templateUuid("5d7e67009b344550bc1aa6ccbfa1d7f4");
         TextToImageUltraRequestGenerateParams params = new TextToImageUltraRequestGenerateParams();
