@@ -50,7 +50,7 @@ import cloud.liblibai.openapi.client.JSON;
 /**
  * ControlNet
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-05T14:39:32.920896149+08:00[Asia/Shanghai]", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-05T15:10:08.947334966+08:00[Asia/Shanghai]", comments = "Generator version: 7.10.0")
 public class ControlNet {
   public static final String SERIALIZED_NAME_UNIT_ORDER = "unitOrder";
   @SerializedName(SERIALIZED_NAME_UNIT_ORDER)
@@ -80,7 +80,7 @@ public class ControlNet {
   public static final String SERIALIZED_NAME_ANNOTATION_PARAMETERS = "annotationParameters";
   @SerializedName(SERIALIZED_NAME_ANNOTATION_PARAMETERS)
   @javax.annotation.Nullable
-  private Map<String, Object> annotationParameters = new HashMap<>();
+  private Map<String, Object> annotationParameters;
 
   public static final String SERIALIZED_NAME_MODEL = "model";
   @SerializedName(SERIALIZED_NAME_MODEL)

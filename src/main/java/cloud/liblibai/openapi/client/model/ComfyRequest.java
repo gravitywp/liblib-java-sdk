@@ -51,7 +51,7 @@ import cloud.liblibai.openapi.client.JSON;
 /**
  * ComfyRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-05T14:39:32.920896149+08:00[Asia/Shanghai]", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-05T15:10:08.947334966+08:00[Asia/Shanghai]", comments = "Generator version: 7.10.0")
 public class ComfyRequest {
   public static final String SERIALIZED_NAME_TEMPLATE_UUID = "templateUuid";
   @SerializedName(SERIALIZED_NAME_TEMPLATE_UUID)
@@ -61,7 +61,7 @@ public class ComfyRequest {
   public static final String SERIALIZED_NAME_GENERATE_PARAMS = "generateParams";
   @SerializedName(SERIALIZED_NAME_GENERATE_PARAMS)
   @javax.annotation.Nonnull
-  private Map<String, ComfyNodeParams> generateParams = new HashMap<>();
+  private Map<String, ComfyNodeParams> generateParams;
 
   public ComfyRequest() {
   }

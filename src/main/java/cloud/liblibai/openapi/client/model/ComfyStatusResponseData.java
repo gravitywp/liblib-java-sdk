@@ -53,7 +53,7 @@ import cloud.liblibai.openapi.client.JSON;
 /**
  * ComfyStatusResponseData
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-05T14:39:32.920896149+08:00[Asia/Shanghai]", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-05T15:10:08.947334966+08:00[Asia/Shanghai]", comments = "Generator version: 7.10.0")
 public class ComfyStatusResponseData {
   public static final String SERIALIZED_NAME_ACCOUNT_BALANCE = "accountBalance";
   @SerializedName(SERIALIZED_NAME_ACCOUNT_BALANCE)
@@ -83,12 +83,12 @@ public class ComfyStatusResponseData {
   public static final String SERIALIZED_NAME_IMAGES = "images";
   @SerializedName(SERIALIZED_NAME_IMAGES)
   @javax.annotation.Nullable
-  private List<NodeImage> images = new ArrayList<>();
+  private List<NodeImage> images;
 
   public static final String SERIALIZED_NAME_VIDEOS = "videos";
   @SerializedName(SERIALIZED_NAME_VIDEOS)
   @javax.annotation.Nullable
-  private List<ComfyStatusResponseDataVideosInner> videos = new ArrayList<>();
+  private List<ComfyStatusResponseDataVideosInner> videos;
 
   public ComfyStatusResponseData() {
   }

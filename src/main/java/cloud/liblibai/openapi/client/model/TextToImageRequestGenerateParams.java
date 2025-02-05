@@ -54,7 +54,7 @@ import cloud.liblibai.openapi.client.JSON;
 /**
  * TextToImageRequestGenerateParams
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-05T14:39:32.920896149+08:00[Asia/Shanghai]", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-05T15:10:08.947334966+08:00[Asia/Shanghai]", comments = "Generator version: 7.10.0")
 public class TextToImageRequestGenerateParams {
   public static final String SERIALIZED_NAME_CHECK_POINT_ID = "checkPointId";
   @SerializedName(SERIALIZED_NAME_CHECK_POINT_ID)
@@ -119,7 +119,7 @@ public class TextToImageRequestGenerateParams {
   public static final String SERIALIZED_NAME_ADDITIONAL_NETWORK = "additionalNetwork";
   @SerializedName(SERIALIZED_NAME_ADDITIONAL_NETWORK)
   @javax.annotation.Nullable
-  private List<AdditionalNetwork> additionalNetwork = new ArrayList<>();
+  private List<AdditionalNetwork> additionalNetwork;
 
   public static final String SERIALIZED_NAME_HI_RES_FIX_INFO = "hiResFixInfo";
   @SerializedName(SERIALIZED_NAME_HI_RES_FIX_INFO)
@@ -134,7 +134,7 @@ public class TextToImageRequestGenerateParams {
   public static final String SERIALIZED_NAME_CONTROL_NET = "controlNet";
   @SerializedName(SERIALIZED_NAME_CONTROL_NET)
   @javax.annotation.Nullable
-  private List<ControlNet> controlNet = new ArrayList<>();
+  private List<ControlNet> controlNet;
 
   public TextToImageRequestGenerateParams() {
   }

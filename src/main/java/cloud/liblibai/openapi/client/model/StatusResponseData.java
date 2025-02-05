@@ -52,7 +52,7 @@ import cloud.liblibai.openapi.client.JSON;
 /**
  * StatusResponseData
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-05T14:39:32.920896149+08:00[Asia/Shanghai]", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-05T15:10:08.947334966+08:00[Asia/Shanghai]", comments = "Generator version: 7.10.0")
 public class StatusResponseData {
   public static final String SERIALIZED_NAME_GENERATE_UUID = "generateUuid";
   @SerializedName(SERIALIZED_NAME_GENERATE_UUID)
@@ -87,7 +87,7 @@ public class StatusResponseData {
   public static final String SERIALIZED_NAME_IMAGES = "images";
   @SerializedName(SERIALIZED_NAME_IMAGES)
   @javax.annotation.Nullable
-  private List<Image> images = new ArrayList<>();
+  private List<Image> images;
 
   public StatusResponseData() {
   }

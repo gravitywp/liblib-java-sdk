@@ -30,7 +30,7 @@
 
     <groupId>cloud.liblibai.openapi</groupId>
     <artifactId>java-sdk</artifactId>
-    <version>0.0.1</version>
+    <version>0.0.2</version>
     <properties>
         <java.version>1.8</java.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
@@ -197,6 +197,7 @@
                                 <library>okhttp-gson</library>
                                 <dateLibrary>java8</dateLibrary>
                                 <sourceFolder>src/main/java</sourceFolder>
+                                <containerDefaultToNull>true</containerDefaultToNull>
                             </configOptions>
                             <apiPackage>cloud.liblibai.openapi.client.api</apiPackage>
                             <modelPackage>cloud.liblibai.openapi.client.model</modelPackage>
