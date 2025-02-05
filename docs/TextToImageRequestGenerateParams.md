@@ -22,6 +22,7 @@
 |**additionalNetwork** | [**List&lt;AdditionalNetwork&gt;**](AdditionalNetwork.md) |  |  [optional] |
 |**hiResFixInfo** | [**TextToImageRequestGenerateParamsHiResFixInfo**](TextToImageRequestGenerateParamsHiResFixInfo.md) |  |  [optional] |
 |**inpaintParam** | [**TextToImageRequestGenerateParamsInpaintParam**](TextToImageRequestGenerateParamsInpaintParam.md) |  |  [optional] |
+|**controlNet** | [**List&lt;ControlNet&gt;**](ControlNet.md) |  |  [optional] |
 
 
 

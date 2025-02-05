@@ -49,7 +49,7 @@ import cloud.liblibai.openapi.client.JSON;
 /**
  * SubmitResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-04T15:57:44.740153093+08:00[Asia/Shanghai]", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-05T10:35:03.709715792+08:00[Asia/Shanghai]", comments = "Generator version: 7.10.0")
 public class SubmitResponse {
   public static final String SERIALIZED_NAME_CODE = "code";
   @SerializedName(SERIALIZED_NAME_CODE)
@@ -58,7 +58,7 @@ public class SubmitResponse {
 
   public static final String SERIALIZED_NAME_DATA = "data";
   @SerializedName(SERIALIZED_NAME_DATA)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private SubmitResponseData data;
 
   public static final String SERIALIZED_NAME_MSG = "msg";
@@ -88,7 +88,7 @@ public class SubmitResponse {
   }
 
 
-  public SubmitResponse data(@javax.annotation.Nonnull SubmitResponseData data) {
+  public SubmitResponse data(@javax.annotation.Nullable SubmitResponseData data) {
     this.data = data;
     return this;
   }
@@ -97,12 +97,12 @@ public class SubmitResponse {
    * Get data
    * @return data
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public SubmitResponseData getData() {
     return data;
   }
 
-  public void setData(@javax.annotation.Nonnull SubmitResponseData data) {
+  public void setData(@javax.annotation.Nullable SubmitResponseData data) {
     this.data = data;
   }
 
@@ -182,7 +182,6 @@ public class SubmitResponse {
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
     openapiRequiredFields.add("code");
-    openapiRequiredFields.add("data");
   }
 
   /**
@@ -213,8 +212,10 @@ public class SubmitResponse {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // validate the required field `data`
-      SubmitResponseData.validateJsonElement(jsonObj.get("data"));
+      // validate the optional field `data`
+      if (jsonObj.get("data") != null && !jsonObj.get("data").isJsonNull()) {
+        SubmitResponseData.validateJsonElement(jsonObj.get("data"));
+      }
       if ((jsonObj.get("msg") != null && !jsonObj.get("msg").isJsonNull()) && !jsonObj.get("msg").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `msg` to be a primitive type in the JSON string but got `%s`", jsonObj.get("msg").toString()));
       }

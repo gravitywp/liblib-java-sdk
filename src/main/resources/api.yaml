@@ -30,7 +30,7 @@ components:
                 msg:
                   type: string
               required:
-                - data
+#                - data
                 - code
   schemas:
     additionalNetwork:
@@ -54,6 +54,7 @@ components:
           type: integer
           description: 执行顺序
           example: 1
+          default: 1
         sourceImage:
           type: string
           description: 参考图地址
@@ -62,10 +63,12 @@ components:
           type: integer
           description: 参考图宽度
           example: 1024
+          default: 1024
         height:
           type: integer
           description: 参考图高度
           example: 1536
+          default: 1024
         preprocessor:
           type: integer
           description: 预处理器枚举值
@@ -149,6 +152,7 @@ paths:
                   type: string
                   description: 模板UUID
                   example: 5d7e67009b344550bc1aa6ccbfa1d7f4
+                  default: 5d7e67009b344550bc1aa6ccbfa1d7f4
                 generateParams:
                   type: object
                   properties:
@@ -401,6 +405,7 @@ paths:
                   type: string
                   description: 参数模板uuid
                   example: e10adc3949ba59abbe56e057f20f883e
+                  default: e10adc3949ba59abbe56e057f20f883e
                 generateParams:
                   type: object
                   properties:
@@ -507,10 +512,10 @@ paths:
                           type: integer
                           description: 蒙版内容的填充模式
                           example: 1
-#                    controlNet:
-#                      type: array
-#                      items:
-#                        $ref: "#/components/schemas/controlNet"
+                    controlNet:
+                      type: array
+                      items:
+                        $ref: "#/components/schemas/controlNet"
               required:
                 - generateParams
       responses:
@@ -537,6 +542,7 @@ paths:
                   type: string
                   description: 参数模板uuid
                   example: 9c7d531dc75f476aa833b3d452b8f7ad
+                  default: 9c7d531dc75f476aa833b3d452b8f7ad
                 generateParams:
                   type: object
                   properties:
@@ -644,6 +650,7 @@ paths:
                   type: string
                   description: 默认模版uuid
                   example: 4df2efa0f18d46dc9758803e478eb51c
+                  default: 4df2efa0f18d46dc9758803e478eb51c
                 generateParams:
                   type: object
                   description: 生图参数，json结构

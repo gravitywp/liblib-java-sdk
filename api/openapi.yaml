@@ -431,6 +431,7 @@ components:
             controlImage: https://liblibai-online.liblib.cloud/img/081e9f07d9bd4c2ba090efde163518f9/7c1cc38e-522c-43fe-aca9-07d420d743e.png
       properties:
         templateUuid:
+          default: 5d7e67009b344550bc1aa6ccbfa1d7f4
           description: 模板UUID
           example: 5d7e67009b344550bc1aa6ccbfa1d7f4
           type: string
@@ -465,7 +466,6 @@ components:
           type: string
       required:
       - code
-      - data
       title: SubmitResponse
       type: object
     StatusRequest:
@@ -736,6 +736,37 @@ components:
           weight: 0.3
         prompt: "Asian portrait,A young woman wearing a green baseball cap,covering\
           \ one eye with her hand"
+        controlNet:
+        - controlMode: 0
+          controlWeight: 1
+          startingControlStep: 0
+          preprocessor: 3
+          endingControlStep: 1
+          pixelPerfect: 1
+          annotationParameters:
+            key: ""
+          width: 1024
+          model: 6349e9dae8814084bd9c1585d335c24c
+          sourceImage: https://liblibai-online.liblib.cloud/img/081e9f07d9bd4c2ba090efde163518f9/7c1cc38e-522c-43fe-aca9-07d5420d743e.png
+          resizeMode: 1
+          unitOrder: 1
+          height: 1536
+          maskImage: ""
+        - controlMode: 0
+          controlWeight: 1
+          startingControlStep: 0
+          preprocessor: 3
+          endingControlStep: 1
+          pixelPerfect: 1
+          annotationParameters:
+            key: ""
+          width: 1024
+          model: 6349e9dae8814084bd9c1585d335c24c
+          sourceImage: https://liblibai-online.liblib.cloud/img/081e9f07d9bd4c2ba090efde163518f9/7c1cc38e-522c-43fe-aca9-07d5420d743e.png
+          resizeMode: 1
+          unitOrder: 1
+          height: 1536
+          maskImage: ""
         height: 1024
       properties:
         checkPointId:
@@ -795,6 +826,10 @@ components:
           $ref: '#/components/schemas/TextToImageRequest_generateParams_hiResFixInfo'
         inpaintParam:
           $ref: '#/components/schemas/TextToImageRequest_generateParams_inpaintParam'
+        controlNet:
+          items:
+            $ref: '#/components/schemas/controlNet'
+          type: array
       type: object
     TextToImageRequest:
       example:
@@ -831,9 +866,41 @@ components:
             weight: 0.3
           prompt: "Asian portrait,A young woman wearing a green baseball cap,covering\
             \ one eye with her hand"
+          controlNet:
+          - controlMode: 0
+            controlWeight: 1
+            startingControlStep: 0
+            preprocessor: 3
+            endingControlStep: 1
+            pixelPerfect: 1
+            annotationParameters:
+              key: ""
+            width: 1024
+            model: 6349e9dae8814084bd9c1585d335c24c
+            sourceImage: https://liblibai-online.liblib.cloud/img/081e9f07d9bd4c2ba090efde163518f9/7c1cc38e-522c-43fe-aca9-07d5420d743e.png
+            resizeMode: 1
+            unitOrder: 1
+            height: 1536
+            maskImage: ""
+          - controlMode: 0
+            controlWeight: 1
+            startingControlStep: 0
+            preprocessor: 3
+            endingControlStep: 1
+            pixelPerfect: 1
+            annotationParameters:
+              key: ""
+            width: 1024
+            model: 6349e9dae8814084bd9c1585d335c24c
+            sourceImage: https://liblibai-online.liblib.cloud/img/081e9f07d9bd4c2ba090efde163518f9/7c1cc38e-522c-43fe-aca9-07d5420d743e.png
+            resizeMode: 1
+            unitOrder: 1
+            height: 1536
+            maskImage: ""
           height: 1024
       properties:
         templateUuid:
+          default: e10adc3949ba59abbe56e057f20f883e
           description: 参数模板uuid
           example: e10adc3949ba59abbe56e057f20f883e
           type: string
@@ -1035,6 +1102,7 @@ components:
           denoisingStrength: 0.75
       properties:
         templateUuid:
+          default: 9c7d531dc75f476aa833b3d452b8f7ad
           description: 参数模板uuid
           example: 9c7d531dc75f476aa833b3d452b8f7ad
           type: string
@@ -1076,6 +1144,7 @@ components:
           workflowUuid: 2f22ab7ce4c044afb6d5eee2e61547f3
       properties:
         templateUuid:
+          default: 4df2efa0f18d46dc9758803e478eb51c
           description: 默认模版uuid
           example: 4df2efa0f18d46dc9758803e478eb51c
           type: string

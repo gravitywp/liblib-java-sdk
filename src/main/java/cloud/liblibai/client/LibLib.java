@@ -38,6 +38,9 @@ public class LibLib extends DefaultApi {
 
     public StatusResponseData textToImage(TextToImageRequest request) throws ApiException {
         SubmitResponse submitResponse = submitTextToImage(request);
+        if (submitResponse.getData() == null) {
+            throw new ApiException(submitResponse.getCode(), "Error: " + submitResponse.getMsg());
+        }
         String generateUuid = submitResponse.getData().getGenerateUuid();
         if (generateUuid == null) {
             throw new RuntimeException("Not fetch generate task uuid");
@@ -50,6 +53,9 @@ public class LibLib extends DefaultApi {
 
     public StatusResponseData imageToImage(ImageToImageRequest request) throws ApiException {
         SubmitResponse submitResponse = submitImageToImage(request);
+        if (submitResponse.getData() == null) {
+            throw new ApiException(submitResponse.getCode(), "Error: " + submitResponse.getMsg());
+        }
         String generateUuid = submitResponse.getData().getGenerateUuid();
         if (generateUuid == null) {
             throw new RuntimeException("Not fetch generate task uuid");
@@ -60,6 +66,9 @@ public class LibLib extends DefaultApi {
 
     public ComfyStatusResponseData runComfy(ComfyRequest request) throws ApiException {
         SubmitComfyResponse submitComfyResponse = submitComfyTask(request);
+        if (submitComfyResponse.getData() == null) {
+            throw new ApiException(submitComfyResponse.getCode(), "Error: " + submitComfyResponse.getMsg());
+        }
         String generateUuid = submitComfyResponse.getData().getGenerateUuid();
         if (generateUuid == null) {
             throw new RuntimeException("Not fetch generate task uuid");

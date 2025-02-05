@@ -49,12 +49,12 @@ import cloud.liblibai.openapi.client.JSON;
 /**
  * TextToImageUltraRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-04T15:57:44.740153093+08:00[Asia/Shanghai]", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-05T10:35:03.709715792+08:00[Asia/Shanghai]", comments = "Generator version: 7.10.0")
 public class TextToImageUltraRequest {
   public static final String SERIALIZED_NAME_TEMPLATE_UUID = "templateUuid";
   @SerializedName(SERIALIZED_NAME_TEMPLATE_UUID)
   @javax.annotation.Nonnull
-  private String templateUuid;
+  private String templateUuid = "5d7e67009b344550bc1aa6ccbfa1d7f4";
 
   public static final String SERIALIZED_NAME_GENERATE_PARAMS = "generateParams";
   @SerializedName(SERIALIZED_NAME_GENERATE_PARAMS)
