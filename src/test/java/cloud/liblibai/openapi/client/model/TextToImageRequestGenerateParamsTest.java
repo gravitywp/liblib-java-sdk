@@ -14,6 +14,7 @@
 package cloud.liblibai.openapi.client.model;
 
 import cloud.liblibai.openapi.client.model.AdditionalNetwork;
+import cloud.liblibai.openapi.client.model.ControlNet;
 import cloud.liblibai.openapi.client.model.TextToImageRequestGenerateParamsHiResFixInfo;
 import cloud.liblibai.openapi.client.model.TextToImageRequestGenerateParamsInpaintParam;
 import com.google.gson.TypeAdapter;
@@ -160,6 +161,14 @@ public class TextToImageRequestGenerateParamsTest {
     @Test
     public void inpaintParamTest() {
         // TODO: test inpaintParam
+    }
+
+    /**
+     * Test the property 'controlNet'
+     */
+    @Test
+    public void controlNetTest() {
+        // TODO: test controlNet
     }
 
 }

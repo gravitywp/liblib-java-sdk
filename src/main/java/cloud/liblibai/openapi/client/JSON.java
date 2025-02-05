@@ -107,6 +107,8 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new cloud.liblibai.openapi.client.model.Image.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new cloud.liblibai.openapi.client.model.ImageToImageRequest.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new cloud.liblibai.openapi.client.model.ImageToImageRequestGenerateParams.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new cloud.liblibai.openapi.client.model.ImageToImageUltraRequest.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new cloud.liblibai.openapi.client.model.ImageToImageUltraRequestGenerateParams.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new cloud.liblibai.openapi.client.model.NodeImage.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new cloud.liblibai.openapi.client.model.StatusRequest.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new cloud.liblibai.openapi.client.model.StatusResponse.CustomTypeAdapterFactory());

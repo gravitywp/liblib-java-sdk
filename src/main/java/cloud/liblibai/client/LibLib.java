@@ -36,6 +36,22 @@ public class LibLib extends DefaultApi {
         getApiClient().setApiKey(accessKey);
     }
 
+
+    public StatusResponseData textToImageUltra(TextToImageUltraRequest request) throws ApiException {
+        SubmitResponse submitResponse = submitTextToImageUltra(request);
+        if (submitResponse.getData() == null) {
+            throw new ApiException(submitResponse.getCode(), "Error: " + submitResponse.getMsg());
+        }
+        String generateUuid = submitResponse.getData().getGenerateUuid();
+        if (generateUuid == null) {
+            throw new RuntimeException("Not fetch generate task uuid");
+        }
+
+        StatusResponse status = waitResult(generateUuid);
+
+        return status.getData();
+    }
+
     public StatusResponseData textToImage(TextToImageRequest request) throws ApiException {
         SubmitResponse submitResponse = submitTextToImage(request);
         if (submitResponse.getData() == null) {
@@ -151,6 +167,9 @@ public class LibLib extends DefaultApi {
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
+        }
+        if (status == null) {
+            throw new ApiException("Query status failed");
         }
         return status;
     }

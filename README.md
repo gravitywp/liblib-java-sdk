@@ -122,15 +122,16 @@ public class Example {
 
 All URIs are relative to *https://openapi.liblibai.cloud*
 
-Class | Method | HTTP request | Description
------------- | ------------- | ------------- | -------------
-*DefaultApi* | [**getComfyStatus**](docs/DefaultApi.md#getComfyStatus) | **POST** /api/generate/comfy/status | 查询 comfy 生图结果
-*DefaultApi* | [**getModelVersion**](docs/DefaultApi.md#getModelVersion) | **POST** /api/model/version/get | 查询模型版本参数
-*DefaultApi* | [**getStatus**](docs/DefaultApi.md#getStatus) | **POST** /api/generate/webui/status | 查询生图任务状态
-*DefaultApi* | [**submitComfyTask**](docs/DefaultApi.md#submitComfyTask) | **POST** /api/generate/comfyui/app | 提交 ComfyUI 工作流生图任务
-*DefaultApi* | [**submitImageToImage**](docs/DefaultApi.md#submitImageToImage) | **POST** /api/generate/webui/img2img | 提交图生图任务
-*DefaultApi* | [**submitTextToImage**](docs/DefaultApi.md#submitTextToImage) | **POST** /api/generate/webui/text2img | 提交文生图任务
-*DefaultApi* | [**submitTextToImageUltra**](docs/DefaultApi.md#submitTextToImageUltra) | **POST** /api/generate/webui/text2img/ultra | 星流Star-3 Alpha图生图
+Class | Method                                                                    | HTTP request                                | Description
+------------ |---------------------------------------------------------------------------|---------------------------------------------| -------------
+*DefaultApi* | [**getComfyStatus**](docs/DefaultApi.md#getComfyStatus)                   | **POST** /api/generate/comfy/status         | 查询 comfy 生图结果
+*DefaultApi* | [**getModelVersion**](docs/DefaultApi.md#getModelVersion)                 | **POST** /api/model/version/get             | 查询模型版本参数
+*DefaultApi* | [**getStatus**](docs/DefaultApi.md#getStatus)                             | **POST** /api/generate/webui/status         | 查询生图任务状态
+*DefaultApi* | [**submitComfyTask**](docs/DefaultApi.md#submitComfyTask)                 | **POST** /api/generate/comfyui/app          | 提交 ComfyUI 工作流生图任务
+*DefaultApi* | [**submitImageToImage**](docs/DefaultApi.md#submitImageToImage)           | **POST** /api/generate/webui/img2img        | 提交图生图任务
+*DefaultApi* | [**submitTextToImage**](docs/DefaultApi.md#submitTextToImage)             | **POST** /api/generate/webui/text2img       | 提交文生图任务
+*DefaultApi* | [**submitTextToImageUltra**](docs/DefaultApi.md#submitTextToImageUltra)   | **POST** /api/generate/webui/text2img/ultra | 星流Star-3 Alpha 文生图
+*DefaultApi* | [**submitImageToImageUltra**](docs/DefaultApi.md#submitImageToImageUltra) | **POST** /api/generate/webui/img2img/ultra  | 星流Star-3 Alpha 文生图
 
 
 ## Documentation for Models
@@ -182,6 +183,7 @@ Authentication schemes defined for the API:
 
 
 ## Recommendation
+通过 new LibLib() 来调用 API， 不建议使用 DefaultApi 来调用
 
 ## Author
 

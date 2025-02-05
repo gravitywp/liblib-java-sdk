@@ -54,7 +54,7 @@ import cloud.liblibai.openapi.client.JSON;
 /**
  * TextToImageRequestGenerateParams
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-05T15:10:08.947334966+08:00[Asia/Shanghai]", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-05T17:51:55.821090821+08:00[Asia/Shanghai]", comments = "Generator version: 7.10.0")
 public class TextToImageRequestGenerateParams {
   public static final String SERIALIZED_NAME_CHECK_POINT_ID = "checkPointId";
   @SerializedName(SERIALIZED_NAME_CHECK_POINT_ID)
@@ -79,7 +79,7 @@ public class TextToImageRequestGenerateParams {
   public static final String SERIALIZED_NAME_STEPS = "steps";
   @SerializedName(SERIALIZED_NAME_STEPS)
   @javax.annotation.Nullable
-  private Integer steps;
+  private Integer steps = 20;
 
   public static final String SERIALIZED_NAME_CFG_SCALE = "cfgScale";
   @SerializedName(SERIALIZED_NAME_CFG_SCALE)
@@ -99,7 +99,7 @@ public class TextToImageRequestGenerateParams {
   public static final String SERIALIZED_NAME_IMG_COUNT = "imgCount";
   @SerializedName(SERIALIZED_NAME_IMG_COUNT)
   @javax.annotation.Nullable
-  private Integer imgCount;
+  private Integer imgCount = 1;
 
   public static final String SERIALIZED_NAME_RANDN_SOURCE = "randnSource";
   @SerializedName(SERIALIZED_NAME_RANDN_SOURCE)

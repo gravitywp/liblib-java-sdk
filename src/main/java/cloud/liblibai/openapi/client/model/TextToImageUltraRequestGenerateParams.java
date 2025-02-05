@@ -50,7 +50,7 @@ import cloud.liblibai.openapi.client.JSON;
 /**
  * TextToImageUltraRequestGenerateParams
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-05T15:10:08.947334966+08:00[Asia/Shanghai]", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-05T17:51:55.821090821+08:00[Asia/Shanghai]", comments = "Generator version: 7.10.0")
 public class TextToImageUltraRequestGenerateParams {
   public static final String SERIALIZED_NAME_PROMPT = "prompt";
   @SerializedName(SERIALIZED_NAME_PROMPT)
@@ -124,12 +124,12 @@ public class TextToImageUltraRequestGenerateParams {
   public static final String SERIALIZED_NAME_IMG_COUNT = "imgCount";
   @SerializedName(SERIALIZED_NAME_IMG_COUNT)
   @javax.annotation.Nonnull
-  private Integer imgCount;
+  private Integer imgCount = 1;
 
   public static final String SERIALIZED_NAME_STEPS = "steps";
   @SerializedName(SERIALIZED_NAME_STEPS)
   @javax.annotation.Nullable
-  private Integer steps;
+  private Integer steps = 30;
 
   public static final String SERIALIZED_NAME_CONTROLNET = "controlnet";
   @SerializedName(SERIALIZED_NAME_CONTROLNET)

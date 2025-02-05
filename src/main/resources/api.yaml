@@ -46,6 +46,25 @@ components:
           format: float
           description: LoRA权重
           example: 0.3
+    ultraControlNet:
+      type: object
+      title: UltraControlNet
+      description: 构图控制
+      properties:
+        controlType:
+          type: string
+          description: 控制类型
+          enum:
+            - line
+            - depth
+            - pose
+            - IPAdapter
+          example: pose
+        controlImage:
+          type: string
+          description: 参考图可公网访问的完整URL
+          format: uri
+          example: https://liblibai-online.liblib.cloud/img/081e9f07d9bd4c2ba090efde163518f9/7c1cc38e-522c-43fe-aca9-07d420d743e.png
     controlNet:
       type: object
       title: ControlNet
@@ -135,9 +154,64 @@ components:
       name: AccessKey
       description: API access key
 paths:
-  /api/generate/webui/text2img/ultra:
+  /api/generate/webui/img2img/ultra:
     post:
       summary: 星流Star-3 Alpha图生图
+      description: 根据提供的文本提示词和参数生成图片
+      operationId: submitImageToImageUltra
+      requestBody:
+        description: 生图请求参数
+        content:
+          application/json:
+            schema:
+              type: object
+              title: ImageToImageUltraRequest
+              properties:
+                templateUuid:
+                  type: string
+                  description: 模板UUID
+                  example: 5d7e67009b344550bc1aa6ccbfa1d7f4
+                  default: 5d7e67009b344550bc1aa6ccbfa1d7f4
+                generateParams:
+                  type: object
+                  properties:
+                    prompt:
+                      type: string
+                      description: 正向提示词，文本
+                      example: 1 girl,lotus leaf,masterpiece,best quality,finely detail,highres,8k,beautiful and aesthetic,no watermark
+                    sourceImage:
+                      type: string
+                      description: sourceImage 参考图可公网访问的完整URL
+                    imgCount:
+                      type: integer
+                      description: 单次生图张数
+                      minimum: 1
+                      maximum: 4
+                      example: 1
+                    steps:
+                      type: integer
+                      description: 采样步数
+                      example: 20
+                      default: 30
+                    controlnet:
+                      $ref: '#/components/schemas/ultraControlNet'
+                  required:
+                    - prompt
+                    - sourceImage
+                    - imgCount
+              required:
+                - templateUuid
+                - generateParams
+      responses:
+        '200':
+          $ref: '#/components/responses/submitResponse'
+        '400':
+          description: 请求参数错误
+        '500':
+          description: 服务器内部错误
+  /api/generate/webui/text2img/ultra:
+    post:
+      summary: 星流Star-3 Alpha文生图
       description: 根据提供的文本提示词和参数生成图片
       operationId: submitTextToImageUltra
       requestBody:
@@ -190,29 +264,14 @@ paths:
                       minimum: 1
                       maximum: 4
                       example: 1
+                      default: 1
                     steps:
                       type: integer
                       description: 采样步数
                       example: 20
+                      default: 30
                     controlnet:
-                      type: object
-                      title: UltraControlNet
-                      description: 构图控制
-                      properties:
-                        controlType:
-                          type: string
-                          description: 控制类型
-                          enum:
-                            - line
-                            - depth
-                            - pose
-                            - IPAdapter
-                          example: pose
-                        controlImage:
-                          type: string
-                          description: 参考图可公网访问的完整URL
-                          format: uri
-                          example: https://liblibai-online.liblib.cloud/img/081e9f07d9bd4c2ba090efde163518f9/7c1cc38e-522c-43fe-aca9-07d420d743e.png
+                      $ref: '#/components/schemas/ultraControlNet'
                   required:
                     - prompt
                     - imgCount
@@ -429,6 +488,7 @@ paths:
                       type: integer
                       description: 采样步数
                       example: 20
+                      default: 20
                     cfgScale:
                       type: integer
                       description: 提示词引导系数
@@ -445,6 +505,7 @@ paths:
                       type: integer
                       description: 图片数量
                       example: 1
+                      default: 1
                     randnSource:
                       type: integer
                       description: 随机种子生成器 0 cpu，1 Gpu
@@ -569,6 +630,7 @@ paths:
                       type: integer
                       description: 采样步数
                       example: 20
+                      default: 20
                     cfgScale:
                       type: integer
                       description: 提示词引导系数
@@ -585,10 +647,12 @@ paths:
                       type: integer
                       description: 图片数量，1到4
                       example: 1
+                      default: 1
                     restoreFaces:
                       type: integer
                       description: 面部修复，0关闭，1开启
                       example: 0
+                      default: 0
                     sourceImage:
                       type: string
                       description: 源图像地址

@@ -14,7 +14,7 @@
 package cloud.liblibai.openapi.client.model;
 
 import java.util.Objects;
-import cloud.liblibai.openapi.client.model.TextToImageRequestGenerateParams;
+import cloud.liblibai.openapi.client.model.ImageToImageUltraRequestGenerateParams;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -47,43 +47,43 @@ import java.util.Set;
 import cloud.liblibai.openapi.client.JSON;
 
 /**
- * TextToImageRequest
+ * ImageToImageUltraRequest
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-05T17:51:55.821090821+08:00[Asia/Shanghai]", comments = "Generator version: 7.10.0")
-public class TextToImageRequest {
+public class ImageToImageUltraRequest {
   public static final String SERIALIZED_NAME_TEMPLATE_UUID = "templateUuid";
   @SerializedName(SERIALIZED_NAME_TEMPLATE_UUID)
-  @javax.annotation.Nullable
-  private String templateUuid = "e10adc3949ba59abbe56e057f20f883e";
+  @javax.annotation.Nonnull
+  private String templateUuid = "5d7e67009b344550bc1aa6ccbfa1d7f4";
 
   public static final String SERIALIZED_NAME_GENERATE_PARAMS = "generateParams";
   @SerializedName(SERIALIZED_NAME_GENERATE_PARAMS)
   @javax.annotation.Nonnull
-  private TextToImageRequestGenerateParams generateParams;
+  private ImageToImageUltraRequestGenerateParams generateParams;
 
-  public TextToImageRequest() {
+  public ImageToImageUltraRequest() {
   }
 
-  public TextToImageRequest templateUuid(@javax.annotation.Nullable String templateUuid) {
+  public ImageToImageUltraRequest templateUuid(@javax.annotation.Nonnull String templateUuid) {
     this.templateUuid = templateUuid;
     return this;
   }
 
   /**
-   * 参数模板uuid
+   * 模板UUID
    * @return templateUuid
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public String getTemplateUuid() {
     return templateUuid;
   }
 
-  public void setTemplateUuid(@javax.annotation.Nullable String templateUuid) {
+  public void setTemplateUuid(@javax.annotation.Nonnull String templateUuid) {
     this.templateUuid = templateUuid;
   }
 
 
-  public TextToImageRequest generateParams(@javax.annotation.Nonnull TextToImageRequestGenerateParams generateParams) {
+  public ImageToImageUltraRequest generateParams(@javax.annotation.Nonnull ImageToImageUltraRequestGenerateParams generateParams) {
     this.generateParams = generateParams;
     return this;
   }
@@ -93,11 +93,11 @@ public class TextToImageRequest {
    * @return generateParams
    */
   @javax.annotation.Nonnull
-  public TextToImageRequestGenerateParams getGenerateParams() {
+  public ImageToImageUltraRequestGenerateParams getGenerateParams() {
     return generateParams;
   }
 
-  public void setGenerateParams(@javax.annotation.Nonnull TextToImageRequestGenerateParams generateParams) {
+  public void setGenerateParams(@javax.annotation.Nonnull ImageToImageUltraRequestGenerateParams generateParams) {
     this.generateParams = generateParams;
   }
 
@@ -111,9 +111,9 @@ public class TextToImageRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TextToImageRequest textToImageRequest = (TextToImageRequest) o;
-    return Objects.equals(this.templateUuid, textToImageRequest.templateUuid) &&
-        Objects.equals(this.generateParams, textToImageRequest.generateParams);
+    ImageToImageUltraRequest imageToImageUltraRequest = (ImageToImageUltraRequest) o;
+    return Objects.equals(this.templateUuid, imageToImageUltraRequest.templateUuid) &&
+        Objects.equals(this.generateParams, imageToImageUltraRequest.generateParams);
   }
 
   @Override
@@ -124,7 +124,7 @@ public class TextToImageRequest {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class TextToImageRequest {\n");
+    sb.append("class ImageToImageUltraRequest {\n");
     sb.append("    templateUuid: ").append(toIndentedString(templateUuid)).append("\n");
     sb.append("    generateParams: ").append(toIndentedString(generateParams)).append("\n");
     sb.append("}");
@@ -154,6 +154,7 @@ public class TextToImageRequest {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("templateUuid");
     openapiRequiredFields.add("generateParams");
   }
 
@@ -161,57 +162,57 @@ public class TextToImageRequest {
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to TextToImageRequest
+   * @throws IOException if the JSON Element is invalid with respect to ImageToImageUltraRequest
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!TextToImageRequest.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in TextToImageRequest is not found in the empty JSON string", TextToImageRequest.openapiRequiredFields.toString()));
+        if (!ImageToImageUltraRequest.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in ImageToImageUltraRequest is not found in the empty JSON string", ImageToImageUltraRequest.openapiRequiredFields.toString()));
         }
       }
 
       Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!TextToImageRequest.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TextToImageRequest` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+        if (!ImageToImageUltraRequest.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ImageToImageUltraRequest` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : TextToImageRequest.openapiRequiredFields) {
+      for (String requiredField : ImageToImageUltraRequest.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
           throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("templateUuid") != null && !jsonObj.get("templateUuid").isJsonNull()) && !jsonObj.get("templateUuid").isJsonPrimitive()) {
+      if (!jsonObj.get("templateUuid").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `templateUuid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("templateUuid").toString()));
       }
       // validate the required field `generateParams`
-      TextToImageRequestGenerateParams.validateJsonElement(jsonObj.get("generateParams"));
+      ImageToImageUltraRequestGenerateParams.validateJsonElement(jsonObj.get("generateParams"));
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!TextToImageRequest.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'TextToImageRequest' and its subtypes
+       if (!ImageToImageUltraRequest.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'ImageToImageUltraRequest' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<TextToImageRequest> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(TextToImageRequest.class));
+       final TypeAdapter<ImageToImageUltraRequest> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(ImageToImageUltraRequest.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<TextToImageRequest>() {
+       return (TypeAdapter<T>) new TypeAdapter<ImageToImageUltraRequest>() {
            @Override
-           public void write(JsonWriter out, TextToImageRequest value) throws IOException {
+           public void write(JsonWriter out, ImageToImageUltraRequest value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public TextToImageRequest read(JsonReader in) throws IOException {
+           public ImageToImageUltraRequest read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              return thisAdapter.fromJsonTree(jsonElement);
@@ -222,18 +223,18 @@ public class TextToImageRequest {
   }
 
   /**
-   * Create an instance of TextToImageRequest given an JSON string
+   * Create an instance of ImageToImageUltraRequest given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of TextToImageRequest
-   * @throws IOException if the JSON string is invalid with respect to TextToImageRequest
+   * @return An instance of ImageToImageUltraRequest
+   * @throws IOException if the JSON string is invalid with respect to ImageToImageUltraRequest
    */
-  public static TextToImageRequest fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, TextToImageRequest.class);
+  public static ImageToImageUltraRequest fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, ImageToImageUltraRequest.class);
   }
 
   /**
-   * Convert an instance of TextToImageRequest to an JSON string
+   * Convert an instance of ImageToImageUltraRequest to an JSON string
    *
    * @return JSON string
    */

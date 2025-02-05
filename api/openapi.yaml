@@ -9,6 +9,31 @@ servers:
 security:
 - ApiKeyAuth: []
 paths:
+  /api/generate/webui/img2img/ultra:
+    post:
+      description: 根据提供的文本提示词和参数生成图片
+      operationId: submitImageToImageUltra
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ImageToImageUltraRequest'
+        description: 生图请求参数
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SubmitResponse'
+          description: 成功
+        "400":
+          description: 请求参数错误
+        "500":
+          description: 服务器内部错误
+      summary: 星流Star-3 Alpha图生图
+      x-content-type: application/json
+      x-accepts:
+      - application/json
   /api/generate/webui/text2img/ultra:
     post:
       description: 根据提供的文本提示词和参数生成图片
@@ -30,7 +55,7 @@ paths:
           description: 请求参数错误
         "500":
           description: 服务器内部错误
-      summary: 星流Star-3 Alpha图生图
+      summary: 星流Star-3 Alpha文生图
       x-content-type: application/json
       x-accepts:
       - application/json
@@ -222,6 +247,28 @@ components:
           type: number
       title: AdditionalNetwork
       type: object
+    ultraControlNet:
+      description: 构图控制
+      example:
+        controlType: pose
+        controlImage: https://liblibai-online.liblib.cloud/img/081e9f07d9bd4c2ba090efde163518f9/7c1cc38e-522c-43fe-aca9-07d420d743e.png
+      properties:
+        controlType:
+          description: 控制类型
+          enum:
+          - line
+          - depth
+          - pose
+          - IPAdapter
+          example: pose
+          type: string
+        controlImage:
+          description: 参考图可公网访问的完整URL
+          example: https://liblibai-online.liblib.cloud/img/081e9f07d9bd4c2ba090efde163518f9/7c1cc38e-522c-43fe-aca9-07d420d743e.png
+          format: uri
+          type: string
+      title: UltraControlNet
+      type: object
     controlNet:
       example:
         controlMode: 0
@@ -331,6 +378,94 @@ components:
       - APPROVED
       - REJECTED
       - FAILED
+    ImageToImageUltraRequest_generateParams:
+      example:
+        imgCount: 1
+        sourceImage: sourceImage
+        prompt: "1 girl,lotus leaf,masterpiece,best quality,finely detail,highres,8k,beautiful\
+          \ and aesthetic,no watermark"
+        steps: 20
+        controlnet:
+          controlType: pose
+          controlImage: https://liblibai-online.liblib.cloud/img/081e9f07d9bd4c2ba090efde163518f9/7c1cc38e-522c-43fe-aca9-07d420d743e.png
+      properties:
+        prompt:
+          description: 正向提示词，文本
+          example: "1 girl,lotus leaf,masterpiece,best quality,finely detail,highres,8k,beautiful\
+            \ and aesthetic,no watermark"
+          type: string
+        sourceImage:
+          description: sourceImage 参考图可公网访问的完整URL
+          type: string
+        imgCount:
+          description: 单次生图张数
+          example: 1
+          maximum: 4
+          minimum: 1
+          type: integer
+        steps:
+          default: 30
+          description: 采样步数
+          example: 20
+          type: integer
+        controlnet:
+          $ref: '#/components/schemas/ultraControlNet'
+      required:
+      - imgCount
+      - prompt
+      - sourceImage
+      type: object
+    ImageToImageUltraRequest:
+      example:
+        templateUuid: 5d7e67009b344550bc1aa6ccbfa1d7f4
+        generateParams:
+          imgCount: 1
+          sourceImage: sourceImage
+          prompt: "1 girl,lotus leaf,masterpiece,best quality,finely detail,highres,8k,beautiful\
+            \ and aesthetic,no watermark"
+          steps: 20
+          controlnet:
+            controlType: pose
+            controlImage: https://liblibai-online.liblib.cloud/img/081e9f07d9bd4c2ba090efde163518f9/7c1cc38e-522c-43fe-aca9-07d420d743e.png
+      properties:
+        templateUuid:
+          default: 5d7e67009b344550bc1aa6ccbfa1d7f4
+          description: 模板UUID
+          example: 5d7e67009b344550bc1aa6ccbfa1d7f4
+          type: string
+        generateParams:
+          $ref: '#/components/schemas/ImageToImageUltraRequest_generateParams'
+      required:
+      - generateParams
+      - templateUuid
+      title: ImageToImageUltraRequest
+      type: object
+    SubmitResponse_data:
+      example:
+        generateUuid: 123e4567-e89b-12d3-a456-426614174000
+      properties:
+        generateUuid:
+          description: 生图任务uuid，使用该uuid查询生图进度
+          example: 123e4567-e89b-12d3-a456-426614174000
+          type: string
+      type: object
+    SubmitResponse:
+      example:
+        msg: msg
+        code: 0
+        data:
+          generateUuid: 123e4567-e89b-12d3-a456-426614174000
+      properties:
+        code:
+          type: integer
+        data:
+          $ref: '#/components/schemas/SubmitResponse_data'
+        msg:
+          type: string
+      required:
+      - code
+      title: SubmitResponse
+      type: object
     TextToImageUltraRequest_generateParams_imageSize:
       description: 图片具体宽高，与aspectRatio二选一配置即可
       example:
@@ -349,28 +484,6 @@ components:
           maximum: 2048
           minimum: 512
           type: integer
-      type: object
-    UltraControlNet:
-      description: 构图控制
-      example:
-        controlType: pose
-        controlImage: https://liblibai-online.liblib.cloud/img/081e9f07d9bd4c2ba090efde163518f9/7c1cc38e-522c-43fe-aca9-07d420d743e.png
-      properties:
-        controlType:
-          description: 控制类型
-          enum:
-          - line
-          - depth
-          - pose
-          - IPAdapter
-          example: pose
-          type: string
-        controlImage:
-          description: 参考图可公网访问的完整URL
-          example: https://liblibai-online.liblib.cloud/img/081e9f07d9bd4c2ba090efde163518f9/7c1cc38e-522c-43fe-aca9-07d420d743e.png
-          format: uri
-          type: string
-      title: UltraControlNet
       type: object
     TextToImageUltraRequest_generateParams:
       example:
@@ -402,17 +515,19 @@ components:
         imageSize:
           $ref: '#/components/schemas/TextToImageUltraRequest_generateParams_imageSize'
         imgCount:
+          default: 1
           description: 单次生图张数
           example: 1
           maximum: 4
           minimum: 1
           type: integer
         steps:
+          default: 30
           description: 采样步数
           example: 20
           type: integer
         controlnet:
-          $ref: '#/components/schemas/UltraControlNet'
+          $ref: '#/components/schemas/ultraControlNet'
       required:
       - imgCount
       - prompt
@@ -444,32 +559,6 @@ components:
       - generateParams
       - templateUuid
       title: TextToImageUltraRequest
-      type: object
-    SubmitResponse_data:
-      example:
-        generateUuid: 123e4567-e89b-12d3-a456-426614174000
-      properties:
-        generateUuid:
-          description: 生图任务uuid，使用该uuid查询生图进度
-          example: 123e4567-e89b-12d3-a456-426614174000
-          type: string
-      type: object
-    SubmitResponse:
-      example:
-        msg: msg
-        code: 0
-        data:
-          generateUuid: 123e4567-e89b-12d3-a456-426614174000
-      properties:
-        code:
-          type: integer
-        data:
-          $ref: '#/components/schemas/SubmitResponse_data'
-        msg:
-          type: string
-      required:
-      - code
-      title: SubmitResponse
       type: object
     StatusRequest:
       description: 生图任务uuid，发起生图任务时返回该字段
@@ -790,6 +879,7 @@ components:
           example: 15
           type: integer
         steps:
+          default: 20
           description: 采样步数
           example: 20
           type: integer
@@ -806,6 +896,7 @@ components:
           example: 1024
           type: integer
         imgCount:
+          default: 1
           description: 图片数量
           example: 1
           type: integer
@@ -989,6 +1080,7 @@ components:
           example: 15
           type: integer
         steps:
+          default: 20
           description: 采样步数
           example: 20
           type: integer
@@ -1005,10 +1097,12 @@ components:
           example: -1
           type: integer
         imgCount:
+          default: 1
           description: 图片数量，1到4
           example: 1
           type: integer
         restoreFaces:
+          default: 0
           description: 面部修复，0关闭，1开启
           example: 0
           type: integer

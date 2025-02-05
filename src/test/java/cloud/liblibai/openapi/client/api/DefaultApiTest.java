@@ -21,6 +21,7 @@ import cloud.liblibai.openapi.client.model.GetModelVersion400Response;
 import cloud.liblibai.openapi.client.model.GetModelVersion404Response;
 import cloud.liblibai.openapi.client.model.GetModelVersionRequest;
 import cloud.liblibai.openapi.client.model.ImageToImageRequest;
+import cloud.liblibai.openapi.client.model.ImageToImageUltraRequest;
 import cloud.liblibai.openapi.client.model.StatusRequest;
 import cloud.liblibai.openapi.client.model.StatusResponse;
 import cloud.liblibai.openapi.client.model.SubmitComfyResponse;
@@ -115,6 +116,20 @@ public class DefaultApiTest {
     }
 
     /**
+     * 星流Star-3 Alpha图生图
+     *
+     * 根据提供的文本提示词和参数生成图片
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void submitImageToImageUltraTest() throws ApiException {
+        ImageToImageUltraRequest imageToImageUltraRequest = null;
+        SubmitResponse response = api.submitImageToImageUltra(imageToImageUltraRequest);
+        // TODO: test validations
+    }
+
+    /**
      * 提交文生图任务
      *
      * 提交文生图任务，生成图片
@@ -129,7 +144,7 @@ public class DefaultApiTest {
     }
 
     /**
-     * 星流Star-3 Alpha图生图
+     * 星流Star-3 Alpha文生图
      *
      * 根据提供的文本提示词和参数生成图片
      *

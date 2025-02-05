@@ -1,6 +1,6 @@
 
 
-# SubmitTextToImageUltraTaskRequest
+# ImageToImageUltraRequest
 
 
 ## Properties
@@ -8,7 +8,7 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**templateUuid** | **String** | 模板UUID |  |
-|**generateParams** | [**SubmitTextToImageUltraTaskRequestGenerateParams**](SubmitTextToImageUltraTaskRequestGenerateParams.md) |  |  |
+|**generateParams** | [**ImageToImageUltraRequestGenerateParams**](ImageToImageUltraRequestGenerateParams.md) |  |  |
 
 
 

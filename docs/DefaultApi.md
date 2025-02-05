@@ -9,8 +9,9 @@ All URIs are relative to *https://openapi.liblibai.cloud*
 | [**getStatus**](DefaultApi.md#getStatus) | **POST** /api/generate/webui/status | 查询生图任务状态 |
 | [**submitComfyTask**](DefaultApi.md#submitComfyTask) | **POST** /api/generate/comfyui/app | 提交 ComfyUI 工作流生图任务 |
 | [**submitImageToImage**](DefaultApi.md#submitImageToImage) | **POST** /api/generate/webui/img2img | 提交图生图任务 |
+| [**submitImageToImageUltra**](DefaultApi.md#submitImageToImageUltra) | **POST** /api/generate/webui/img2img/ultra | 星流Star-3 Alpha图生图 |
 | [**submitTextToImage**](DefaultApi.md#submitTextToImage) | **POST** /api/generate/webui/text2img | 提交文生图任务 |
-| [**submitTextToImageUltra**](DefaultApi.md#submitTextToImageUltra) | **POST** /api/generate/webui/text2img/ultra | 星流Star-3 Alpha图生图 |
+| [**submitTextToImageUltra**](DefaultApi.md#submitTextToImageUltra) | **POST** /api/generate/webui/text2img/ultra | 星流Star-3 Alpha文生图 |
 
 
 <a id="getComfyStatus"></a>
@@ -368,6 +369,77 @@ public class Example {
 | **400** | 请求参数错误 |  -  |
 | **500** | 服务器内部错误 |  -  |
 
+<a id="submitImageToImageUltra"></a>
+# **submitImageToImageUltra**
+> SubmitResponse submitImageToImageUltra(imageToImageUltraRequest)
+
+星流Star-3 Alpha图生图
+
+根据提供的文本提示词和参数生成图片
+
+### Example
+```java
+// Import classes:
+import cloud.liblibai.openapi.client.ApiClient;
+import cloud.liblibai.openapi.client.ApiException;
+import cloud.liblibai.openapi.client.Configuration;
+import cloud.liblibai.openapi.client.auth.*;
+import cloud.liblibai.openapi.client.models.*;
+import cloud.liblibai.openapi.client.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://openapi.liblibai.cloud");
+    
+    // Configure API key authorization: ApiKeyAuth
+    ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+    ApiKeyAuth.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ApiKeyAuth.setApiKeyPrefix("Token");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    ImageToImageUltraRequest imageToImageUltraRequest = new ImageToImageUltraRequest(); // ImageToImageUltraRequest | 生图请求参数
+    try {
+      SubmitResponse result = apiInstance.submitImageToImageUltra(imageToImageUltraRequest);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#submitImageToImageUltra");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **imageToImageUltraRequest** | [**ImageToImageUltraRequest**](ImageToImageUltraRequest.md)| 生图请求参数 | [optional] |
+
+### Return type
+
+[**SubmitResponse**](SubmitResponse.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 成功 |  -  |
+| **400** | 请求参数错误 |  -  |
+| **500** | 服务器内部错误 |  -  |
+
 <a id="submitTextToImage"></a>
 # **submitTextToImage**
 > SubmitResponse submitTextToImage(textToImageRequest)
@@ -443,7 +515,7 @@ public class Example {
 # **submitTextToImageUltra**
 > SubmitResponse submitTextToImageUltra(textToImageUltraRequest)
 
-星流Star-3 Alpha图生图
+星流Star-3 Alpha文生图
 
 根据提供的文本提示词和参数生成图片
 
