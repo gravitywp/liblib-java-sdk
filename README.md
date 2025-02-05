@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>cloud.liblibai.openapi</groupId>
   <artifactId>java-sdk</artifactId>
-  <version>0.0.2</version>
+  <version>0.0.3</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -57,7 +57,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "cloud.liblibai.openai:java-sdk:0.0.2"
+     implementation "cloud.liblibai.openai:java-sdk:0.0.3"
   }
 ```
 
@@ -131,7 +131,7 @@ Class | Method                                                                  
 *DefaultApi* | [**submitImageToImage**](docs/DefaultApi.md#submitImageToImage)           | **POST** /api/generate/webui/img2img        | 提交图生图任务
 *DefaultApi* | [**submitTextToImage**](docs/DefaultApi.md#submitTextToImage)             | **POST** /api/generate/webui/text2img       | 提交文生图任务
 *DefaultApi* | [**submitTextToImageUltra**](docs/DefaultApi.md#submitTextToImageUltra)   | **POST** /api/generate/webui/text2img/ultra | 星流Star-3 Alpha 文生图
-*DefaultApi* | [**submitImageToImageUltra**](docs/DefaultApi.md#submitImageToImageUltra) | **POST** /api/generate/webui/img2img/ultra  | 星流Star-3 Alpha 文生图
+*DefaultApi* | [**submitImageToImageUltra**](docs/DefaultApi.md#submitImageToImageUltra) | **POST** /api/generate/webui/img2img/ultra  | 星流Star-3 Alpha 图生图
 
 
 ## Documentation for Models

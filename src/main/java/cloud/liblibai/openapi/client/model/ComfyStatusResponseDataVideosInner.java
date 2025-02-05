@@ -49,7 +49,7 @@ import cloud.liblibai.openapi.client.JSON;
 /**
  * ComfyStatusResponseDataVideosInner
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-05T17:51:55.821090821+08:00[Asia/Shanghai]", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-05T18:03:35.942947793+08:00[Asia/Shanghai]", comments = "Generator version: 7.10.0")
 public class ComfyStatusResponseDataVideosInner {
   public static final String SERIALIZED_NAME_VIDEO_URL = "videoUrl";
   @SerializedName(SERIALIZED_NAME_VIDEO_URL)
