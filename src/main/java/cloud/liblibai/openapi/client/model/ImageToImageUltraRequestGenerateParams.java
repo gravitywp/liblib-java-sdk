@@ -49,7 +49,7 @@ import cloud.liblibai.openapi.client.JSON;
 /**
  * ImageToImageUltraRequestGenerateParams
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-05T21:38:54.733388492+08:00[Asia/Shanghai]", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-05T21:42:40.217487717+08:00[Asia/Shanghai]", comments = "Generator version: 7.10.0")
 public class ImageToImageUltraRequestGenerateParams {
   public static final String SERIALIZED_NAME_PROMPT = "prompt";
   @SerializedName(SERIALIZED_NAME_PROMPT)
