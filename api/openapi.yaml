@@ -241,6 +241,7 @@ components:
         maskImage: ""
       properties:
         unitOrder:
+          default: 1
           description: 执行顺序
           example: 1
           type: integer
@@ -249,10 +250,12 @@ components:
           example: https://liblibai-online.liblib.cloud/img/081e9f07d9bd4c2ba090efde163518f9/7c1cc38e-522c-43fe-aca9-07d5420d743e.png
           type: string
         width:
+          default: 1024
           description: 参考图宽度
           example: 1024
           type: integer
         height:
+          default: 1024
           description: 参考图高度
           example: 1536
           type: integer

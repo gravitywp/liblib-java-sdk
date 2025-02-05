@@ -50,12 +50,12 @@ import cloud.liblibai.openapi.client.JSON;
 /**
  * ControlNet
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-05T10:35:03.709715792+08:00[Asia/Shanghai]", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-05T14:39:32.920896149+08:00[Asia/Shanghai]", comments = "Generator version: 7.10.0")
 public class ControlNet {
   public static final String SERIALIZED_NAME_UNIT_ORDER = "unitOrder";
   @SerializedName(SERIALIZED_NAME_UNIT_ORDER)
   @javax.annotation.Nullable
-  private Integer unitOrder;
+  private Integer unitOrder = 1;
 
   public static final String SERIALIZED_NAME_SOURCE_IMAGE = "sourceImage";
   @SerializedName(SERIALIZED_NAME_SOURCE_IMAGE)
@@ -65,12 +65,12 @@ public class ControlNet {
   public static final String SERIALIZED_NAME_WIDTH = "width";
   @SerializedName(SERIALIZED_NAME_WIDTH)
   @javax.annotation.Nullable
-  private Integer width;
+  private Integer width = 1024;
 
   public static final String SERIALIZED_NAME_HEIGHT = "height";
   @SerializedName(SERIALIZED_NAME_HEIGHT)
   @javax.annotation.Nullable
-  private Integer height;
+  private Integer height = 1024;
 
   public static final String SERIALIZED_NAME_PREPROCESSOR = "preprocessor";
   @SerializedName(SERIALIZED_NAME_PREPROCESSOR)
