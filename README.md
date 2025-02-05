@@ -39,9 +39,9 @@ Add this dependency to your project's POM:
 
 ```xml
 <dependency>
-  <groupId>org.liblib</groupId>
-  <artifactId>liblib-java-sdk</artifactId>
-  <version>0.0.1-beta0</version>
+  <groupId>cloud.liblibai.openapi</groupId>
+  <artifactId>java-sdk</artifactId>
+  <version>0.0.1</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -57,7 +57,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "org.liblib:liblib-java-sdk:0.0.1-beta0"
+     implementation "cloud.liblibai.openai:java-sdk:0.0.1"
   }
 ```
 
@@ -76,40 +76,42 @@ Then manually install the following JARs:
 
 ## Getting Started
 
+Set LIBLIB_ACCESS_KEY and LIBLIB_SECRET_KEY enviroments, or pass AccessKey and SecretKey argument
+
 Please follow the [installation](#installation) instruction and execute the following Java code:
 
 ```java
 
-// Import classes:
-import org.liblib.openapi.client.ApiClient;
-import org.liblib.openapi.client.ApiException;
-import org.liblib.openapi.client.Configuration;
-import org.liblib.openapi.client.auth.*;
-import org.liblib.openapi.client.model.*;
-import org.liblib.openapi.client.api.DefaultApi;
+import cloud.liblibai.client.LibLib;
+import cloud.liblibai.openapi.client.ApiException;
+import cloud.liblibai.openapi.client.model.*;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://openapi.liblibai.cloud");
-    
-    // Configure API key authorization: ApiKeyAuth
-    ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
-    ApiKeyAuth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //ApiKeyAuth.setApiKeyPrefix("Token");
+  public static void main(String[] args) throws ApiException, InterruptedException {
+    LibLib api = new LibLib(); //Read LIBLIB_ACCESS_KEY and LIBLIB_SECRET_KEY from env
+    //LibLib api = new LibLib("access_key", "secret_key")
+    TextToImageRequest request = new TextToImageRequest();
+    TextToImageRequestGenerateParams params = new TextToImageRequestGenerateParams();
+    params.prompt("1 girl").imgCount(2);
+    request.generateParams(params);
+    request.templateUuid("6f7c4652458d4802969f8d089cf5b91f");
 
-    DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String body = "body_example"; // String | 查询请求参数
-    try {
-      ComfyStatusResponse result = apiInstance.getComfyStatus(body);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#getComfyStatus");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+    //NOTE(gz): 异步 SDK 调用方法
+    SubmitResponse submitResponse = api.submitTextToImage(request);
+    while(true) {
+      StatusResponse status = api.getStatus(new StatusRequest().generateUuid(submitResponse.getData().getGenerateUuid()));
+      System.out.println(status);
+      if (status.getData().getGenerateStatus() == GenerateStatus.SUCCEED) {
+        System.out.println(status.getData().getImages());
+        break;
+      }
+      Thread.sleep(5000);
+    }
+
+    //NOTE(gz): 同步 SDK 调用方法
+    StatusResponseData statusResponseData = api.textToImage(request);
+    if (statusResponseData.getGenerateStatus() == GenerateStatus.SUCCEED) {
+      System.out.println(statusResponseData.getImages());
     }
   }
 }
@@ -180,8 +182,6 @@ Authentication schemes defined for the API:
 
 
 ## Recommendation
-
-It's recommended to create an instance of `ApiClient` per thread in a multithreaded environment to avoid any potential issues.
 
 ## Author
 
