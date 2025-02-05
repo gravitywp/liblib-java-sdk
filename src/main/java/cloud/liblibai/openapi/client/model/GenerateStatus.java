@@ -39,7 +39,9 @@ public enum GenerateStatus {
   
   SUCCEED(5),
   
-  FAILED(6);
+  FAILED(6),
+  
+  TIMEOUT(7);
 
   private Integer value;
 

@@ -356,6 +356,7 @@ components:
       - 4
       - 5
       - 6
+      - 7
       type: integer
       x-enum-varnames:
       - PENDING
@@ -364,6 +365,7 @@ components:
       - APPROVING
       - SUCCEED
       - FAILED
+      - TIMEOUT
     auditStatus:
       enum:
       - 1

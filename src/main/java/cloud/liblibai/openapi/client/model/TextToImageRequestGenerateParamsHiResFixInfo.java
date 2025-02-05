@@ -48,7 +48,7 @@ import cloud.liblibai.openapi.client.JSON;
 /**
  * TextToImageRequestGenerateParamsHiResFixInfo
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-05T18:03:35.942947793+08:00[Asia/Shanghai]", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-05T21:38:54.733388492+08:00[Asia/Shanghai]", comments = "Generator version: 7.10.0")
 public class TextToImageRequestGenerateParamsHiResFixInfo {
   public static final String SERIALIZED_NAME_HIRES_STEPS = "hiresSteps";
   @SerializedName(SERIALIZED_NAME_HIRES_STEPS)

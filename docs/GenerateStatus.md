@@ -17,5 +17,7 @@
 
 * `FAILED` (value: `6`)
 
+* `TIMEOUT` (value: `7`)
+
 
 

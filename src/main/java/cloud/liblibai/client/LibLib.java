@@ -115,9 +115,8 @@ public class LibLib extends DefaultApi {
                 case APPROVING:
                     break;
                 case SUCCEED:
-                    isFinished = true;
-                    break;
                 case FAILED:
+                case TIMEOUT:
                     isFinished = true;
                     break;
                 default:
@@ -154,9 +153,8 @@ public class LibLib extends DefaultApi {
                 case APPROVING:
                     break;
                 case SUCCEED:
-                    isFinished = true;
-                    break;
                 case FAILED:
+                case TIMEOUT:
                     isFinished = true;
                     break;
                 default:
