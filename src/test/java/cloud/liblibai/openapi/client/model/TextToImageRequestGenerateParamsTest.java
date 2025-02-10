@@ -16,7 +16,6 @@ package cloud.liblibai.openapi.client.model;
 import cloud.liblibai.openapi.client.model.AdditionalNetwork;
 import cloud.liblibai.openapi.client.model.ControlNet;
 import cloud.liblibai.openapi.client.model.TextToImageRequestGenerateParamsHiResFixInfo;
-import cloud.liblibai.openapi.client.model.TextToImageRequestGenerateParamsInpaintParam;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -153,14 +152,6 @@ public class TextToImageRequestGenerateParamsTest {
     @Test
     public void hiResFixInfoTest() {
         // TODO: test hiResFixInfo
-    }
-
-    /**
-     * Test the property 'inpaintParam'
-     */
-    @Test
-    public void inpaintParamTest() {
-        // TODO: test inpaintParam
     }
 
     /**

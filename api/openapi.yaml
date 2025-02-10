@@ -763,40 +763,6 @@ components:
           example: 1536
           type: integer
       type: object
-    TextToImageRequest_generateParams_inpaintParam:
-      example:
-        inpaintArea: 0
-        inpaintingFill: 1
-        maskPadding: 32
-        maskMode: 0
-        maskBlur: 4
-        maskImage: https://liblibai-online.liblib.cloud/img/081e9f07d9bd4c2ba090efde163518f9/323fc358-618b-4c7d-b431-7d890209e5a5.png
-      properties:
-        maskImage:
-          description: 蒙版地址
-          example: https://liblibai-online.liblib.cloud/img/081e9f07d9bd4c2ba090efde163518f9/323fc358-618b-4c7d-b431-7d890209e5a5.png
-          type: string
-        maskBlur:
-          description: 蒙版模糊度
-          example: 4
-          type: integer
-        maskPadding:
-          description: 蒙版边缘预留像素，也称蒙版扩展量
-          example: 32
-          type: integer
-        maskMode:
-          description: 蒙版模式
-          example: 0
-          type: integer
-        inpaintArea:
-          description: "重绘区域, 0重绘全图，1仅重绘蒙版区域"
-          example: 0
-          type: integer
-        inpaintingFill:
-          description: 蒙版内容的填充模式
-          example: 1
-          type: integer
-      type: object
     TextToImageRequest_generateParams:
       example:
         hiResFixInfo:
@@ -815,13 +781,6 @@ components:
         sampler: 15
         randnSource: 0
         cfgScale: 7
-        inpaintParam:
-          inpaintArea: 0
-          inpaintingFill: 1
-          maskPadding: 32
-          maskMode: 0
-          maskBlur: 4
-          maskImage: https://liblibai-online.liblib.cloud/img/081e9f07d9bd4c2ba090efde163518f9/323fc358-618b-4c7d-b431-7d890209e5a5.png
         width: 768
         additionalNetwork:
         - modelId: 31360f2f031b4ff6b589412a52713fcf
@@ -920,8 +879,6 @@ components:
           type: array
         hiResFixInfo:
           $ref: '#/components/schemas/TextToImageRequest_generateParams_hiResFixInfo'
-        inpaintParam:
-          $ref: '#/components/schemas/TextToImageRequest_generateParams_inpaintParam'
         controlNet:
           items:
             $ref: '#/components/schemas/controlNet'
@@ -947,13 +904,6 @@ components:
           sampler: 15
           randnSource: 0
           cfgScale: 7
-          inpaintParam:
-            inpaintArea: 0
-            inpaintingFill: 1
-            maskPadding: 32
-            maskMode: 0
-            maskBlur: 4
-            maskImage: https://liblibai-online.liblib.cloud/img/081e9f07d9bd4c2ba090efde163518f9/323fc358-618b-4c7d-b431-7d890209e5a5.png
           width: 768
           additionalNetwork:
           - modelId: 31360f2f031b4ff6b589412a52713fcf
@@ -1006,6 +956,41 @@ components:
       - generateParams
       title: TextToImageRequest
       type: object
+    InpaintParams:
+      example:
+        inpaintArea: 0
+        inpaintingFill: 1
+        maskPadding: 32
+        maskMode: 0
+        maskBlur: 4
+        maskImage: https://liblibai-online.liblib.cloud/img/081e9f07d9bd4c2ba090efde163518f9/323fc358-618b-4c7d-b431-7d890209e5a5.png
+      properties:
+        maskImage:
+          description: 蒙版地址
+          example: https://liblibai-online.liblib.cloud/img/081e9f07d9bd4c2ba090efde163518f9/323fc358-618b-4c7d-b431-7d890209e5a5.png
+          type: string
+        maskBlur:
+          description: 蒙版模糊度
+          example: 4
+          type: integer
+        maskPadding:
+          description: 蒙版边缘预留像素，也称蒙版扩展量
+          example: 32
+          type: integer
+        maskMode:
+          description: 蒙版模式
+          example: 0
+          type: integer
+        inpaintArea:
+          description: "重绘区域, 0重绘全图，1仅重绘蒙版区域"
+          example: 0
+          type: integer
+        inpaintingFill:
+          description: 蒙版内容的填充模式
+          example: 1
+          type: integer
+      title: InpaintParams
+      type: object
     ImageToImageRequest_generateParams:
       example:
         checkPointId: 0ea388c7eb854be3ba3c6f65aac6bfd3
@@ -1018,6 +1003,13 @@ components:
         randnSource: 0
         mode: 4
         cfgScale: 7
+        inpaintParam:
+          inpaintArea: 0
+          inpaintingFill: 1
+          maskPadding: 32
+          maskMode: 0
+          maskBlur: 4
+          maskImage: https://liblibai-online.liblib.cloud/img/081e9f07d9bd4c2ba090efde163518f9/323fc358-618b-4c7d-b431-7d890209e5a5.png
         additionalNetwork:
         - modelId: 31360f2f031b4ff6b589412a52713fcf
           weight: 0.3
@@ -1137,6 +1129,8 @@ components:
           items:
             $ref: '#/components/schemas/additionalNetwork'
           type: array
+        inpaintParam:
+          $ref: '#/components/schemas/InpaintParams'
         controlNet:
           items:
             $ref: '#/components/schemas/controlNet'
@@ -1156,6 +1150,13 @@ components:
           randnSource: 0
           mode: 4
           cfgScale: 7
+          inpaintParam:
+            inpaintArea: 0
+            inpaintingFill: 1
+            maskPadding: 32
+            maskMode: 0
+            maskBlur: 4
+            maskImage: https://liblibai-online.liblib.cloud/img/081e9f07d9bd4c2ba090efde163518f9/323fc358-618b-4c7d-b431-7d890209e5a5.png
           additionalNetwork:
           - modelId: 31360f2f031b4ff6b589412a52713fcf
             weight: 0.3

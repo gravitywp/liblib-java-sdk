@@ -46,10 +46,10 @@ import java.util.Set;
 import cloud.liblibai.openapi.client.JSON;
 
 /**
- * TextToImageRequestGenerateParamsInpaintParam
+ * InpaintParams
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-05T21:42:40.217487717+08:00[Asia/Shanghai]", comments = "Generator version: 7.10.0")
-public class TextToImageRequestGenerateParamsInpaintParam {
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-10T14:14:37.540292979+08:00[Asia/Shanghai]", comments = "Generator version: 7.10.0")
+public class InpaintParams {
   public static final String SERIALIZED_NAME_MASK_IMAGE = "maskImage";
   @SerializedName(SERIALIZED_NAME_MASK_IMAGE)
   @javax.annotation.Nullable
@@ -80,10 +80,10 @@ public class TextToImageRequestGenerateParamsInpaintParam {
   @javax.annotation.Nullable
   private Integer inpaintingFill;
 
-  public TextToImageRequestGenerateParamsInpaintParam() {
+  public InpaintParams() {
   }
 
-  public TextToImageRequestGenerateParamsInpaintParam maskImage(@javax.annotation.Nullable String maskImage) {
+  public InpaintParams maskImage(@javax.annotation.Nullable String maskImage) {
     this.maskImage = maskImage;
     return this;
   }
@@ -102,7 +102,7 @@ public class TextToImageRequestGenerateParamsInpaintParam {
   }
 
 
-  public TextToImageRequestGenerateParamsInpaintParam maskBlur(@javax.annotation.Nullable Integer maskBlur) {
+  public InpaintParams maskBlur(@javax.annotation.Nullable Integer maskBlur) {
     this.maskBlur = maskBlur;
     return this;
   }
@@ -121,7 +121,7 @@ public class TextToImageRequestGenerateParamsInpaintParam {
   }
 
 
-  public TextToImageRequestGenerateParamsInpaintParam maskPadding(@javax.annotation.Nullable Integer maskPadding) {
+  public InpaintParams maskPadding(@javax.annotation.Nullable Integer maskPadding) {
     this.maskPadding = maskPadding;
     return this;
   }
@@ -140,7 +140,7 @@ public class TextToImageRequestGenerateParamsInpaintParam {
   }
 
 
-  public TextToImageRequestGenerateParamsInpaintParam maskMode(@javax.annotation.Nullable Integer maskMode) {
+  public InpaintParams maskMode(@javax.annotation.Nullable Integer maskMode) {
     this.maskMode = maskMode;
     return this;
   }
@@ -159,7 +159,7 @@ public class TextToImageRequestGenerateParamsInpaintParam {
   }
 
 
-  public TextToImageRequestGenerateParamsInpaintParam inpaintArea(@javax.annotation.Nullable Integer inpaintArea) {
+  public InpaintParams inpaintArea(@javax.annotation.Nullable Integer inpaintArea) {
     this.inpaintArea = inpaintArea;
     return this;
   }
@@ -178,7 +178,7 @@ public class TextToImageRequestGenerateParamsInpaintParam {
   }
 
 
-  public TextToImageRequestGenerateParamsInpaintParam inpaintingFill(@javax.annotation.Nullable Integer inpaintingFill) {
+  public InpaintParams inpaintingFill(@javax.annotation.Nullable Integer inpaintingFill) {
     this.inpaintingFill = inpaintingFill;
     return this;
   }
@@ -206,13 +206,13 @@ public class TextToImageRequestGenerateParamsInpaintParam {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TextToImageRequestGenerateParamsInpaintParam textToImageRequestGenerateParamsInpaintParam = (TextToImageRequestGenerateParamsInpaintParam) o;
-    return Objects.equals(this.maskImage, textToImageRequestGenerateParamsInpaintParam.maskImage) &&
-        Objects.equals(this.maskBlur, textToImageRequestGenerateParamsInpaintParam.maskBlur) &&
-        Objects.equals(this.maskPadding, textToImageRequestGenerateParamsInpaintParam.maskPadding) &&
-        Objects.equals(this.maskMode, textToImageRequestGenerateParamsInpaintParam.maskMode) &&
-        Objects.equals(this.inpaintArea, textToImageRequestGenerateParamsInpaintParam.inpaintArea) &&
-        Objects.equals(this.inpaintingFill, textToImageRequestGenerateParamsInpaintParam.inpaintingFill);
+    InpaintParams inpaintParams = (InpaintParams) o;
+    return Objects.equals(this.maskImage, inpaintParams.maskImage) &&
+        Objects.equals(this.maskBlur, inpaintParams.maskBlur) &&
+        Objects.equals(this.maskPadding, inpaintParams.maskPadding) &&
+        Objects.equals(this.maskMode, inpaintParams.maskMode) &&
+        Objects.equals(this.inpaintArea, inpaintParams.inpaintArea) &&
+        Objects.equals(this.inpaintingFill, inpaintParams.inpaintingFill);
   }
 
   @Override
@@ -223,7 +223,7 @@ public class TextToImageRequestGenerateParamsInpaintParam {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class TextToImageRequestGenerateParamsInpaintParam {\n");
+    sb.append("class InpaintParams {\n");
     sb.append("    maskImage: ").append(toIndentedString(maskImage)).append("\n");
     sb.append("    maskBlur: ").append(toIndentedString(maskBlur)).append("\n");
     sb.append("    maskPadding: ").append(toIndentedString(maskPadding)).append("\n");
@@ -267,20 +267,20 @@ public class TextToImageRequestGenerateParamsInpaintParam {
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to TextToImageRequestGenerateParamsInpaintParam
+   * @throws IOException if the JSON Element is invalid with respect to InpaintParams
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!TextToImageRequestGenerateParamsInpaintParam.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in TextToImageRequestGenerateParamsInpaintParam is not found in the empty JSON string", TextToImageRequestGenerateParamsInpaintParam.openapiRequiredFields.toString()));
+        if (!InpaintParams.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in InpaintParams is not found in the empty JSON string", InpaintParams.openapiRequiredFields.toString()));
         }
       }
 
       Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!TextToImageRequestGenerateParamsInpaintParam.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TextToImageRequestGenerateParamsInpaintParam` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+        if (!InpaintParams.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `InpaintParams` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
@@ -293,22 +293,22 @@ public class TextToImageRequestGenerateParamsInpaintParam {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!TextToImageRequestGenerateParamsInpaintParam.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'TextToImageRequestGenerateParamsInpaintParam' and its subtypes
+       if (!InpaintParams.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'InpaintParams' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<TextToImageRequestGenerateParamsInpaintParam> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(TextToImageRequestGenerateParamsInpaintParam.class));
+       final TypeAdapter<InpaintParams> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(InpaintParams.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<TextToImageRequestGenerateParamsInpaintParam>() {
+       return (TypeAdapter<T>) new TypeAdapter<InpaintParams>() {
            @Override
-           public void write(JsonWriter out, TextToImageRequestGenerateParamsInpaintParam value) throws IOException {
+           public void write(JsonWriter out, InpaintParams value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public TextToImageRequestGenerateParamsInpaintParam read(JsonReader in) throws IOException {
+           public InpaintParams read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              return thisAdapter.fromJsonTree(jsonElement);
@@ -319,18 +319,18 @@ public class TextToImageRequestGenerateParamsInpaintParam {
   }
 
   /**
-   * Create an instance of TextToImageRequestGenerateParamsInpaintParam given an JSON string
+   * Create an instance of InpaintParams given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of TextToImageRequestGenerateParamsInpaintParam
-   * @throws IOException if the JSON string is invalid with respect to TextToImageRequestGenerateParamsInpaintParam
+   * @return An instance of InpaintParams
+   * @throws IOException if the JSON string is invalid with respect to InpaintParams
    */
-  public static TextToImageRequestGenerateParamsInpaintParam fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, TextToImageRequestGenerateParamsInpaintParam.class);
+  public static InpaintParams fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, InpaintParams.class);
   }
 
   /**
-   * Convert an instance of TextToImageRequestGenerateParamsInpaintParam to an JSON string
+   * Convert an instance of InpaintParams to an JSON string
    *
    * @return JSON string
    */

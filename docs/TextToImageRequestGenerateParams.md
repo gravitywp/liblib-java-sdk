@@ -21,7 +21,6 @@
 |**restoreFaces** | **Integer** | 面部修复，0关闭，1开启 |  [optional] |
 |**additionalNetwork** | [**List&lt;AdditionalNetwork&gt;**](AdditionalNetwork.md) |  |  [optional] |
 |**hiResFixInfo** | [**TextToImageRequestGenerateParamsHiResFixInfo**](TextToImageRequestGenerateParamsHiResFixInfo.md) |  |  [optional] |
-|**inpaintParam** | [**TextToImageRequestGenerateParamsInpaintParam**](TextToImageRequestGenerateParamsInpaintParam.md) |  |  [optional] |
 |**controlNet** | [**List&lt;ControlNet&gt;**](ControlNet.md) |  |  [optional] |
 
 

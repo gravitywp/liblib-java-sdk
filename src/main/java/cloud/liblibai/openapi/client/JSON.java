@@ -109,6 +109,7 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new cloud.liblibai.openapi.client.model.ImageToImageRequestGenerateParams.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new cloud.liblibai.openapi.client.model.ImageToImageUltraRequest.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new cloud.liblibai.openapi.client.model.ImageToImageUltraRequestGenerateParams.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new cloud.liblibai.openapi.client.model.InpaintParams.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new cloud.liblibai.openapi.client.model.NodeImage.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new cloud.liblibai.openapi.client.model.StatusRequest.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new cloud.liblibai.openapi.client.model.StatusResponse.CustomTypeAdapterFactory());
@@ -120,7 +121,6 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new cloud.liblibai.openapi.client.model.TextToImageRequest.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new cloud.liblibai.openapi.client.model.TextToImageRequestGenerateParams.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new cloud.liblibai.openapi.client.model.TextToImageRequestGenerateParamsHiResFixInfo.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new cloud.liblibai.openapi.client.model.TextToImageRequestGenerateParamsInpaintParam.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new cloud.liblibai.openapi.client.model.TextToImageUltraRequest.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new cloud.liblibai.openapi.client.model.TextToImageUltraRequestGenerateParams.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new cloud.liblibai.openapi.client.model.TextToImageUltraRequestGenerateParamsImageSize.CustomTypeAdapterFactory());

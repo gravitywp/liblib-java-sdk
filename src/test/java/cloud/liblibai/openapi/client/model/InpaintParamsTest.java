@@ -24,17 +24,17 @@ import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
- * Model tests for TextToImageRequestGenerateParamsInpaintParam
+ * Model tests for InpaintParams
  */
-public class TextToImageRequestGenerateParamsInpaintParamTest {
-    private final TextToImageRequestGenerateParamsInpaintParam model = new TextToImageRequestGenerateParamsInpaintParam();
+public class InpaintParamsTest {
+    private final InpaintParams model = new InpaintParams();
 
     /**
-     * Model tests for TextToImageRequestGenerateParamsInpaintParam
+     * Model tests for InpaintParams
      */
     @Test
-    public void testTextToImageRequestGenerateParamsInpaintParam() {
-        // TODO: test TextToImageRequestGenerateParamsInpaintParam
+    public void testInpaintParams() {
+        // TODO: test InpaintParams
     }
 
     /**

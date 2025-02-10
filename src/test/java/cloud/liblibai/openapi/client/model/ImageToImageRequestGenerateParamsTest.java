@@ -15,6 +15,7 @@ package cloud.liblibai.openapi.client.model;
 
 import cloud.liblibai.openapi.client.model.AdditionalNetwork;
 import cloud.liblibai.openapi.client.model.ControlNet;
+import cloud.liblibai.openapi.client.model.InpaintParams;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -183,6 +184,14 @@ public class ImageToImageRequestGenerateParamsTest {
     @Test
     public void additionalNetworkTest() {
         // TODO: test additionalNetwork
+    }
+
+    /**
+     * Test the property 'inpaintParam'
+     */
+    @Test
+    public void inpaintParamTest() {
+        // TODO: test inpaintParam
     }
 
     /**

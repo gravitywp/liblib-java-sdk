@@ -547,33 +547,6 @@ paths:
                           type: integer
                           description: 放大后的高度
                           example: 1536
-                    inpaintParam:
-                      type: object
-                      properties:
-                        maskImage:
-                          type: string
-                          description: 蒙版地址
-                          example: "https://liblibai-online.liblib.cloud/img/081e9f07d9bd4c2ba090efde163518f9/323fc358-618b-4c7d-b431-7d890209e5a5.png"
-                        maskBlur:
-                          type: integer
-                          description: 蒙版模糊度
-                          example: 4
-                        maskPadding:
-                          type: integer
-                          description: 蒙版边缘预留像素，也称蒙版扩展量
-                          example: 32
-                        maskMode:
-                          type: integer
-                          description: 蒙版模式
-                          example: 0
-                        inpaintArea:
-                          type: integer
-                          description: 重绘区域, 0重绘全图，1仅重绘蒙版区域
-                          example: 0
-                        inpaintingFill:
-                          type: integer
-                          description: 蒙版内容的填充模式
-                          example: 1
                     controlNet:
                       type: array
                       items:
@@ -683,6 +656,34 @@ paths:
                       type: array
                       items:
                         $ref: '#/components/schemas/additionalNetwork'
+                    inpaintParam:
+                      title: InpaintParams
+                      type: object
+                      properties:
+                        maskImage:
+                          type: string
+                          description: 蒙版地址
+                          example: "https://liblibai-online.liblib.cloud/img/081e9f07d9bd4c2ba090efde163518f9/323fc358-618b-4c7d-b431-7d890209e5a5.png"
+                        maskBlur:
+                          type: integer
+                          description: 蒙版模糊度
+                          example: 4
+                        maskPadding:
+                          type: integer
+                          description: 蒙版边缘预留像素，也称蒙版扩展量
+                          example: 32
+                        maskMode:
+                          type: integer
+                          description: 蒙版模式
+                          example: 0
+                        inpaintArea:
+                          type: integer
+                          description: 重绘区域, 0重绘全图，1仅重绘蒙版区域
+                          example: 0
+                        inpaintingFill:
+                          type: integer
+                          description: 蒙版内容的填充模式
+                          example: 1
                     controlNet:
                       type: array
                       items:

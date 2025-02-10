@@ -16,6 +16,7 @@ package cloud.liblibai.openapi.client.model;
 import java.util.Objects;
 import cloud.liblibai.openapi.client.model.AdditionalNetwork;
 import cloud.liblibai.openapi.client.model.ControlNet;
+import cloud.liblibai.openapi.client.model.InpaintParams;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -52,7 +53,7 @@ import cloud.liblibai.openapi.client.JSON;
 /**
  * ImageToImageRequestGenerateParams
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-05T21:42:40.217487717+08:00[Asia/Shanghai]", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-10T14:14:37.540292979+08:00[Asia/Shanghai]", comments = "Generator version: 7.10.0")
 public class ImageToImageRequestGenerateParams {
   public static final String SERIALIZED_NAME_CHECK_POINT_ID = "checkPointId";
   @SerializedName(SERIALIZED_NAME_CHECK_POINT_ID)
@@ -143,6 +144,11 @@ public class ImageToImageRequestGenerateParams {
   @SerializedName(SERIALIZED_NAME_ADDITIONAL_NETWORK)
   @javax.annotation.Nullable
   private List<AdditionalNetwork> additionalNetwork;
+
+  public static final String SERIALIZED_NAME_INPAINT_PARAM = "inpaintParam";
+  @SerializedName(SERIALIZED_NAME_INPAINT_PARAM)
+  @javax.annotation.Nullable
+  private InpaintParams inpaintParam;
 
   public static final String SERIALIZED_NAME_CONTROL_NET = "controlNet";
   @SerializedName(SERIALIZED_NAME_CONTROL_NET)
@@ -502,6 +508,25 @@ public class ImageToImageRequestGenerateParams {
   }
 
 
+  public ImageToImageRequestGenerateParams inpaintParam(@javax.annotation.Nullable InpaintParams inpaintParam) {
+    this.inpaintParam = inpaintParam;
+    return this;
+  }
+
+  /**
+   * Get inpaintParam
+   * @return inpaintParam
+   */
+  @javax.annotation.Nullable
+  public InpaintParams getInpaintParam() {
+    return inpaintParam;
+  }
+
+  public void setInpaintParam(@javax.annotation.Nullable InpaintParams inpaintParam) {
+    this.inpaintParam = inpaintParam;
+  }
+
+
   public ImageToImageRequestGenerateParams controlNet(@javax.annotation.Nullable List<ControlNet> controlNet) {
     this.controlNet = controlNet;
     return this;
@@ -557,12 +582,13 @@ public class ImageToImageRequestGenerateParams {
         Objects.equals(this.mode, imageToImageRequestGenerateParams.mode) &&
         Objects.equals(this.denoisingStrength, imageToImageRequestGenerateParams.denoisingStrength) &&
         Objects.equals(this.additionalNetwork, imageToImageRequestGenerateParams.additionalNetwork) &&
+        Objects.equals(this.inpaintParam, imageToImageRequestGenerateParams.inpaintParam) &&
         Objects.equals(this.controlNet, imageToImageRequestGenerateParams.controlNet);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(checkPointId, prompt, negativePrompt, clipSkip, sampler, steps, cfgScale, randnSource, seed, imgCount, restoreFaces, sourceImage, resizeMode, resizedWidth, resizedHeight, mode, denoisingStrength, additionalNetwork, controlNet);
+    return Objects.hash(checkPointId, prompt, negativePrompt, clipSkip, sampler, steps, cfgScale, randnSource, seed, imgCount, restoreFaces, sourceImage, resizeMode, resizedWidth, resizedHeight, mode, denoisingStrength, additionalNetwork, inpaintParam, controlNet);
   }
 
   @Override
@@ -587,6 +613,7 @@ public class ImageToImageRequestGenerateParams {
     sb.append("    mode: ").append(toIndentedString(mode)).append("\n");
     sb.append("    denoisingStrength: ").append(toIndentedString(denoisingStrength)).append("\n");
     sb.append("    additionalNetwork: ").append(toIndentedString(additionalNetwork)).append("\n");
+    sb.append("    inpaintParam: ").append(toIndentedString(inpaintParam)).append("\n");
     sb.append("    controlNet: ").append(toIndentedString(controlNet)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -628,6 +655,7 @@ public class ImageToImageRequestGenerateParams {
     openapiFields.add("mode");
     openapiFields.add("denoisingStrength");
     openapiFields.add("additionalNetwork");
+    openapiFields.add("inpaintParam");
     openapiFields.add("controlNet");
 
     // a set of required properties/fields (JSON key names)
@@ -680,6 +708,10 @@ public class ImageToImageRequestGenerateParams {
             AdditionalNetwork.validateJsonElement(jsonArrayadditionalNetwork.get(i));
           };
         }
+      }
+      // validate the optional field `inpaintParam`
+      if (jsonObj.get("inpaintParam") != null && !jsonObj.get("inpaintParam").isJsonNull()) {
+        InpaintParams.validateJsonElement(jsonObj.get("inpaintParam"));
       }
       if (jsonObj.get("controlNet") != null && !jsonObj.get("controlNet").isJsonNull()) {
         JsonArray jsonArraycontrolNet = jsonObj.getAsJsonArray("controlNet");

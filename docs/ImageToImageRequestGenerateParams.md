@@ -25,6 +25,7 @@
 |**mode** | **Integer** | 0图生图，4局部重绘 |  [optional] |
 |**denoisingStrength** | **Float** | 重绘幅度 |  [optional] |
 |**additionalNetwork** | [**List&lt;AdditionalNetwork&gt;**](AdditionalNetwork.md) |  |  [optional] |
+|**inpaintParam** | [**InpaintParams**](InpaintParams.md) |  |  [optional] |
 |**controlNet** | [**List&lt;ControlNet&gt;**](ControlNet.md) |  |  [optional] |
 
 

@@ -17,7 +17,6 @@ import java.util.Objects;
 import cloud.liblibai.openapi.client.model.AdditionalNetwork;
 import cloud.liblibai.openapi.client.model.ControlNet;
 import cloud.liblibai.openapi.client.model.TextToImageRequestGenerateParamsHiResFixInfo;
-import cloud.liblibai.openapi.client.model.TextToImageRequestGenerateParamsInpaintParam;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -54,7 +53,7 @@ import cloud.liblibai.openapi.client.JSON;
 /**
  * TextToImageRequestGenerateParams
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-05T21:42:40.217487717+08:00[Asia/Shanghai]", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-10T14:14:37.540292979+08:00[Asia/Shanghai]", comments = "Generator version: 7.10.0")
 public class TextToImageRequestGenerateParams {
   public static final String SERIALIZED_NAME_CHECK_POINT_ID = "checkPointId";
   @SerializedName(SERIALIZED_NAME_CHECK_POINT_ID)
@@ -125,11 +124,6 @@ public class TextToImageRequestGenerateParams {
   @SerializedName(SERIALIZED_NAME_HI_RES_FIX_INFO)
   @javax.annotation.Nullable
   private TextToImageRequestGenerateParamsHiResFixInfo hiResFixInfo;
-
-  public static final String SERIALIZED_NAME_INPAINT_PARAM = "inpaintParam";
-  @SerializedName(SERIALIZED_NAME_INPAINT_PARAM)
-  @javax.annotation.Nullable
-  private TextToImageRequestGenerateParamsInpaintParam inpaintParam;
 
   public static final String SERIALIZED_NAME_CONTROL_NET = "controlNet";
   @SerializedName(SERIALIZED_NAME_CONTROL_NET)
@@ -413,25 +407,6 @@ public class TextToImageRequestGenerateParams {
   }
 
 
-  public TextToImageRequestGenerateParams inpaintParam(@javax.annotation.Nullable TextToImageRequestGenerateParamsInpaintParam inpaintParam) {
-    this.inpaintParam = inpaintParam;
-    return this;
-  }
-
-  /**
-   * Get inpaintParam
-   * @return inpaintParam
-   */
-  @javax.annotation.Nullable
-  public TextToImageRequestGenerateParamsInpaintParam getInpaintParam() {
-    return inpaintParam;
-  }
-
-  public void setInpaintParam(@javax.annotation.Nullable TextToImageRequestGenerateParamsInpaintParam inpaintParam) {
-    this.inpaintParam = inpaintParam;
-  }
-
-
   public TextToImageRequestGenerateParams controlNet(@javax.annotation.Nullable List<ControlNet> controlNet) {
     this.controlNet = controlNet;
     return this;
@@ -483,13 +458,12 @@ public class TextToImageRequestGenerateParams {
         Objects.equals(this.restoreFaces, textToImageRequestGenerateParams.restoreFaces) &&
         Objects.equals(this.additionalNetwork, textToImageRequestGenerateParams.additionalNetwork) &&
         Objects.equals(this.hiResFixInfo, textToImageRequestGenerateParams.hiResFixInfo) &&
-        Objects.equals(this.inpaintParam, textToImageRequestGenerateParams.inpaintParam) &&
         Objects.equals(this.controlNet, textToImageRequestGenerateParams.controlNet);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(checkPointId, prompt, negativePrompt, sampler, steps, cfgScale, width, height, imgCount, randnSource, seed, restoreFaces, additionalNetwork, hiResFixInfo, inpaintParam, controlNet);
+    return Objects.hash(checkPointId, prompt, negativePrompt, sampler, steps, cfgScale, width, height, imgCount, randnSource, seed, restoreFaces, additionalNetwork, hiResFixInfo, controlNet);
   }
 
   @Override
@@ -510,7 +484,6 @@ public class TextToImageRequestGenerateParams {
     sb.append("    restoreFaces: ").append(toIndentedString(restoreFaces)).append("\n");
     sb.append("    additionalNetwork: ").append(toIndentedString(additionalNetwork)).append("\n");
     sb.append("    hiResFixInfo: ").append(toIndentedString(hiResFixInfo)).append("\n");
-    sb.append("    inpaintParam: ").append(toIndentedString(inpaintParam)).append("\n");
     sb.append("    controlNet: ").append(toIndentedString(controlNet)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -548,7 +521,6 @@ public class TextToImageRequestGenerateParams {
     openapiFields.add("restoreFaces");
     openapiFields.add("additionalNetwork");
     openapiFields.add("hiResFixInfo");
-    openapiFields.add("inpaintParam");
     openapiFields.add("controlNet");
 
     // a set of required properties/fields (JSON key names)
@@ -602,10 +574,6 @@ public class TextToImageRequestGenerateParams {
       // validate the optional field `hiResFixInfo`
       if (jsonObj.get("hiResFixInfo") != null && !jsonObj.get("hiResFixInfo").isJsonNull()) {
         TextToImageRequestGenerateParamsHiResFixInfo.validateJsonElement(jsonObj.get("hiResFixInfo"));
-      }
-      // validate the optional field `inpaintParam`
-      if (jsonObj.get("inpaintParam") != null && !jsonObj.get("inpaintParam").isJsonNull()) {
-        TextToImageRequestGenerateParamsInpaintParam.validateJsonElement(jsonObj.get("inpaintParam"));
       }
       if (jsonObj.get("controlNet") != null && !jsonObj.get("controlNet").isJsonNull()) {
         JsonArray jsonArraycontrolNet = jsonObj.getAsJsonArray("controlNet");
