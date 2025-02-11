@@ -139,6 +139,14 @@ components:
         - SUCCEED
         - FAILED
         - TIMEOUT
+    commercialUseEnum:
+      type: string
+      description: 可商用标识，可商用为1，不可商用为0
+      example: "1"
+      enum: [ 0,1 ]
+      x-enum-varnames:
+        - NoCommercialUse
+        - CommercialUse
     auditStatus:
       type: integer
       enum: [ 1,2,3,4,5 ]
@@ -395,37 +403,47 @@ paths:
           content:
             application/json:
               schema:
+
                 type: object
                 title: VersionResponse
                 properties:
-                  version_uuid:
+                  code:
+                    type: integer
+                  msg:
                     type: string
-                    description: LiblibAI官网模型链接后缀
-                    example: 21df5d84cca74f7a885ba672b5a80d19
-                  model_name:
-                    type: string
-                    description: 模型名称
-                    example: AWPortrait XL
-                  version_name:
-                    type: string
-                    description: 版本名称
-                    example: 1.1
-                  baseAlgo:
-                    type: string
-                    description: 基础算法
-                    example: 基础算法 XL
-                  show_type:
-                    type: string
-                    description: 公开可用的模型标识
-                    example: "1"
-                  commercial_use:
-                    type: string
-                    description: 可商用标识，可商用为1，不可商用为0
-                    example: "1"
-                  model_url:
-                    type: string
-                    description: 模型链接
-                    example: "https://www.liblib.art/modelinfo/f8b990b20cb943e3aa0e96f34099d794?versionUuid=21df5d84cca74f7a885ba672b5a80d19"
+                  data:
+                    type: object
+                    properties:
+                      versionUuid:
+                        type: string
+                        description: LiblibAI官网模型链接后缀
+                        example: 21df5d84cca74f7a885ba672b5a80d19
+                      modelName:
+                        type: string
+                        description: 模型名称
+                        example: AWPortrait XL
+                      versionName:
+                        type: string
+                        description: 版本名称
+                        example: 1.1
+                      baseAlgo:
+                        type: string
+                        description: 基础算法
+                        example: 基础算法 XL
+                      baseAlgoName:
+                        type: string
+                        description: 算法名称
+                        example: 基础算法 XL
+                      showType:
+                        type: string
+                        description: 公开可用的模型标识
+                        example: "1"
+                      commercialUse:
+                        $ref: '#/components/schemas/commercialUseEnum'
+                      modelUrl:
+                        type: string
+                        description: 模型链接
+                        example: "https://www.liblib.art/modelinfo/f8b990b20cb943e3aa0e96f34099d794?versionUuid=21df5d84cca74f7a885ba672b5a80d19"
         '404':
           description: 未找到模型
           content:

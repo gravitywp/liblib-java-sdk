@@ -10,6 +10,12 @@ import java.util.Map;
 public class TextToImage {
     public static void main(String[] args) throws ApiException, InterruptedException {
         LibLib api = new LibLib();
+        GetModelVersionRequest getModelVersionRequest = new GetModelVersionRequest();
+        getModelVersionRequest.setVersionUuid("a57911b5dfe64c6aa78821be99367276");
+        VersionResponse modelVersion = api.getModelVersion(getModelVersionRequest);
+        if (modelVersion.getData().getCommercialUse() == CommercialUseEnum.CommercialUse) {
+            System.out.println(modelVersion);
+        }
         TextToImageRequest request = new TextToImageRequest();
         TextToImageRequestGenerateParams params = new TextToImageRequestGenerateParams();
         params.checkPointId("a57911b5dfe64c6aa78821be99367276");

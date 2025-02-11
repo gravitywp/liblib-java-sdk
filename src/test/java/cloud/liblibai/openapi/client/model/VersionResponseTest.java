@@ -13,6 +13,7 @@
 
 package cloud.liblibai.openapi.client.model;
 
+import cloud.liblibai.openapi.client.model.VersionResponseData;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -38,59 +39,27 @@ public class VersionResponseTest {
     }
 
     /**
-     * Test the property 'versionUuid'
+     * Test the property 'code'
      */
     @Test
-    public void versionUuidTest() {
-        // TODO: test versionUuid
+    public void codeTest() {
+        // TODO: test code
     }
 
     /**
-     * Test the property 'modelName'
+     * Test the property 'msg'
      */
     @Test
-    public void modelNameTest() {
-        // TODO: test modelName
+    public void msgTest() {
+        // TODO: test msg
     }
 
     /**
-     * Test the property 'versionName'
+     * Test the property 'data'
      */
     @Test
-    public void versionNameTest() {
-        // TODO: test versionName
-    }
-
-    /**
-     * Test the property 'baseAlgo'
-     */
-    @Test
-    public void baseAlgoTest() {
-        // TODO: test baseAlgo
-    }
-
-    /**
-     * Test the property 'showType'
-     */
-    @Test
-    public void showTypeTest() {
-        // TODO: test showType
-    }
-
-    /**
-     * Test the property 'commercialUse'
-     */
-    @Test
-    public void commercialUseTest() {
-        // TODO: test commercialUse
-    }
-
-    /**
-     * Test the property 'modelUrl'
-     */
-    @Test
-    public void modelUrlTest() {
-        // TODO: test modelUrl
+    public void dataTest() {
+        // TODO: test data
     }
 
 }

@@ -9,6 +9,7 @@ docs/ComfyStatusRequest.md
 docs/ComfyStatusResponse.md
 docs/ComfyStatusResponseData.md
 docs/ComfyStatusResponseDataVideosInner.md
+docs/CommercialUseEnum.md
 docs/ControlNet.md
 docs/DefaultApi.md
 docs/GenerateStatus.md
@@ -37,6 +38,7 @@ docs/TextToImageUltraRequestGenerateParams.md
 docs/TextToImageUltraRequestGenerateParamsImageSize.md
 docs/UltraControlNet.md
 docs/VersionResponse.md
+docs/VersionResponseData.md
 gradle/wrapper/gradle-wrapper.jar
 gradle/wrapper/gradle-wrapper.properties
 src/main/AndroidManifest.xml
@@ -66,6 +68,7 @@ src/main/java/cloud/liblibai/openapi/client/model/ComfyStatusRequest.java
 src/main/java/cloud/liblibai/openapi/client/model/ComfyStatusResponse.java
 src/main/java/cloud/liblibai/openapi/client/model/ComfyStatusResponseData.java
 src/main/java/cloud/liblibai/openapi/client/model/ComfyStatusResponseDataVideosInner.java
+src/main/java/cloud/liblibai/openapi/client/model/CommercialUseEnum.java
 src/main/java/cloud/liblibai/openapi/client/model/ControlNet.java
 src/main/java/cloud/liblibai/openapi/client/model/GenerateStatus.java
 src/main/java/cloud/liblibai/openapi/client/model/GetModelVersion400Response.java
@@ -93,3 +96,4 @@ src/main/java/cloud/liblibai/openapi/client/model/TextToImageUltraRequestGenerat
 src/main/java/cloud/liblibai/openapi/client/model/TextToImageUltraRequestGenerateParamsImageSize.java
 src/main/java/cloud/liblibai/openapi/client/model/UltraControlNet.java
 src/main/java/cloud/liblibai/openapi/client/model/VersionResponse.java
+src/main/java/cloud/liblibai/openapi/client/model/VersionResponseData.java

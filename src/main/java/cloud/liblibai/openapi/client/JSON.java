@@ -126,6 +126,7 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new cloud.liblibai.openapi.client.model.TextToImageUltraRequestGenerateParamsImageSize.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new cloud.liblibai.openapi.client.model.UltraControlNet.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new cloud.liblibai.openapi.client.model.VersionResponse.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new cloud.liblibai.openapi.client.model.VersionResponseData.CustomTypeAdapterFactory());
         gson = gsonBuilder.create();
     }
 
