@@ -1255,6 +1255,32 @@ components:
           type: string
       title: ComfyNodeParams
       type: object
+    ComfyRequest_generateParams:
+      additionalProperties:
+        $ref: '#/components/schemas/ComfyNodeParams'
+      description: 生图参数，json结构
+      example:
+        "12":
+          class_type: LoadImage
+          inputs:
+            image: https://liblibai-tmp-image.liblib.cloud/img/baf2e419ce1cb06812314957efd2e067/af0c523d3d2b4092ab45c64c72e4deb76babb12e9b8a178eb524143c3b71bf85.png
+        "112":
+          class_type: ImageScale
+          inputs:
+            width: 768
+        "136":
+          class_type: RepeatLatentBatch
+          inputs:
+            amount: 4
+        "137":
+          class_type: LatentUpscaleBy
+          inputs:
+            scale_by: 1.5
+        workflowUuid: 2f22ab7ce4c044afb6d5eee2e61547f3
+      properties:
+        workflowUuid:
+          type: string
+      type: object
     ComfyRequest:
       example:
         templateUuid: 4df2efa0f18d46dc9758803e478eb51c
@@ -1283,28 +1309,7 @@ components:
           example: 4df2efa0f18d46dc9758803e478eb51c
           type: string
         generateParams:
-          additionalProperties:
-            $ref: '#/components/schemas/ComfyNodeParams'
-          description: 生图参数，json结构
-          example:
-            "12":
-              class_type: LoadImage
-              inputs:
-                image: https://liblibai-tmp-image.liblib.cloud/img/baf2e419ce1cb06812314957efd2e067/af0c523d3d2b4092ab45c64c72e4deb76babb12e9b8a178eb524143c3b71bf85.png
-            "112":
-              class_type: ImageScale
-              inputs:
-                width: 768
-            "136":
-              class_type: RepeatLatentBatch
-              inputs:
-                amount: 4
-            "137":
-              class_type: LatentUpscaleBy
-              inputs:
-                scale_by: 1.5
-            workflowUuid: 2f22ab7ce4c044afb6d5eee2e61547f3
-          type: object
+          $ref: '#/components/schemas/ComfyRequest_generateParams'
       required:
       - generateParams
       title: ComfyRequest
@@ -1405,6 +1410,8 @@ components:
           imageUrl: https://liblibai-tmp-image.liblib.cloud/img/360643a3d8414af8b99664b208bc9302/35801ecbf6e6ea8ad89c2606b68d30dfc9579713f5d917694d1616c57afe82fb.png
           auditStatus: 6
           nodeId: "91"
+        texts: texts
+        generateMsg: generateMsg
         generateStatus: 0
         videos:
         - coverPath: coverPath
@@ -1440,6 +1447,10 @@ components:
           description: 本次生图任务消耗积分数
           example: 10
           type: integer
+        generateMsg:
+          type: string
+        texts:
+          type: string
         images:
           items:
             $ref: '#/components/schemas/NodeImage'
@@ -1464,6 +1475,8 @@ components:
             imageUrl: https://liblibai-tmp-image.liblib.cloud/img/360643a3d8414af8b99664b208bc9302/35801ecbf6e6ea8ad89c2606b68d30dfc9579713f5d917694d1616c57afe82fb.png
             auditStatus: 6
             nodeId: "91"
+          texts: texts
+          generateMsg: generateMsg
           generateStatus: 0
           videos:
           - coverPath: coverPath

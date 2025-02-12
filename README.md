@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>cloud.liblibai.openapi</groupId>
   <artifactId>java-sdk</artifactId>
-  <version>0.0.6</version>
+  <version>0.0.7</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -57,7 +57,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "cloud.liblibai.openai:java-sdk:0.0.6"
+     implementation "cloud.liblibai.openai:java-sdk:0.0.7"
   }
 ```
 

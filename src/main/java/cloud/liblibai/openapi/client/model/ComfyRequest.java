@@ -14,7 +14,7 @@
 package cloud.liblibai.openapi.client.model;
 
 import java.util.Objects;
-import cloud.liblibai.openapi.client.model.ComfyNodeParams;
+import cloud.liblibai.openapi.client.model.ComfyRequestGenerateParams;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -22,8 +22,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -51,7 +49,7 @@ import cloud.liblibai.openapi.client.JSON;
 /**
  * ComfyRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-11T11:43:01.985391706+08:00[Asia/Shanghai]", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:18:25.814917097+08:00[Asia/Shanghai]", comments = "Generator version: 7.10.0")
 public class ComfyRequest {
   public static final String SERIALIZED_NAME_TEMPLATE_UUID = "templateUuid";
   @SerializedName(SERIALIZED_NAME_TEMPLATE_UUID)
@@ -61,7 +59,7 @@ public class ComfyRequest {
   public static final String SERIALIZED_NAME_GENERATE_PARAMS = "generateParams";
   @SerializedName(SERIALIZED_NAME_GENERATE_PARAMS)
   @javax.annotation.Nonnull
-  private Map<String, ComfyNodeParams> generateParams;
+  private ComfyRequestGenerateParams generateParams;
 
   public ComfyRequest() {
   }
@@ -85,29 +83,21 @@ public class ComfyRequest {
   }
 
 
-  public ComfyRequest generateParams(@javax.annotation.Nonnull Map<String, ComfyNodeParams> generateParams) {
+  public ComfyRequest generateParams(@javax.annotation.Nonnull ComfyRequestGenerateParams generateParams) {
     this.generateParams = generateParams;
     return this;
   }
 
-  public ComfyRequest putGenerateParamsItem(String key, ComfyNodeParams generateParamsItem) {
-    if (this.generateParams == null) {
-      this.generateParams = new HashMap<>();
-    }
-    this.generateParams.put(key, generateParamsItem);
-    return this;
-  }
-
   /**
-   * 生图参数，json结构
+   * Get generateParams
    * @return generateParams
    */
   @javax.annotation.Nonnull
-  public Map<String, ComfyNodeParams> getGenerateParams() {
+  public ComfyRequestGenerateParams getGenerateParams() {
     return generateParams;
   }
 
-  public void setGenerateParams(@javax.annotation.Nonnull Map<String, ComfyNodeParams> generateParams) {
+  public void setGenerateParams(@javax.annotation.Nonnull ComfyRequestGenerateParams generateParams) {
     this.generateParams = generateParams;
   }
 

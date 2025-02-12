@@ -5,6 +5,7 @@ docs/AdditionalNetwork.md
 docs/AuditStatus.md
 docs/ComfyNodeParams.md
 docs/ComfyRequest.md
+docs/ComfyRequestGenerateParams.md
 docs/ComfyStatusRequest.md
 docs/ComfyStatusResponse.md
 docs/ComfyStatusResponseData.md
@@ -64,6 +65,7 @@ src/main/java/cloud/liblibai/openapi/client/model/AdditionalNetwork.java
 src/main/java/cloud/liblibai/openapi/client/model/AuditStatus.java
 src/main/java/cloud/liblibai/openapi/client/model/ComfyNodeParams.java
 src/main/java/cloud/liblibai/openapi/client/model/ComfyRequest.java
+src/main/java/cloud/liblibai/openapi/client/model/ComfyRequestGenerateParams.java
 src/main/java/cloud/liblibai/openapi/client/model/ComfyStatusRequest.java
 src/main/java/cloud/liblibai/openapi/client/model/ComfyStatusResponse.java
 src/main/java/cloud/liblibai/openapi/client/model/ComfyStatusResponseData.java

@@ -53,7 +53,7 @@ import cloud.liblibai.openapi.client.JSON;
 /**
  * ComfyStatusResponseData
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-11T11:43:01.985391706+08:00[Asia/Shanghai]", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:18:25.814917097+08:00[Asia/Shanghai]", comments = "Generator version: 7.10.0")
 public class ComfyStatusResponseData {
   public static final String SERIALIZED_NAME_ACCOUNT_BALANCE = "accountBalance";
   @SerializedName(SERIALIZED_NAME_ACCOUNT_BALANCE)
@@ -79,6 +79,16 @@ public class ComfyStatusResponseData {
   @SerializedName(SERIALIZED_NAME_POINTS_COST)
   @javax.annotation.Nullable
   private Integer pointsCost;
+
+  public static final String SERIALIZED_NAME_GENERATE_MSG = "generateMsg";
+  @SerializedName(SERIALIZED_NAME_GENERATE_MSG)
+  @javax.annotation.Nullable
+  private String generateMsg;
+
+  public static final String SERIALIZED_NAME_TEXTS = "texts";
+  @SerializedName(SERIALIZED_NAME_TEXTS)
+  @javax.annotation.Nullable
+  private String texts;
 
   public static final String SERIALIZED_NAME_IMAGES = "images";
   @SerializedName(SERIALIZED_NAME_IMAGES)
@@ -188,6 +198,44 @@ public class ComfyStatusResponseData {
   }
 
 
+  public ComfyStatusResponseData generateMsg(@javax.annotation.Nullable String generateMsg) {
+    this.generateMsg = generateMsg;
+    return this;
+  }
+
+  /**
+   * Get generateMsg
+   * @return generateMsg
+   */
+  @javax.annotation.Nullable
+  public String getGenerateMsg() {
+    return generateMsg;
+  }
+
+  public void setGenerateMsg(@javax.annotation.Nullable String generateMsg) {
+    this.generateMsg = generateMsg;
+  }
+
+
+  public ComfyStatusResponseData texts(@javax.annotation.Nullable String texts) {
+    this.texts = texts;
+    return this;
+  }
+
+  /**
+   * Get texts
+   * @return texts
+   */
+  @javax.annotation.Nullable
+  public String getTexts() {
+    return texts;
+  }
+
+  public void setTexts(@javax.annotation.Nullable String texts) {
+    this.texts = texts;
+  }
+
+
   public ComfyStatusResponseData images(@javax.annotation.Nullable List<NodeImage> images) {
     this.images = images;
     return this;
@@ -257,13 +305,15 @@ public class ComfyStatusResponseData {
         Objects.equals(this.generateUuid, comfyStatusResponseData.generateUuid) &&
         Objects.equals(this.percentCompleted, comfyStatusResponseData.percentCompleted) &&
         Objects.equals(this.pointsCost, comfyStatusResponseData.pointsCost) &&
+        Objects.equals(this.generateMsg, comfyStatusResponseData.generateMsg) &&
+        Objects.equals(this.texts, comfyStatusResponseData.texts) &&
         Objects.equals(this.images, comfyStatusResponseData.images) &&
         Objects.equals(this.videos, comfyStatusResponseData.videos);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountBalance, generateStatus, generateUuid, percentCompleted, pointsCost, images, videos);
+    return Objects.hash(accountBalance, generateStatus, generateUuid, percentCompleted, pointsCost, generateMsg, texts, images, videos);
   }
 
   @Override
@@ -275,6 +325,8 @@ public class ComfyStatusResponseData {
     sb.append("    generateUuid: ").append(toIndentedString(generateUuid)).append("\n");
     sb.append("    percentCompleted: ").append(toIndentedString(percentCompleted)).append("\n");
     sb.append("    pointsCost: ").append(toIndentedString(pointsCost)).append("\n");
+    sb.append("    generateMsg: ").append(toIndentedString(generateMsg)).append("\n");
+    sb.append("    texts: ").append(toIndentedString(texts)).append("\n");
     sb.append("    images: ").append(toIndentedString(images)).append("\n");
     sb.append("    videos: ").append(toIndentedString(videos)).append("\n");
     sb.append("}");
@@ -304,6 +356,8 @@ public class ComfyStatusResponseData {
     openapiFields.add("generateUuid");
     openapiFields.add("percentCompleted");
     openapiFields.add("pointsCost");
+    openapiFields.add("generateMsg");
+    openapiFields.add("texts");
     openapiFields.add("images");
     openapiFields.add("videos");
 
@@ -338,6 +392,12 @@ public class ComfyStatusResponseData {
       }
       if ((jsonObj.get("generateUuid") != null && !jsonObj.get("generateUuid").isJsonNull()) && !jsonObj.get("generateUuid").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `generateUuid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("generateUuid").toString()));
+      }
+      if ((jsonObj.get("generateMsg") != null && !jsonObj.get("generateMsg").isJsonNull()) && !jsonObj.get("generateMsg").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `generateMsg` to be a primitive type in the JSON string but got `%s`", jsonObj.get("generateMsg").toString()));
+      }
+      if ((jsonObj.get("texts") != null && !jsonObj.get("texts").isJsonNull()) && !jsonObj.get("texts").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `texts` to be a primitive type in the JSON string but got `%s`", jsonObj.get("texts").toString()));
       }
       if (jsonObj.get("images") != null && !jsonObj.get("images").isJsonNull()) {
         JsonArray jsonArrayimages = jsonObj.getAsJsonArray("images");

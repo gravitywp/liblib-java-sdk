@@ -96,6 +96,7 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new cloud.liblibai.openapi.client.model.AdditionalNetwork.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new cloud.liblibai.openapi.client.model.ComfyNodeParams.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new cloud.liblibai.openapi.client.model.ComfyRequest.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new cloud.liblibai.openapi.client.model.ComfyRequestGenerateParams.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new cloud.liblibai.openapi.client.model.ComfyStatusRequest.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new cloud.liblibai.openapi.client.model.ComfyStatusResponse.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new cloud.liblibai.openapi.client.model.ComfyStatusResponseData.CustomTypeAdapterFactory());

@@ -48,7 +48,7 @@ import cloud.liblibai.openapi.client.JSON;
 /**
  * AdditionalNetwork
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-11T11:43:01.985391706+08:00[Asia/Shanghai]", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:18:25.814917097+08:00[Asia/Shanghai]", comments = "Generator version: 7.10.0")
 public class AdditionalNetwork {
   public static final String SERIALIZED_NAME_MODEL_ID = "modelId";
   @SerializedName(SERIALIZED_NAME_MODEL_ID)

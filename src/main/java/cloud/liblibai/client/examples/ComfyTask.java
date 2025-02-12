@@ -27,11 +27,12 @@ public class ComfyTask {
         repeatLatentNode.classType("RepeatLatentImage")
                 .putInputsItem("amount", 4);
 
-        request.generateParams(new HashMap<String, ComfyNodeParams>() {{
-            put("12", inputNode);
-            put("112", scaleNode);
-            put("136", repeatLatentNode);
-        }});
+        ComfyRequestGenerateParams generateParams = new ComfyRequestGenerateParams();
+        generateParams.workflowUuid("2f22ab7ce4c044afb6d5eee2e61547f3");
+        generateParams.putAdditionalProperty("12", inputNode);
+        generateParams.putAdditionalProperty("112", scaleNode);
+        generateParams.putAdditionalProperty("136", repeatLatentNode);
+        request.generateParams(generateParams);
 
         // 异步 SDK API 调用
         SubmitComfyResponse submitComfyResponse = api.submitComfyTask(request);
@@ -41,28 +42,32 @@ public class ComfyTask {
         while (!finished) {
             ComfyStatusResponse comfyStatus = api.getComfyStatus(new ComfyStatusRequest().generateUuid(uuid));
             GenerateStatus status = comfyStatus.getData().getGenerateStatus();
-            System.out.println(status);
+            System.out.println(comfyStatus);
             switch (status) {
                 case RUNNING:
                 case PENDING:
                 case APPROVING:
                 case GENERATED:
+                    break;
                 case SUCCEED:
                     finished = true;
                     System.out.println(status);
                     break;
+                case TIMEOUT:
                 case FAILED:
                     finished = true;
                     break;
+                default:
+                    throw new RuntimeException("Unknown comfy status: " + status);
             }
             Thread.sleep(5000);
         }
 
         //同步 SDK API 调用 ComfyTask
-//        ComfyStatusResponseData comfyStatusResponseData = api.runComfy(request);
-//        if (comfyStatusResponseData.getGenerateStatus() == GenerateStatus.SUCCEED) {
-//            System.out.println("generated images: " +  comfyStatusResponseData.getImages());
-//        }
+        ComfyStatusResponseData comfyStatusResponseData = api.runComfy(request);
+        if (comfyStatusResponseData.getGenerateStatus() == GenerateStatus.SUCCEED) {
+            System.out.println("generated images: " +  comfyStatusResponseData.getImages());
+        }
 
     }
 }

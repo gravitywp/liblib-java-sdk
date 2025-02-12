@@ -738,6 +738,9 @@ paths:
                 generateParams:
                   type: object
                   description: 生图参数，json结构
+                  properties:
+                    workflowUuid:
+                      type: string
                   additionalProperties:
                     title: ComfyNodeParams
                     type: object
@@ -850,6 +853,10 @@ paths:
                         type: integer
                         description: 本次生图任务消耗积分数
                         example: 10
+                      generateMsg:
+                        type: string
+                      texts:
+                        type: string
                       images:
                         type: array
                         items:
