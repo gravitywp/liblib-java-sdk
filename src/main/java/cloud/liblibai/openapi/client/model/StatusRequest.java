@@ -48,7 +48,7 @@ import cloud.liblibai.openapi.client.JSON;
 /**
  * 生图任务uuid，发起生图任务时返回该字段
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:18:25.814917097+08:00[Asia/Shanghai]", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-18T11:30:46.149751821+08:00[Asia/Shanghai]", comments = "Generator version: 7.10.0")
 public class StatusRequest {
   public static final String SERIALIZED_NAME_GENERATE_UUID = "generateUuid";
   @SerializedName(SERIALIZED_NAME_GENERATE_UUID)

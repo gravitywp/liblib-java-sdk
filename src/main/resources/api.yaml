@@ -509,7 +509,8 @@ paths:
                       example: 20
                       default: 20
                     cfgScale:
-                      type: integer
+                      type: number
+                      format: double
                       description: 提示词引导系数
                       example: 7
                     width:
@@ -624,7 +625,8 @@ paths:
                       example: 20
                       default: 20
                     cfgScale:
-                      type: integer
+                      type: number
+                      format: double
                       description: 提示词引导系数
                       example: 7
                     randnSource:

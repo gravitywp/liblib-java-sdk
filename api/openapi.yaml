@@ -881,7 +881,8 @@ components:
         cfgScale:
           description: 提示词引导系数
           example: 7
-          type: integer
+          format: double
+          type: number
         width:
           description: 图片宽度
           example: 768
@@ -1115,7 +1116,8 @@ components:
         cfgScale:
           description: 提示词引导系数
           example: 7
-          type: integer
+          format: double
+          type: number
         randnSource:
           description: 随机种子来源，0表示CPU，1表示GPU
           example: 0

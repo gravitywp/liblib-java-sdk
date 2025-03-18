@@ -13,7 +13,7 @@
 |**clipSkip** | **Integer** | Clip跳过层 |  [optional] |
 |**sampler** | **Integer** | 采样方法 |  [optional] |
 |**steps** | **Integer** | 采样步数 |  [optional] |
-|**cfgScale** | **Integer** | 提示词引导系数 |  [optional] |
+|**cfgScale** | **Double** | 提示词引导系数 |  [optional] |
 |**randnSource** | **Integer** | 随机种子来源，0表示CPU，1表示GPU |  [optional] |
 |**seed** | **Integer** | 随机种子值，-1表示随机 |  [optional] |
 |**imgCount** | **Integer** | 图片数量，1到4 |  [optional] |

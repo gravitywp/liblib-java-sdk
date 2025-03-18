@@ -30,7 +30,7 @@
 
     <groupId>cloud.liblibai.openapi</groupId>
     <artifactId>java-sdk</artifactId>
-    <version>0.0.7</version>
+    <version>0.0.8</version>
     <properties>
         <java.version>1.8</java.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
@@ -191,6 +191,7 @@
                             <goal>generate</goal>
                         </goals>
                         <configuration>
+                            <skipIfSpecIsUnchanged>true</skipIfSpecIsUnchanged>
                             <inputSpec>${project.basedir}/src/main/resources/api.yaml</inputSpec>
                             <generatorName>java</generatorName>
                             <configOptions>

@@ -12,7 +12,7 @@
 |**negativePrompt** | **String** | 负向提示词，文本 |  [optional] |
 |**sampler** | **Integer** | 采样方法 |  [optional] |
 |**steps** | **Integer** | 采样步数 |  [optional] |
-|**cfgScale** | **Integer** | 提示词引导系数 |  [optional] |
+|**cfgScale** | **Double** | 提示词引导系数 |  [optional] |
 |**width** | **Integer** | 图片宽度 |  [optional] |
 |**height** | **Integer** | 图片高度 |  [optional] |
 |**imgCount** | **Integer** | 图片数量 |  [optional] |

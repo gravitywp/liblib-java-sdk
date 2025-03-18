@@ -20,6 +20,7 @@ public class TextToImage {
         TextToImageRequestGenerateParams params = new TextToImageRequestGenerateParams();
         params.checkPointId("a57911b5dfe64c6aa78821be99367276");
         params.prompt("1 girl").imgCount(2);
+        params.cfgScale(7.5);
         ControlNet controlNet = new ControlNet();
         controlNet.width(1024).height(768);
         Map<String, Object> annoParams = new HashMap<>();

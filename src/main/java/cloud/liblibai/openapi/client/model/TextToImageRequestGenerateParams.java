@@ -53,7 +53,7 @@ import cloud.liblibai.openapi.client.JSON;
 /**
  * TextToImageRequestGenerateParams
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-12T21:18:25.814917097+08:00[Asia/Shanghai]", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-18T11:30:46.149751821+08:00[Asia/Shanghai]", comments = "Generator version: 7.10.0")
 public class TextToImageRequestGenerateParams {
   public static final String SERIALIZED_NAME_CHECK_POINT_ID = "checkPointId";
   @SerializedName(SERIALIZED_NAME_CHECK_POINT_ID)
@@ -83,7 +83,7 @@ public class TextToImageRequestGenerateParams {
   public static final String SERIALIZED_NAME_CFG_SCALE = "cfgScale";
   @SerializedName(SERIALIZED_NAME_CFG_SCALE)
   @javax.annotation.Nullable
-  private Integer cfgScale;
+  private Double cfgScale;
 
   public static final String SERIALIZED_NAME_WIDTH = "width";
   @SerializedName(SERIALIZED_NAME_WIDTH)
@@ -228,7 +228,7 @@ public class TextToImageRequestGenerateParams {
   }
 
 
-  public TextToImageRequestGenerateParams cfgScale(@javax.annotation.Nullable Integer cfgScale) {
+  public TextToImageRequestGenerateParams cfgScale(@javax.annotation.Nullable Double cfgScale) {
     this.cfgScale = cfgScale;
     return this;
   }
@@ -238,11 +238,11 @@ public class TextToImageRequestGenerateParams {
    * @return cfgScale
    */
   @javax.annotation.Nullable
-  public Integer getCfgScale() {
+  public Double getCfgScale() {
     return cfgScale;
   }
 
-  public void setCfgScale(@javax.annotation.Nullable Integer cfgScale) {
+  public void setCfgScale(@javax.annotation.Nullable Double cfgScale) {
     this.cfgScale = cfgScale;
   }
 
