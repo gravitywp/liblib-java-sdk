@@ -821,6 +821,7 @@ components:
           weight: 0.3
         - modelId: 31360f2f031b4ff6b589412a52713fcf
           weight: 0.3
+        vaeId: ""
         prompt: "Asian portrait,A young woman wearing a green baseball cap,covering\
           \ one eye with her hand"
         controlNet:
@@ -856,6 +857,10 @@ components:
           maskImage: ""
         height: 1024
       properties:
+        vaeId:
+          default: ""
+          description: VAE的模型uuid
+          type: string
         checkPointId:
           description: 底模 modelVersionUUID
           example: 0ea388c7eb854be3ba3c6f65aac6bfd3
@@ -945,6 +950,7 @@ components:
             weight: 0.3
           - modelId: 31360f2f031b4ff6b589412a52713fcf
             weight: 0.3
+          vaeId: ""
           prompt: "Asian portrait,A young woman wearing a green baseball cap,covering\
             \ one eye with her hand"
           controlNet:
@@ -1050,6 +1056,7 @@ components:
           weight: 0.3
         - modelId: 31360f2f031b4ff6b589412a52713fcf
           weight: 0.3
+        vaeId: ""
         sourceImage: https://liblibai-online.liblib.cloud/img/081e9f07d9bd4c2ba090efde163518f9/7c1cc38e-522c-43fe-aca9-07d5420d743e.png
         resizeMode: 0
         clipSkip: 2
@@ -1089,6 +1096,10 @@ components:
           maskImage: ""
         denoisingStrength: 0.75
       properties:
+        vaeId:
+          default: ""
+          description: VAE的模型uuid
+          type: string
         checkPointId:
           description: 底模 modelVersionUUID
           example: 0ea388c7eb854be3ba3c6f65aac6bfd3
@@ -1198,6 +1209,7 @@ components:
             weight: 0.3
           - modelId: 31360f2f031b4ff6b589412a52713fcf
             weight: 0.3
+          vaeId: ""
           sourceImage: https://liblibai-online.liblib.cloud/img/081e9f07d9bd4c2ba090efde163518f9/7c1cc38e-522c-43fe-aca9-07d5420d743e.png
           resizeMode: 0
           clipSkip: 2

@@ -49,7 +49,7 @@ import cloud.liblibai.openapi.client.JSON;
 /**
  * 生图参数，json结构
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-18T11:30:46.149751821+08:00[Asia/Shanghai]", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-24T23:16:21.956900040+08:00[Asia/Shanghai]", comments = "Generator version: 7.10.0")
 public class ComfyRequestGenerateParams {
   public static final String SERIALIZED_NAME_WORKFLOW_UUID = "workflowUuid";
   @SerializedName(SERIALIZED_NAME_WORKFLOW_UUID)

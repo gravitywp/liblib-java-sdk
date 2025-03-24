@@ -7,6 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
+|**vaeId** | **String** | VAE的模型uuid |  [optional] |
 |**checkPointId** | **String** | 底模 modelVersionUUID |  [optional] |
 |**prompt** | **String** | 正向提示词 |  [optional] |
 |**negativePrompt** | **String** | 负向提示词 |  [optional] |

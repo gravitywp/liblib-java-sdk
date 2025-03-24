@@ -487,6 +487,10 @@ paths:
                 generateParams:
                   type: object
                   properties:
+                    vaeId:
+                      type: string
+                      description: VAE的模型uuid
+                      default: ''
                     checkPointId:
                       type: string
                       description: 底模 modelVersionUUID
@@ -600,6 +604,10 @@ paths:
                 generateParams:
                   type: object
                   properties:
+                    vaeId:
+                      type: string
+                      description: VAE的模型uuid
+                      default: ''
                     checkPointId:
                       type: string
                       description: 底模 modelVersionUUID

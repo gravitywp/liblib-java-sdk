@@ -53,8 +53,13 @@ import cloud.liblibai.openapi.client.JSON;
 /**
  * ImageToImageRequestGenerateParams
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-18T11:30:46.149751821+08:00[Asia/Shanghai]", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-24T23:16:21.956900040+08:00[Asia/Shanghai]", comments = "Generator version: 7.10.0")
 public class ImageToImageRequestGenerateParams {
+  public static final String SERIALIZED_NAME_VAE_ID = "vaeId";
+  @SerializedName(SERIALIZED_NAME_VAE_ID)
+  @javax.annotation.Nullable
+  private String vaeId = "";
+
   public static final String SERIALIZED_NAME_CHECK_POINT_ID = "checkPointId";
   @SerializedName(SERIALIZED_NAME_CHECK_POINT_ID)
   @javax.annotation.Nullable
@@ -157,6 +162,25 @@ public class ImageToImageRequestGenerateParams {
 
   public ImageToImageRequestGenerateParams() {
   }
+
+  public ImageToImageRequestGenerateParams vaeId(@javax.annotation.Nullable String vaeId) {
+    this.vaeId = vaeId;
+    return this;
+  }
+
+  /**
+   * VAE的模型uuid
+   * @return vaeId
+   */
+  @javax.annotation.Nullable
+  public String getVaeId() {
+    return vaeId;
+  }
+
+  public void setVaeId(@javax.annotation.Nullable String vaeId) {
+    this.vaeId = vaeId;
+  }
+
 
   public ImageToImageRequestGenerateParams checkPointId(@javax.annotation.Nullable String checkPointId) {
     this.checkPointId = checkPointId;
@@ -564,7 +588,8 @@ public class ImageToImageRequestGenerateParams {
       return false;
     }
     ImageToImageRequestGenerateParams imageToImageRequestGenerateParams = (ImageToImageRequestGenerateParams) o;
-    return Objects.equals(this.checkPointId, imageToImageRequestGenerateParams.checkPointId) &&
+    return Objects.equals(this.vaeId, imageToImageRequestGenerateParams.vaeId) &&
+        Objects.equals(this.checkPointId, imageToImageRequestGenerateParams.checkPointId) &&
         Objects.equals(this.prompt, imageToImageRequestGenerateParams.prompt) &&
         Objects.equals(this.negativePrompt, imageToImageRequestGenerateParams.negativePrompt) &&
         Objects.equals(this.clipSkip, imageToImageRequestGenerateParams.clipSkip) &&
@@ -588,13 +613,14 @@ public class ImageToImageRequestGenerateParams {
 
   @Override
   public int hashCode() {
-    return Objects.hash(checkPointId, prompt, negativePrompt, clipSkip, sampler, steps, cfgScale, randnSource, seed, imgCount, restoreFaces, sourceImage, resizeMode, resizedWidth, resizedHeight, mode, denoisingStrength, additionalNetwork, inpaintParam, controlNet);
+    return Objects.hash(vaeId, checkPointId, prompt, negativePrompt, clipSkip, sampler, steps, cfgScale, randnSource, seed, imgCount, restoreFaces, sourceImage, resizeMode, resizedWidth, resizedHeight, mode, denoisingStrength, additionalNetwork, inpaintParam, controlNet);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ImageToImageRequestGenerateParams {\n");
+    sb.append("    vaeId: ").append(toIndentedString(vaeId)).append("\n");
     sb.append("    checkPointId: ").append(toIndentedString(checkPointId)).append("\n");
     sb.append("    prompt: ").append(toIndentedString(prompt)).append("\n");
     sb.append("    negativePrompt: ").append(toIndentedString(negativePrompt)).append("\n");
@@ -637,6 +663,7 @@ public class ImageToImageRequestGenerateParams {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("vaeId");
     openapiFields.add("checkPointId");
     openapiFields.add("prompt");
     openapiFields.add("negativePrompt");
@@ -683,6 +710,9 @@ public class ImageToImageRequestGenerateParams {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if ((jsonObj.get("vaeId") != null && !jsonObj.get("vaeId").isJsonNull()) && !jsonObj.get("vaeId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `vaeId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("vaeId").toString()));
+      }
       if ((jsonObj.get("checkPointId") != null && !jsonObj.get("checkPointId").isJsonNull()) && !jsonObj.get("checkPointId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `checkPointId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("checkPointId").toString()));
       }

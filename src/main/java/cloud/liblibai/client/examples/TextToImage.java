@@ -32,6 +32,7 @@ public class TextToImage {
                 .sourceImage("https://liblibai-online.liblib.cloud/img/081e9f07d9bd4c2ba090efde163518f9/7c1cc38e-522c-43fe-aca9-07d5420d743e.png")
                 .annotationParameters(annoParams);
         params.addControlNetItem(controlNet);
+        params.vaeId("2c1a337416e029dd65ab58784e8a4763");
         request.generateParams(params);
         request.templateUuid("6f7c4652458d4802969f8d089cf5b91f");
 
@@ -53,10 +54,10 @@ public class TextToImage {
         }
 
         //NOTE(gz): 同步 SDK 调用方法
-        StatusResponseData statusResponseData = api.textToImage(request);
-        if (statusResponseData.getGenerateStatus() == GenerateStatus.SUCCEED) {
-            System.out.println(statusResponseData.getImages());
-        }
+//        StatusResponseData statusResponseData = api.textToImage(request);
+//        if (statusResponseData.getGenerateStatus() == GenerateStatus.SUCCEED) {
+//            System.out.println(statusResponseData.getImages());
+//        }
 
     }
 }
